@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinking Like a Crew Leader | BuilderAscent</title>
+    
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo" aria-label="Builder Ascent Home">
+                <img src="public/logos/LOGOBA.png" alt="Builder Ascent Logo" style="max-height: 55px; width: auto; object-fit: contain;">
+            </a>
+                    <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+            <div class="nav-links" id="nav-list">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="training.html">TRAINING</a>
+                <a href="daily-system.html">DAILY SYSTEM</a>
+                <a href="builder-ascent-pro.html">PRO</a>
+                <a href="resources.html">RESOURCES</a>
+                <a href="toolbox.html">TOOLS</a>
+                <a href="shop.html">SHOP</a>
+                <a href="blog.html" style="color: var(--copper);">BLOG</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="builder-ascent-pro.html" class="btn btn-primary">JOIN NOW</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="article-header" style="background-image: url('public/images/about_hero_bg.png');">
+        <div class="container">
+            <h1 class="main-heading" style="font-size: 3.5rem; margin-bottom: 10px;">
+                THINKING LIKE A <span class="text-copper">CREW LEADER</span>
+            </h1>
+            <p class="hero-subhead" style="margin-bottom: 0;">Leadership starts long before you get the title.</p>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-container">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+        
+        <article class="article-content">
+            <h2>The Weight of Responsibility</h2>
+            <p>
+                A lot of guys want the title of "Foreman" or "Lead" because of the pay bump. But very few are ready for the weight that comes with it. Leadership in the field isn't about giving orders; it's about taking responsibility for every person and every inch of the job.
+            </p>
+            <p>
+                If the job fails, it’s on you. If a guy gets hurt, it’s on you. That’s a heavy burden, and it requires a different way of thinking.
+            </p>
+
+            <blockquote>
+                "Management is doing things right; leadership is doing the right things."
+            </blockquote>
+
+            <h2>Preparation is the Work</h2>
+            <p>
+                A worker thinks about the task at hand. A leader thinks about the next three days. If you're leading a crew, your "work" happens before the tools ever come out of the box.
+            </p>
+            <p>
+                You should know the drawings better than anyone. You should have a plan for where the trash goes, where the material sits, and what happens when the rain starts. If your crew is waiting on you for instructions, you've already failed.
+            </p>
+
+            <h2>Respect is Earned in the Dirt</h2>
+            <p>
+                You can't lead from the truck. The best crew leaders are the ones who are willing to get their hands dirty when the job gets tough, but who have the discipline to step back and manage the big picture when things are moving.
+            </p>
+            <p>
+                Leadership is about:
+            </p>
+            <ul>
+                <li>**Consistency**: Being the same guy every single day, regardless of the stress.</li>
+                <li>**Transparency**: Telling the crew the "why" behind the plan.</li>
+                <li>**Standards**: Never walking past a mistake. The standard you walk past is the standard you accept.</li>
+            </ul>
+
+            <h2>The Shift</h2>
+            <p>
+                The shift from "me" to "us" is the hardest part of leadership. Your success is no longer measured by how much pipe you personally hung; it's measured by how well your crew performed as a unit.
+            </p>
+            <p>
+                Start thinking like a leader today. Take ownership of your area. Help the guy next to you. Solve a problem before it reaches the boss. That’s how you get the tap on the shoulder for the next promotion.
+            </p>
+        </article>
+    </main>
+
+    <!-- New Application Section -->
+    <section class="section-block" style="background-color: var(--bg-darker); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding: 80px 20px;">
+        <div class="container">
+            <h2 style="font-family: var(--font-heading); color: var(--copper); font-size: 2.2rem; margin-bottom: 15px;">Apply What You Just Learned</h2>
+            <p style="color: var(--text-light); font-size: 1.2rem; margin-bottom: 35px;">Want to actually use this on the jobsite?</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="public/downloads/daily_builder_checklist.pdf" target="_blank" download class="btn btn-large btn-copper">Download Daily Builder Checklist</a>
+                <a href="public/downloads/field_blue_print.pdf" target="_blank" download class="btn btn-large btn-primary">Get the Blueprint</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Builder Ascent. Built for the trades.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-list');
+        
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Foreman Log</title>
+    <style>
+        /* Print-specific settings */
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        * { box-sizing: border-box; }
+        h1, h2, h3, p { margin: 0; padding: 0; }
+        
+        /* Header Layout */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 4px solid #000;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .logo-container { display: flex; flex-direction: column; }
+        .logo-main { font-size: 26px; font-weight: 900; letter-spacing: 1px; line-height: 1; text-transform: uppercase; }
+        .logo-sub { font-size: 10px; font-weight: bold; color: #444; letter-spacing: 1.5px; margin-top: 4px; text-transform: uppercase; }
+        
+        .title-container { text-align: right; }
+        .doc-title { font-size: 24px; font-weight: 900; text-transform: uppercase; }
+        .doc-sub { font-size: 11px; font-weight: bold; color: #444; margin-top: 4px; letter-spacing: 1px; }
+
+        /* General Section Blocks */
+        .section {
+            border: 1px solid #000;
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+        
+        .section-header {
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #000;
+            padding: 6px 10px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-body { padding: 10px; }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-2-col { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #000; margin-bottom: 15px; page-break-inside: avoid; }
+        .grid-3-col { display: grid; grid-template-columns: 1.5fr 1fr; border: 1px solid #000; margin-bottom: 15px; page-break-inside: avoid; }
+        
+        .col { border-right: 1px solid #000; }
+        .col:last-child { border-right: none; }
+        
+        /* Fillable Lines */
+        .field-row { display: flex; align-items: flex-end; margin-bottom: 10px; }
+        .field-label { font-weight: bold; margin-right: 8px; white-space: nowrap; font-size: 11px; }
+        .field-line { flex-grow: 1; border-bottom: 1px solid #000; height: 14px; }
+        
+        /* Blank repeating lines */
+        .blank-lines .line { border-bottom: 1px solid #000; height: 22px; width: 100%; }
+
+        /* Checkboxes */
+        .check-grid-1 { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 5px; }
+        .check-item { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+        .box { width: 12px; height: 12px; border: 1px solid #000; display: inline-block; background-color: #fff; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #000; padding: 6px 10px; text-align: left; }
+        th { background-color: #f2f2f2; font-size: 10px; font-weight: bold; text-transform: uppercase; }
+        
+        .form-table th { border-top: none; }
+        .form-table tr:first-child th { border-top: none; }
+        .form-table { border-left: none; border-right: none; border-bottom: none; }
+        .form-table td { height: 35px; }
+        
+        /* Subtext inside sections */
+        .subtext { font-size: 10px; color: #333; margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-container">
+            <div class="logo-main">BUILDER ASCENT</div>
+            <div class="logo-sub">Build Higher. Learn More. Earn More.</div>
+        </div>
+        <div class="title-container">
+            <div class="doc-title">Daily Foreman Log</div>
+            <div class="doc-sub">Document it. Track it. Build it.</div>
+        </div>
+    </div>
+
+    <!-- 1. Project Information -->
+    <div class="section">
+        <div class="section-header">1. Project Information</div>
+        <div class="section-body grid-2">
+            <div>
+                <div class="field-row">
+                    <span class="field-label">Project Name:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Location:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Date:</span>
+                    <div class="field-line"></div>
+                    <span class="field-label" style="margin-left: 15px;">Start Time:</span>
+                    <div class="field-line" style="flex: 0.5;"></div>
+                    <span class="field-label" style="margin-left: 15px;">End Time:</span>
+                    <div class="field-line" style="flex: 0.5;"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Weather / Temp:</span>
+                    <div class="field-line"></div>
+                    <span class="field-label" style="margin-left: 15px;">Weather Impact:</span>
+                    <div class="field-line"></div>
+                </div>
+            </div>
+            <div>
+                <div class="field-row">
+                    <span class="field-label">Foreman:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Trade / Subcontractor:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Work Area:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Crew Count:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Total Man Hours:</span>
+                    <div class="field-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Work Performed Today -->
+    <div class="section">
+        <div class="section-header">2. Work Performed Today</div>
+        <div class="section-body" style="padding-top: 8px;">
+            <div class="subtext">Describe work completed and progress made:</div>
+            <div class="blank-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Manpower / Labor -->
+    <div class="section" style="padding: 0;">
+        <div class="section-header" style="border-bottom: 0;">3. Manpower / Labor</div>
+        <table class="form-table">
+            <tr>
+                <th style="width: 35%; border-left: none;">Name / Crew (ex: Carpenters)</th>
+                <th style="width: 15%;">Hours</th>
+                <th style="width: 50%; border-right: none;">Task Performed</th>
+            </tr>
+            <tr><td style="border-left: none;"></td><td></td><td style="border-right: none;"></td></tr>
+            <tr><td style="border-left: none;"></td><td></td><td style="border-right: none;"></td></tr>
+            <tr><td style="border-left: none;"></td><td></td><td style="border-right: none;"></td></tr>
+            <tr><td style="border-left: none;"></td><td></td><td style="border-right: none;"></td></tr>
+            <tr><td style="border-left: none; border-bottom: none;"></td><td style="border-bottom: none;"></td><td style="border-right: none; border-bottom: none;"></td></tr>
+        </table>
+    </div>
+
+    <!-- 4. Deliveries & 5. Equipment Used -->
+    <div class="grid-2-col">
+        <!-- 4. Deliveries / Materials -->
+        <div class="col">
+            <div class="section-header" style="border-top: 0; border-left: 0; border-right: 0;">4. Deliveries / Materials Received</div>
+            <div class="section-body">
+                <div class="subtext">Material received, quantity, and notes/issues.</div>
+                <div class="blank-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Equipment Used -->
+        <div class="col">
+            <div class="section-header" style="border-top: 0; border-left: 0; border-right: 0;">5. Equipment Used</div>
+            <div class="section-body">
+                <div class="subtext">List equipment active on site today.</div>
+                <div class="blank-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Delays / Issues / Impacts -->
+    <div class="section">
+        <div class="section-header">6. Delays / Issues / Impacts</div>
+        <div class="section-body" style="padding-top: 8px;">
+            <div class="subtext">Describe delay, cause, impact to schedule, and action taken.</div>
+            <div class="blank-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Safety / Quality Notes & 8. Inspections -->
+    <div class="grid-2-col">
+        <div class="col">
+            <div class="section-header" style="border-top: 0; border-left: 0; border-right: 0;">7. Safety / Quality Notes</div>
+            <div class="section-body" style="padding-top: 8px;">
+                <div class="subtext">Any incidents, inspections, rework, or quality concerns.</div>
+                <div class="blank-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="section-header" style="border-top: 0; border-left: 0; border-right: 0;">8. Inspections / Visitors</div>
+            <div class="section-body" style="padding-top: 8px;">
+                <div class="subtext">Who was on site and what was reviewed.</div>
+                <div class="blank-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. Photos & 10. Sign-Off -->
+    <div class="grid-3-col" style="margin-bottom: 0;">
+        <!-- 9. Photos Checklist -->
+        <div class="col">
+            <div class="section-header" style="border-top: 0; border-left: 0; border-right: 0;">9. Photos / Documentation</div>
+            <div class="section-body" style="padding-top: 8px;">
+                <div class="check-grid-1" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <div class="check-item"><span class="box"></span> Before photos taken</div>
+                    <div class="check-item"><span class="box"></span> Progress photos taken</div>
+                    <div class="check-item"><span class="box"></span> After photos taken</div>
+                    <div class="check-item"><span class="box"></span> Issue photos taken</div>
+                    <div class="check-item"><span class="box"></span> Uploaded/Shared</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. Sign-Off -->
+        <div class="col" style="background-color: #fcfcfc;">
+            <div class="section-header" style="border-top: 0; border-left: 0; border-right: 0;">10. Sign-Off</div>
+            <div class="section-body" style="display: flex; flex-direction: column; justify-content: center; padding-top: 8px;">
+                <div class="field-row" style="margin-bottom: 12px;">
+                    <span class="field-label">Foreman Name (Print):</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row" style="margin-bottom: 12px;">
+                    <span class="field-label">Foreman Signature:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row" style="margin-bottom: 0;">
+                    <span class="field-label">Date:</span>
+                    <div class="field-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

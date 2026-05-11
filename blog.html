@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Notes Blog | Builder Ascent</title>
+    <meta name="description" content="Jobsite insights, leadership strategies, and practical advice for the modern tradesman.">
+    
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        .blog-header {
+            padding: 160px 0 80px;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.5) 100%),
+                        linear-gradient(to bottom, rgba(17, 22, 29, 0.55) 0%, rgba(17, 22, 29, 0.82) 100%),
+                        url('public/images/blog_hero_bg.png') center/cover no-repeat;
+            border-bottom: 2px solid var(--copper);
+            text-align: center;
+        }
+        
+        .section-block {
+            padding: 80px 0;
+            background-color: var(--bg-dark);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background-color: var(--bg-darker);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 40px;
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--copper);
+        }
+        
+        .blog-card h3 {
+            color: var(--copper);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+        
+        .blog-card p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        
+        .read-link {
+            color: var(--text-light);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--copper);
+            padding-bottom: 2px;
+            align-self: flex-start;
+            transition: color 0.3s;
+        }
+        
+        .read-link:hover {
+            color: var(--copper);
+        }
+        
+        .cta-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: var(--bg-darker);
+        }
+    </style>
+    <link rel="icon" type="image/png" href="public/logos/LOGOBA.png">
+
+    <meta property="og:title" content="Field Notes Blog | Builder Ascent">
+    <meta property="og:description" content="Jobsite insights, leadership strategies, and practical advice for the modern tradesman.">
+    <meta property="og:image" content="public/images/hero-mountain-v2.png">
+    <meta property="og:url" content="https://builderascent.com/blog.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo" aria-label="Builder Ascent Home">
+                <img src="public/logos/LOGOBA.png" alt="Builder Ascent Logo" style="max-height: 55px; width: auto; object-fit: contain;">
+            </a>
+                    <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+            <div class="nav-links" id="nav-list">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="training.html">TRAINING</a>
+                <a href="daily-system.html">DAILY SYSTEM</a>
+                <a href="builder-ascent-pro.html">PRO</a>
+                <a href="resources.html">RESOURCES</a>
+                <a href="toolbox.html">TOOLS</a>
+                <a href="shop.html">SHOP</a>
+                <a href="blog.html" style="color: var(--copper);">BLOG</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="builder-ascent-pro.html" class="btn btn-primary">JOIN NOW</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="blog-header">
+        <div class="container">
+            <h1 class="main-heading" style="font-size: 4rem; margin-bottom: 15px; text-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+                <span class="text-metallic">FIELD</span> <span class="text-copper">NOTES</span>
+            </h1>
+            <p class="hero-subhead" style="margin-bottom: 0; max-width: 800px; margin: 0 auto; line-height: 1.6; text-shadow: 0 4px 15px rgba(0,0,0,0.8);">Real jobsite lessons, leadership advice, and practical ways to move up in construction.</p>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="section-block">
+        <div class="container">
+            <div class="grid-3">
+                <div class="blog-card">
+                    <h3>Why Most Guys Stay Stuck</h3>
+                    <p>Hard work matters, but it isn’t enough if you don’t know what actually gets you trusted.</p>
+                    <a href="blog-stuck.html" class="read-link">Read Article</a>
+                </div>
+                
+                <div class="blog-card">
+                    <h3>How Work Actually Flows on a Jobsite</h3>
+                    <p>Understanding sequence, communication, and planning is what separates workers from leaders.</p>
+                    <a href="blog-flow.html" class="read-link">Read Article</a>
+                </div>
+                
+                <div class="blog-card">
+                    <h3>Thinking Like a Crew Leader</h3>
+                    <p>Leadership starts before the title. Learn how to think ahead and take responsibility.</p>
+                    <a href="blog-leader.html" class="read-link">Read Article</a>
+                </div>
+
+                <div class="blog-card" style="border: 1px solid var(--copper); background-color: rgba(196, 110, 61, 0.03);">
+                    <h3 style="color: white;">Lean Construction: How to Run a Better Jobsite</h3>
+                    <p>A practical field guide to the 8 wastes, planning, flow, reliability, and continuous improvement.</p>
+                    <a href="public/downloads/lean_construction_guide.pdf" download target="_blank" class="read-link" style="border-bottom-color: white;">Download Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 20px;">Ready to Start Building Better?</h2>
+            <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-large btn-copper" style="margin-top: 20px;">Get the Blueprint</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Builder Ascent. Built for the trades.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-list');
+        
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Builder Ascent</title>
+    <meta name="description" content="Downloadable guides, blueprints, and professional development tools for construction professionals.">
+    
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
+    
+    <!-- Webfonts: Montserrat for Headers, Inter for Body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        .resources-header {
+            padding: 160px 0 80px;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.5) 100%),
+                        linear-gradient(to bottom, rgba(17, 22, 29, 0.55) 0%, rgba(17, 22, 29, 0.82) 100%),
+                        url('public/images/resources_hero_bg.png') center/cover no-repeat;
+            border-bottom: 2px solid var(--copper);
+            text-align: center;
+        }
+        
+        .section-block {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .section-block:nth-child(even) { background-color: var(--bg-dark); }
+        .section-block:nth-child(odd) { background-color: var(--bg-darker); }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--copper);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .resource-card {
+            background-color: var(--bg-darker);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--copper);
+        }
+        
+        .resource-card h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .resource-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: transparent;
+            border: 1px solid var(--copper);
+            color: var(--copper);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-link:hover {
+            background-color: var(--copper);
+            color: white;
+            border-color: var(--copper);
+        }
+        
+        /* Career Path Specific */
+        .career-path-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .path-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            background-color: var(--bg-darker);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--copper);
+            padding: 30px;
+            border-radius: 0 8px 8px 0;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+        
+        .path-step:hover {
+            background-color: rgba(255, 255, 255, 0.04);
+        }
+        
+        .step-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.1);
+            font-weight: 900;
+            line-height: 0.9;
+        }
+        
+        .step-content h3 {
+            color: white;
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+        
+        .step-content p {
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+        
+        /* Start Here Specific */
+        .start-here-card {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--bg-darker);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+        
+        .start-here-card:hover {
+            border-color: var(--copper);
+        }
+        
+        .start-here-card h3 {
+            color: var(--copper);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .start-here-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: transparent;
+            border: 2px solid var(--copper);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .start-here-btn:hover {
+            background-color: var(--copper);
+        }
+        
+        .start-here-btn.primary {
+            background-color: var(--copper);
+            border-color: var(--copper);
+        }
+        
+        .start-here-btn.primary:hover {
+            background-color: var(--copper-hover);
+            border-color: var(--copper-hover);
+        }
+        
+        .path-actions {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .path-actions h4 {
+            color: var(--copper);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .path-actions ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        
+        .path-actions li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 18px;
+        }
+        
+        .path-actions li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--copper);
+        }
+        
+        @media (max-width: 600px) {
+            .path-step {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            .step-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="public/logos/LOGOBA.png">
+
+    <meta property="og:title" content="Resources | Builder Ascent">
+    <meta property="og:description" content="Downloadable guides, blueprints, and professional development tools for construction professionals.">
+    <meta property="og:image" content="public/images/hero-mountain-v2.png">
+    <meta property="og:url" content="https://builderascent.com/resources.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo" aria-label="Builder Ascent Home">
+                <img src="public/logos/LOGOBA.png" alt="Builder Ascent Logo" style="max-height: 55px; width: auto; object-fit: contain;">
+            </a>
+                    <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+            <div class="nav-links" id="nav-list">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="training.html">TRAINING</a>
+                <a href="daily-system.html">DAILY SYSTEM</a>
+                <a href="builder-ascent-pro.html">PRO</a>
+                <a href="resources.html" style="color: var(--copper);">RESOURCES</a>
+                <a href="toolbox.html">TOOLS</a>
+                <a href="shop.html">SHOP</a>
+                <a href="blog.html">BLOG</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="builder-ascent-pro.html" class="btn btn-primary">JOIN NOW</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="resources-header">
+        <div class="container">
+            <h1 class="main-heading" style="font-size: 3.5rem; margin-bottom: 15px; text-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+                <span class="text-metallic">RESOURCES THAT ACTUALLY HELP YOU</span> <span class="text-copper">MOVE UP</span>
+            </h1>
+            <p class="hero-subhead" style="margin-bottom: 0; max-width: 800px; margin: 0 auto; line-height: 1.6; text-shadow: 0 4px 15px rgba(0,0,0,0.8);">Most guys stay stuck because they don’t know what to learn next.<br>These are the books, certifications, and tools that actually make a difference on a jobsite.</p>
+        </div>
+    </header>
+
+    <!-- Featured Resource: Lean Construction Guide -->
+    <section class="section-block" style="background-color: var(--bg-darker); border-bottom: 2px solid var(--copper);">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title" style="margin-bottom: 20px;">Lean Construction Guide</h2>
+            <p style="color: var(--text-light); font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px auto; line-height: 1.6;">
+                Learn how to eliminate waste, improve workflow, plan better, and build more reliable jobsites using Lean Construction principles.
+            </p>
+            <a href="public/downloads/lean_construction_guide.pdf" download target="_blank" class="btn btn-large btn-copper" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Free Lean Guide
+            </a>
+        </div>
+    </section>
+
+    <!-- Recommended Tools & Learning -->
+    <section class="section-block">
+        <div class="container">
+            <h2 class="section-title">Recommended Tools & Learning</h2>
+            <p style="color: var(--text-muted); text-align: center; max-width: 700px; margin: -20px auto 40px auto; font-size: 1.05rem;">These resources are starting points. Always verify course requirements, costs, and availability before enrolling.</p>
+            
+            <!-- Books Category -->
+            <div style="margin-bottom: 60px;">
+                <h3 style="color: white; font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Books (Construction & Leadership)</h3>
+                <div class="grid-3">
+                    <div class="resource-card">
+                        <h3>Construction Leadership</h3>
+                        <p>Learn how to manage time, communicate effectively with trades, and handle the pressure of running work.</p>
+                        <a href="https://www.amazon.com/s?k=construction+leadership+book" target="_blank" rel="noopener noreferrer" class="resource-link">View Book</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>The Business of Building</h3>
+                        <p>Understanding the business side of construction so you know exactly why the office makes the decisions they make.</p>
+                        <a href="https://www.amazon.com/s?k=construction+business+management+book" target="_blank" rel="noopener noreferrer" class="resource-link">View Book</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Lean Construction</h3>
+                        <p>Lean thinking for the field. How to eliminate waste and make your crew the most efficient on the project.</p>
+                        <a href="https://www.amazon.com/s?k=lean+construction+book" target="_blank" rel="noopener noreferrer" class="resource-link">View Book</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Category -->
+            <div style="margin-bottom: 60px;">
+                <h3 style="color: white; font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Certifications (OSHA, Lean, etc.)</h3>
+                <div class="grid-3">
+                    <div class="resource-card">
+                        <h3>OSHA 30</h3>
+                        <p>Gives you credibility on any jobsite. Most foremen and supers expect it. If you don’t have it, you’re already behind.</p>
+                        <a href="https://www.osha.gov/training/outreach" target="_blank" rel="noopener noreferrer" class="resource-link">Find Course</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Lean Certification</h3>
+                        <p>Shows you know how to pull-plan, optimize workflow, and save the project money and time.</p>
+                        <a href="https://www.leanconstruction.org/learning/education/" target="_blank" rel="noopener noreferrer" class="resource-link">Find Course</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Competent Person</h3>
+                        <p>This is where responsibility starts. You’re trusted to identify hazards and make calls that affect safety.</p>
+                        <a href="https://www.osha.gov/construction" target="_blank" rel="noopener noreferrer" class="resource-link">Find Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Software Category -->
+            <div>
+                <h3 style="color: white; font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Software (Fieldwire, Procore, etc.)</h3>
+                <div class="grid-3">
+                    <div class="resource-card">
+                        <h3>Fieldwire</h3>
+                        <p>The top app for viewing plans, markups, and managing tasks directly from your phone in the field.</p>
+                        <a href="https://www.fieldwire.com/" target="_blank" rel="noopener noreferrer" class="resource-link">View Software</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Procore</h3>
+                        <p>The industry standard for project management. Knowing this inside and out makes you invaluable to the office.</p>
+                        <a href="https://www.procore.com/" target="_blank" rel="noopener noreferrer" class="resource-link">View Software</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>PlanGrid / Autodesk Build</h3>
+                        <p>Essential for RFI tracking, submittals, and ensuring you always have the latest set of drawings.</p>
+                        <a href="https://construction.autodesk.com/products/autodesk-build/" target="_blank" rel="noopener noreferrer" class="resource-link">View Software</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Career Path Section -->
+    <section class="section-block">
+        <div class="container">
+            <h2 class="section-title">The Career Path</h2>
+            <div class="career-path-grid">
+                
+                <div class="path-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Worker</h3>
+                        <p>Focus on learning your trade and being reliable.</p>
+                        <div class="path-actions">
+                            <h4>To Move Up:</h4>
+                            <ul>
+                                <li>Show up prepared</li>
+                                <li>Learn your trade</li>
+                                <li>Be reliable every day</li>
+                            </ul>
+                            <a href="#" target="_blank" class="start-here-btn" style="margin-top: 0; padding: 8px 16px; font-size: 0.8rem;">Learn How</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Skilled Worker</h3>
+                        <p>Start thinking ahead. Don’t wait to be told what to do next.</p>
+                        <div class="path-actions">
+                            <h4>To Move Up:</h4>
+                            <ul>
+                                <li>Start thinking ahead</li>
+                                <li>Help your crew stay productive</li>
+                                <li>Identify problems early</li>
+                            </ul>
+                            <a href="#" target="_blank" class="start-here-btn" style="margin-top: 0; padding: 8px 16px; font-size: 0.8rem;">Learn How</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Crew Leader</h3>
+                        <p>Now you’re responsible for people, time, and results—not just your work.</p>
+                        <div class="path-actions">
+                            <h4>To Move Up:</h4>
+                            <ul>
+                                <li>Plan work daily</li>
+                                <li>Communicate with other trades</li>
+                                <li>Track progress and delays</li>
+                            </ul>
+                            <a href="#" target="_blank" class="start-here-btn" style="margin-top: 0; padding: 8px 16px; font-size: 0.8rem;">Learn How</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Superintendent</h3>
+                        <p>You’re managing the entire job, not just one crew. Planning, coordination, and communication matter more than anything.</p>
+                        <div class="path-actions">
+                            <h4>To Move Up:</h4>
+                            <ul>
+                                <li>Manage sequence and schedule</li>
+                                <li>Coordinate all trades</li>
+                                <li>Focus on cost, quality, safety, and outcomes</li>
+                            </ul>
+                            <a href="#" target="_blank" class="start-here-btn" style="margin-top: 0; padding: 8px 16px; font-size: 0.8rem;">Learn How</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- What Actually Matters Section -->
+    <section class="section-block">
+        <div class="container" style="max-width: 600px; margin: 0 auto;">
+            <h2 class="section-title" style="margin-bottom: 30px;">What Actually Matters</h2>
+            <div style="background-color: rgba(255, 255, 255, 0.02); border-left: 4px solid var(--copper); padding: 30px; border-radius: 0 8px 8px 0;">
+                <p style="font-size: 1.15rem; margin-bottom: 15px; color: var(--text-light);">Most guys think moving up is about working harder.</p>
+                <p style="font-size: 1.15rem; margin-bottom: 15px; color: var(--text-light); font-weight: bold;">It’s not.</p>
+                <p style="font-size: 1.15rem; margin-bottom: 15px; color: var(--text-light);">It’s about:</p>
+                <ul style="list-style-type: none; padding-left: 0; margin-bottom: 25px; color: var(--text-muted); font-size: 1.1rem;">
+                    <li style="margin-bottom: 10px; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--copper);">•</span> Thinking ahead</li>
+                    <li style="margin-bottom: 10px; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--copper);">•</span> Understanding how work flows</li>
+                    <li style="margin-bottom: 10px; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--copper);">•</span> Communicating early</li>
+                    <li style="margin-bottom: 10px; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--copper);">•</span> Taking responsibility when things go wrong</li>
+                </ul>
+                <p style="font-size: 1.15rem; margin-bottom: 0; color: var(--copper); font-weight: 600; font-style: italic;">Everything on this page is here to help you build those skills.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Start Here Section -->
+    <section class="section-block" style="border-bottom: none;">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 30px;">Not Sure Where to Start?</h2>
+            
+            <div style="max-width: 500px; margin: 0 auto 40px auto; text-align: left; background-color: rgba(255,255,255,0.03); padding: 30px; border-radius: 8px;">
+                <p style="color: var(--text-muted); font-size: 1.15rem; margin-bottom: 15px;">Start here:</p>
+                <ol style="color: white; font-size: 1.15rem; font-weight: 600; padding-left: 25px; margin-bottom: 25px;">
+                    <li style="margin-bottom: 10px;">Get the Blueprint</li>
+                    <li style="margin-bottom: 10px;">Read the Training</li>
+                    <li style="margin-bottom: 0;">Start using the Tools</li>
+                </ol>
+                <p style="color: var(--copper); font-size: 1.15rem; font-weight: 600; font-style: italic; margin-bottom: 0;">That’s how you go from doing the work to running it.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="start-here-card">
+                    <h3>The Blueprint</h3>
+                    <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="start-here-btn primary" style="margin-top: 0;">Get It Now</a>
+                </div>
+                
+                <div class="start-here-card">
+                    <h3>Field Training</h3>
+                    <a href="training.html" class="start-here-btn" style="margin-top: 0;">Read Training</a>
+                </div>
+                
+                <div class="start-here-card">
+                    <h3>Toolbox Library</h3>
+                    <a href="toolbox.html" class="start-here-btn" style="margin-top: 0;">View Tools</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer copied from existing structure -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h2>Ready to Stop Spinning Your Wheels?</h2>
+            <p>You can keep doing what you’ve always done… or you can take control of where your career is going.</p>
+            <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-large btn-copper" style="margin-top: 20px;">Support Your Blueprint</a>
+            <p style="font-size: 0.9rem; color: var(--copper); margin-top: 15px; font-weight: 700; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px;">This is your starting point — use it daily to see results.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-list');
+        
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

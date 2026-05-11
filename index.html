@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builder Ascent | Field-Ready Construction Leadership</title>
+    <meta name="description" content="Practical training and field tools for tradesmen looking to move from laborer to leader. Build better, earn more, move up.">
+
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
+
+    <!-- Webfonts: Montserrat for Headers, Inter for Body text -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="public/logos/LOGOBA.png">
+
+    <meta property="og:title" content="Builder Ascent | Field-Ready Construction Leadership">
+    <meta property="og:description" content="Practical training and field tools for tradesmen looking to move from laborer to leader. Build better, earn more, move up.">
+    <meta property="og:image" content="public/images/hero-mountain-v2.png">
+    <meta property="og:url" content="https://builderascent.com/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body>
+
+    <!-- 
+    WEBFLOW TRANSLATION: This is your standard "Navbar" element in Webflow.
+    In Webflow, you would add a "Navbar" component, put a "Brand" link block on the left,
+    and a "Nav Menu" with links and a button on the right.
+    -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="/" class="logo" aria-label="Builder Ascent Home">
+                <img src="public/logos/LOGOBA.png" alt="Builder Ascent Logo" style="max-height: 55px; width: auto; object-fit: contain;">
+            </a>
+                    <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+            <div class="nav-links" id="nav-list">
+                <a href="index.html" style="color: var(--copper);">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="training.html">TRAINING</a>
+                <a href="daily-system.html">DAILY SYSTEM</a>
+                <a href="builder-ascent-pro.html">PRO</a>
+                <a href="resources.html">RESOURCES</a>
+                <a href="toolbox.html">TOOLS</a>
+                <a href="shop.html">SHOP</a>
+                <a href="blog.html">BLOG</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="builder-ascent-pro.html" class="btn btn-primary">JOIN NOW</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+    WEBFLOW TRANSLATION: This is a "Section". You will give it a class of "Hero Section".
+    Give the section a background image of the crane, set size to "Cover", position to "Center".
+    -->
+    <header class="hero-section">
+        <div class="container hero-container">
+            <!-- WEBFLOW: This is a "Div Block" to hold just the text block on the left side -->
+            <div class="hero-content">
+
+                <h1 class="main-heading">
+                    <span class="text-metallic">BUILDER</span><br>
+                    <span class="text-copper">ASCENT</span>
+                </h1>
+                <div class="hero-main-divider"></div>
+                <p class="hero-subhead">Build Better. Earn More. Move Up.</p>
+                <div class="hero-divider"></div>
+                <p class="hero-description">For tradesmen who never<br><span class="text-copper">stop building.</span>
+                </p>
+                <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-large btn-copper">Unlock the Blueprint</a>
+                <p style="font-size: 0.85rem; color: var(--copper); margin-top: 15px; font-weight: 700; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px;">This is your starting point — use it daily to see results.</p>
+            </div>
+            
+            <div class="hero-legacy-text">
+                RAISE YOUR SKILLS.<br>
+                RAISE YOUR STANDARD.<br>
+                <span class="text-copper">BUILD YOUR LEGACY.</span>
+            </div>
+        </div>
+        <!-- WEBFLOW: This angled bottom is achieved using CSS clip-path or an SVG image placed at the bottom absolute -->
+        <div class="hero-angled-bottom"></div>
+    </header>
+    
+    <!-- 
+    START HERE SECTION
+    Built for rapid career advancement.
+    -->
+    <section class="start-here-section">
+        <div class="container">
+            <div style="text-align: center;">
+                <h2 class="section-title">Start Here</h2>
+                <p class="section-subtitle">If you want to improve fast, follow this path.</p>
+            </div>
+            
+            <div class="start-here-grid">
+                <!-- Step 1 -->
+                <div class="start-card">
+                    <div>
+                        <span class="start-step">Step 1</span>
+                        <h3>Download the Blueprint</h3>
+                    </div>
+                    <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-primary">Get the Blueprint</a>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="start-card">
+                    <div>
+                        <span class="start-step">Step 2</span>
+                        <h3>Use the Daily Builder System</h3>
+                    </div>
+                    <a href="daily-system.html" class="btn btn-primary">Go to Daily System</a>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="start-card">
+                    <div>
+                        <span class="start-step">Step 3</span>
+                        <h3>Use the Field Tools</h3>
+                    </div>
+                    <a href="toolbox.html" class="btn btn-primary">Open Toolbox</a>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="start-card">
+                    <div>
+                        <span class="start-step">Step 4</span>
+                        <h3>Learn How to Think Ahead</h3>
+                    </div>
+                    <a href="blog.html" class="btn btn-primary">Read Articles</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    THIS WEEK ON THE JOBSITE
+    A rotating focus to keep production high.
+    -->
+    <section id="daily-checklist" class="weekly-focus-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 class="section-title">This Week on the Jobsite</h2>
+                <p class="section-subtitle">Focus on one thing. Improve it. Repeat.</p>
+            </div>
+            
+            <div class="weekly-focus-card">
+                <div class="weekly-focus-content">
+                    <h3>This Week Focus: Eliminate Waiting</h3>
+                    <div class="weekly-focus-text">
+                        <strong>Waiting kills production.</strong>
+                        If your crew is standing around, something was missed:
+                    </div>
+                    <ul class="weekly-focus-list">
+                        <li>Materials not ready</li>
+                        <li>No clear direction</li>
+                        <li>Poor sequencing</li>
+                        <li>Lack of communication</li>
+                    </ul>
+                    <div class="weekly-focus-text" style="font-style: italic; color: var(--text-muted);">
+                        Builder Ascent thinking:
+                    </div>
+                    <ul class="weekly-focus-list">
+                        <li>What should have been prepared?</li>
+                        <li>What could I have done earlier?</li>
+                        <li>What is my backup plan?</li>
+                    </ul>
+                    <div style="display: flex; gap: 20px; margin-top: 40px; flex-wrap: wrap;">
+                        <a href="#daily-checklist" class="btn btn-large btn-copper">Use Daily Checklist</a>
+                        <a href="public/downloads/field_blue_print.pdf" target="_blank" download class="btn btn-large btn-primary">Learn the Full System</a>
+                    </div>
+                </div>
+                
+                <div class="weekly-focus-checklist">
+                    <h4>Apply This Today</h4>
+                    <ul>
+                        <li><div class="box"></div> I planned work before starting</li>
+                        <li><div class="box"></div> I confirmed materials were ready</li>
+                        <li><div class="box"></div> I had a backup task ready</li>
+                        <li><div class="box"></div> I communicated early</li>
+                        <li><div class="box"></div> I kept work moving</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    BUILDER ASCENT WEEKLY
+    Stay focused. Stay sharp.
+    -->
+    <section class="newsletter-section">
+        <div class="container newsletter-container">
+            <h2 class="section-title">Builder Ascent Weekly</h2>
+            <p class="section-subtitle">One focus each week to help you improve on the jobsite.</p>
+            
+            <ul class="newsletter-benefits">
+                <li>One jobsite focus each week</li>
+                <li>Practical field advice</li>
+                <li>Real ways to improve performance</li>
+            </ul>
+
+            <form action="#" class="newsletter-form">
+                <input type="text" placeholder="Your Name" class="newsletter-input" required>
+                <input type="email" placeholder="Your Email" class="newsletter-input" required>
+                <button type="submit" class="btn btn-primary" style="padding: 15px 30px;">Join the Weekly</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 
+    WEBFLOW TRANSLATION: You will create a "Section" here with a dark background color.
+    Inside, create a "Container", and inside that use a "Grid" element set to 4 columns.
+    -->
+    <section class="features-strip">
+        <div class="container features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6z"/></svg>
+                </div>
+                <h3 class="feature-title">SKILL GROWTH</h3>
+                <p class="feature-desc">Master your trade.<br>Build your future.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h3 class="feature-title">PRACTICAL LEARNING</h3>
+                <p class="feature-desc">Real world training.<br>Real results.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h3 class="feature-title">CAREER ASCENT</h3>
+                <p class="feature-desc">More skills.<br>More opportunities.</p>
+            </div>
+            <!-- Feature 4 -->
+            <div class="feature-item feature-item-last">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 class="feature-title">BUILT ON QUALITY</h3>
+                <p class="feature-desc">Trusted knowledge.<br>Proven by the trade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    WEBFLOW TRANSLATION: Lead capture section placed below features.
+    In Webflow, use a "Form Block" inside this container.
+    -->
+    <section class="lead-capture-section">
+        <div class="container lead-container">
+            <div class="lead-text">
+                <h2>Unlock Your Builder Ascent Blueprint</h2>
+                <p>Enter your email through the secure form, then come back here to download your blueprint and start moving up.</p>
+                <ul class="lead-benefits">
+                    <li>How to move from laborer to crew leader (and what actually matters)</li>
+                    <li>The skills that increase your pay on real jobsites</li>
+                    <li>The habits that make foremen trust you with more responsibility</li>
+                </ul>
+            </div>
+            <form class="lead-form" onsubmit="event.preventDefault(); window.open('https://docs.google.com/forms/d/e/1FAIpQLScmTIeXr_2LeNB-Prq57d2PZpGbk0iIjiQc1X04_ACrKDyGDw/viewform', '_blank');">
+                <input type="email" class="lead-input" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-copper btn-large">Unlock the Blueprint</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 
+    WEBFLOW TRANSLATION: A new Section. Background color set to off-white.
+    Inside, a Container with a CSS Grid set to 4 columns. Left column gets 1 fraction,
+    the other 3 columns hold the cards.
+    -->
+    <section class="what-you-learn-section">
+        <div class="container learn-grid">
+            <!-- Left Header Area -->
+            <div class="learn-header">
+                <span class="section-label">WHAT YOU'LL LEARN</span>
+                <h2>REAL TRAINING. REAL RESULTS.</h2>
+                <p>Builder Ascent gives you the knowledge, skills, and tools to succeed on the jobsite and beyond.</p>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="learn-card">
+                <h3 class="card-title">JOBSITE SKILLS</h3>
+                <p class="card-desc">Real-world techniques, planning, and execution that make you reliable on any
+                    project.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="learn-card">
+                <h3 class="card-title">LEADERSHIP</h3>
+                <p class="card-desc">How to communicate, lead crews, and become someone people trust on the jobsite.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="learn-card">
+                <h3 class="card-title">CAREER GROWTH</h3>
+                <p class="card-desc">Learn how to move from worker to leader, increase your value, and grow your income.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Field Starter Pack Section -->
+    <section class="starter-pack-section" style="padding: 100px 0; background-color: var(--bg-dark); border-top: 1px solid rgba(255, 255, 255, 0.05);">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 60px;">
+                <span class="section-label">FREE FIELD STARTER PACK</span>
+                <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 15px;">Start Running Work Like a Pro</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Download the core tools every foreman should be using on every job.</p>
+            </div>
+
+            <div class="steps-grid" style="margin-bottom: 50px;">
+                <!-- Tool 1 -->
+                <div class="step text-center" style="display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease;" onmouseover="this.style.borderColor='rgba(196,110,61,0.4)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.transform='none';">
+                    <div style="color: var(--copper); margin-bottom: 20px;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.2rem; color: var(--text-light); font-family: var(--font-heading);">Daily Pre-Task Safety Plan</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1;">Plan the work, identify hazards, and ensure your crew is prepared before stepping on site.</p>
+                    <a href="toolbox.html" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.9rem;">DOWNLOAD TOOL</a>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="step text-center" style="display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease;" onmouseover="this.style.borderColor='rgba(196,110,61,0.4)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.transform='none';">
+                    <div style="color: var(--copper); margin-bottom: 20px;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.2rem; color: var(--text-light); font-family: var(--font-heading);">Job Hazard Analysis (JHA)</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1;">Break down the job, identify hazards, and implement control measures effectively.</p>
+                    <a href="toolbox.html" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.9rem;">DOWNLOAD TOOL</a>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="step text-center" style="display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease;" onmouseover="this.style.borderColor='rgba(196,110,61,0.4)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.transform='none';">
+                    <div style="color: var(--copper); margin-bottom: 20px;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                            <path d="M8 14h.01"></path>
+                            <path d="M12 14h.01"></path>
+                            <path d="M16 14h.01"></path>
+                            <path d="M8 18h.01"></path>
+                            <path d="M12 18h.01"></path>
+                            <path d="M16 18h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.2rem; color: var(--text-light); font-family: var(--font-heading);">Foreman Daily Log</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1;">Document daily activities, crew, equipment, delays, and job progress consistently.</p>
+                    <a href="toolbox.html" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.9rem;">DOWNLOAD TOOL</a>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="toolbox.html" class="btn btn-copper btn-large">Download Starter Pack</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    WEBFLOW TRANSLATION: This is a very simple "Section" with dark background,
+    rounding the corners (Border Radius), and using a Flexbox layout inside to line things up left-to-right.
+    -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 50px;">
+                <span class="section-label">JOBSITE TOOLS</span>
+                <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 15px;">Field Calculators</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Professional tools for the field. Fast, accurate, and built for builders.</p>
+            </div>
+
+            <div class="calc-wrapper">
+                <div class="calc-tabs">
+                    <button class="calc-tab active" data-tab="concrete">CONCRETE</button>
+                    <button class="calc-tab" data-tab="sqft">SQUARE FOOT</button>
+                    <button class="calc-tab" data-tab="materials">MATERIALS</button>
+                </div>
+
+                <div class="calc-content">
+                    <!-- Concrete Calculator -->
+                    <div class="calc-panel active" id="concrete">
+                        <div class="calc-grid">
+                            <div class="calc-inputs">
+                                <div class="input-group">
+                                    <label>Length (Feet)</label>
+                                    <input type="number" id="concrete-length" placeholder="0">
+                                </div>
+                                <div class="input-group">
+                                    <label>Width (Feet)</label>
+                                    <input type="number" id="concrete-width" placeholder="0">
+                                </div>
+                                <div class="input-group">
+                                    <label>Thickness (Inches)</label>
+                                    <input type="number" id="concrete-thickness" placeholder="0">
+                                </div>
+                                <div class="input-group">
+                                    <label>Waste % (Optional)</label>
+                                    <input type="number" id="concrete-waste" value="10">
+                                </div>
+                                <div class="calc-actions">
+                                    <button class="btn btn-copper" onclick="calculateConcrete()">Calculate</button>
+                                    <button class="btn btn-outline" onclick="clearCalculator('concrete')">Clear</button>
+                                </div>
+                            </div>
+                            <div class="calc-results">
+                                <div class="result-item">
+                                    <span>Cubic Feet:</span>
+                                    <strong id="res-concrete-cf">0.00</strong>
+                                </div>
+                                <div class="result-item">
+                                    <span>Cubic Yards:</span>
+                                    <strong id="res-concrete-cy">0.00</strong>
+                                </div>
+                                <div class="result-item highlight">
+                                    <span>Total Yards (with Waste):</span>
+                                    <strong id="res-concrete-total">0.00</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Square Foot Calculator -->
+                    <div class="calc-panel" id="sqft">
+                        <div class="calc-grid">
+                            <div class="calc-inputs">
+                                <div class="input-group">
+                                    <label>Length (Feet)</label>
+                                    <input type="number" id="sqft-length" placeholder="0">
+                                </div>
+                                <div class="input-group">
+                                    <label>Width (Feet)</label>
+                                    <input type="number" id="sqft-width" placeholder="0">
+                                </div>
+                                <div class="calc-actions">
+                                    <button class="btn btn-copper" onclick="calculateSqFt()">Calculate</button>
+                                    <button class="btn btn-outline" onclick="clearCalculator('sqft')">Clear</button>
+                                </div>
+                            </div>
+                            <div class="calc-results">
+                                <div class="result-item highlight">
+                                    <span>Total Square Feet:</span>
+                                    <strong id="res-sqft-total">0.00</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Materials Calculator -->
+                    <div class="calc-panel" id="materials">
+                        <div class="calc-grid">
+                            <div class="calc-inputs">
+                                <div class="input-group">
+                                    <label>Quantity</label>
+                                    <input type="number" id="mat-qty" placeholder="0">
+                                </div>
+                                <div class="input-group">
+                                    <label>Unit Cost ($)</label>
+                                    <input type="number" id="mat-cost" placeholder="0.00">
+                                </div>
+                                <div class="input-group">
+                                    <label>Waste % (Optional)</label>
+                                    <input type="number" id="mat-waste" value="10">
+                                </div>
+                                <div class="calc-actions">
+                                    <button class="btn btn-copper" onclick="calculateMaterials()">Calculate</button>
+                                    <button class="btn btn-outline" onclick="clearCalculator('materials')">Clear</button>
+                                </div>
+                            </div>
+                            <div class="calc-results">
+                                <div class="result-item">
+                                    <span>Material Subtotal:</span>
+                                    <strong id="res-mat-sub">$0.00</strong>
+                                </div>
+                                <div class="result-item">
+                                    <span>Waste Amount:</span>
+                                    <strong id="res-mat-waste">$0.00</strong>
+                                </div>
+                                <div class="result-item highlight">
+                                    <span>Total Estimated Cost:</span>
+                                    <strong id="res-mat-total">$0.00</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Document Content Integration Section -->
+    <section class="problem-solution-section">
+        <div class="container">
+            <div class="content-block text-center">
+                <h2>You're Working Hard… But Not Getting Ahead.</h2>
+                <p>You can grind for years and still feel stuck in the same spot—same pay, same role, same
+                    frustration.<br>Hard work isn’t the problem. Direction is.</p>
+            </div>
+
+            <div class="content-block text-center" style="margin-top: 60px;">
+                <span class="section-label">HOW IT WORKS</span>
+                <h2>A simple system you can actually follow:</h2>
+                <div class="steps-grid">
+                    <div class="step">
+                        <h3>1. Join the Crew</h3>
+                        <p>Sign up and get access to the tools and training.</p>
+                    </div>
+                    <div class="step">
+                        <h3>2. Learn the Blueprint</h3>
+                        <p>Get real-world strategies you can apply immediately.</p>
+                    </div>
+                    <div class="step">
+                        <h3>3. Apply It on the Job</h3>
+                        <p>Use what you learn to stand out, earn more, and move up.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <h2>Ready to Stop Spinning Your Wheels?</h2>
+            <p>You can keep doing what you’ve always done… or you can take control of where your career is going.</p>
+            <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-large btn-copper" style="margin-top: 20px;">Support Your Blueprint</a>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching Logic
+        const tabs = document.querySelectorAll('.calc-tab');
+        const panels = document.querySelectorAll('.calc-panel');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.getAttribute('data-tab');
+                
+                // Update tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update panels
+                panels.forEach(p => {
+                    p.classList.remove('active');
+                    if (p.id === targetTab) {
+                        p.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Calculation Functions
+        function calculateConcrete() {
+            const length = parseFloat(document.getElementById('concrete-length').value) || 0;
+            const width = parseFloat(document.getElementById('concrete-width').value) || 0;
+            const thickness = parseFloat(document.getElementById('concrete-thickness').value) || 0;
+            const waste = parseFloat(document.getElementById('concrete-waste').value) || 0;
+
+            const cubicFeet = length * width * (thickness / 12);
+            const cubicYards = cubicFeet / 27;
+            const totalWithWaste = cubicYards * (1 + waste / 100);
+
+            document.getElementById('res-concrete-cf').innerText = cubicFeet.toFixed(2);
+            document.getElementById('res-concrete-cy').innerText = cubicYards.toFixed(2);
+            document.getElementById('res-concrete-total').innerText = totalWithWaste.toFixed(2);
+        }
+
+        function calculateSqFt() {
+            const length = parseFloat(document.getElementById('sqft-length').value) || 0;
+            const width = parseFloat(document.getElementById('sqft-width').value) || 0;
+
+            const totalSqFt = length * width;
+
+            document.getElementById('res-sqft-total').innerText = totalSqFt.toFixed(2);
+        }
+
+        function calculateMaterials() {
+            const qty = parseFloat(document.getElementById('mat-qty').value) || 0;
+            const cost = parseFloat(document.getElementById('mat-cost').value) || 0;
+            const waste = parseFloat(document.getElementById('mat-waste').value) || 0;
+
+            const subtotal = qty * cost;
+            const wasteAmt = subtotal * (waste / 100);
+            const total = subtotal + wasteAmt;
+
+            document.getElementById('res-mat-sub').innerText = '$' + subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('res-mat-waste').innerText = '$' + wasteAmt.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('res-mat-total').innerText = '$' + total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+
+        function clearCalculator(type) {
+            if (type === 'concrete') {
+                document.getElementById('concrete-length').value = '';
+                document.getElementById('concrete-width').value = '';
+                document.getElementById('concrete-thickness').value = '';
+                document.getElementById('concrete-waste').value = '10';
+                document.getElementById('res-concrete-cf').innerText = '0.00';
+                document.getElementById('res-concrete-cy').innerText = '0.00';
+                document.getElementById('res-concrete-total').innerText = '0.00';
+            } else if (type === 'sqft') {
+                document.getElementById('sqft-length').value = '';
+                document.getElementById('sqft-width').value = '';
+                document.getElementById('res-sqft-total').innerText = '0.00';
+            } else if (type === 'materials') {
+                document.getElementById('mat-qty').value = '';
+                document.getElementById('mat-cost').value = '';
+                document.getElementById('mat-waste').value = '10';
+                document.getElementById('res-mat-sub').innerText = '$0.00';
+                document.getElementById('res-mat-waste').innerText = '$0.00';
+                document.getElementById('res-mat-total').innerText = '$0.00';
+            }
+        }
+    </script>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-list');
+        
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+

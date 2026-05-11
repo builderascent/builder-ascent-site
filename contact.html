@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Builder Ascent</title>
+    <meta name="description" content="Have a question or a tool request? Reach out to Scott at Builder Ascent.">
+    
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        .contact-header {
+            padding: 160px 0 80px;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.5) 100%),
+                        linear-gradient(to bottom, rgba(17, 22, 29, 0.55) 0%, rgba(17, 22, 29, 0.82) 100%),
+                        url('public/images/contact_hero_bg.png') center/cover no-repeat;
+            border-bottom: 2px solid var(--copper);
+            text-align: center;
+        }
+        
+        .section-block {
+            padding: 80px 0 120px;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .contact-email {
+            font-size: 1.5rem;
+            color: var(--copper);
+            font-family: var(--font-heading);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .contact-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .contact-form {
+            background-color: var(--bg-darker);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-label {
+            display: block;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px 15px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--copper);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--copper);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--copper-hover);
+            transform: translateY(-2px);
+        }
+    </style>
+    <link rel="icon" type="image/png" href="public/logos/LOGOBA.png">
+
+    <meta property="og:title" content="Contact | Builder Ascent">
+    <meta property="og:description" content="Have a question or a tool request? Reach out to Scott at Builder Ascent.">
+    <meta property="og:image" content="public/images/hero-mountain-v2.png">
+    <meta property="og:url" content="https://builderascent.com/contact.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo" aria-label="Builder Ascent Home">
+                <img src="public/logos/LOGOBA.png" alt="Builder Ascent Logo" style="max-height: 55px; width: auto; object-fit: contain;">
+            </a>
+                    <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+            <div class="nav-links" id="nav-list">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="training.html">TRAINING</a>
+                <a href="daily-system.html">DAILY SYSTEM</a>
+                <a href="builder-ascent-pro.html">PRO</a>
+                <a href="resources.html">RESOURCES</a>
+                <a href="toolbox.html">TOOLS</a>
+                <a href="shop.html">SHOP</a>
+                <a href="blog.html">BLOG</a>
+                <a href="contact.html" style="color: var(--copper);">CONTACT</a>
+                <a href="builder-ascent-pro.html" class="btn btn-primary">JOIN NOW</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="contact-header">
+        <div class="container">
+            <h1 class="main-heading" style="font-size: 4rem; margin-bottom: 15px; text-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+                <span class="text-metallic">CONTACT BUILDER</span> <span class="text-copper">ASCENT</span>
+            </h1>
+            <p class="hero-subhead" style="margin-bottom: 0; max-width: 800px; margin: 0 auto; line-height: 1.6; text-shadow: 0 4px 15px rgba(0,0,0,0.8);">Have a question, idea, or tool request? Reach out and help us build something better for the trades.</p>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="section-block">
+        <div class="container contact-container">
+            
+            <div class="contact-info">
+                <a href="mailto:scott@builderascent.com" class="contact-email" style="text-decoration: none;">scott@builderascent.com</a>
+                <p class="contact-text">Use this page for tool requests, partnership ideas, training questions, or feedback on what you want Builder Ascent to build next.</p>
+            </div>
+            
+            <div class="contact-form">
+                <form onsubmit="event.preventDefault(); alert('Thanks — your message has been received.'); this.reset();">
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" required placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" required placeholder="How can we help?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h2>Ready to Stop Spinning Your Wheels?</h2>
+            <p>You can keep doing what you’ve always done… or you can take control of where your career is going.</p>
+            <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-large btn-copper" style="margin-top: 20px;">Support Your Blueprint</a>
+            <p style="font-size: 0.9rem; color: var(--copper); margin-top: 15px; font-weight: 700; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px;">This is your starting point — use it daily to see results.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-list');
+        
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

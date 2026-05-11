@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blueprint | BuilderAscent</title>
+    <!-- Share the master style sheet -->
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
+    <!-- Load identical fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        .blueprint-header {
+            padding: 160px 0 80px;
+            background-color: var(--bg-darker);
+            border-bottom: 2px solid var(--copper);
+            text-align: center;
+        }
+        .blueprint-content {
+            padding: 80px 0;
+            background-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+        .blueprint-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('public/images/blueprint-bg-v2.png') center/cover no-repeat;
+            opacity: 0.18;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .step-card {
+            background-color: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        .step-card:hover {
+            border-color: rgba(196,110,61,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .step-card-feature {
+            background-color: rgba(196,110,61,0.05);
+            border: 1px solid rgba(196,110,61,0.5);
+        }
+        .step-label {
+            color: var(--copper);
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            opacity: 0.85;
+        }
+        .step-card h3 {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .step-card p {
+            color: rgba(255,255,255,0.8);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo" aria-label="Builder Ascent Home">
+                <img src="public/logos/LOGOBA.png" alt="Builder Ascent Logo" style="max-height: 55px; width: auto; object-fit: contain;">
+            </a>
+                    <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+            <div class="nav-links" id="nav-list">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="training.html">TRAINING</a>
+                <a href="daily-system.html">DAILY SYSTEM</a>
+                <a href="builder-ascent-pro.html">PRO</a>
+                <a href="resources.html">RESOURCES</a>
+                <a href="toolbox.html">TOOLS</a>
+                <a href="shop.html">SHOP</a>
+                <a href="blog.html">BLOG</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="builder-ascent-pro.html" class="btn btn-primary">JOIN NOW</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="blueprint-header">
+        <div class="container">
+            <h1 class="main-heading" style="font-size: 3.5rem; margin-bottom: 15px;">
+                <span class="text-metallic">YOUR FIELD</span> <span class="text-copper">BLUEPRINT</span>
+            </h1>
+            <p class="blueprint-pain">
+                Most guys stay stuck for years because nobody shows them this.
+            </p>
+            <p class="blueprint-intro" style="font-family: var(--font-body); font-size: 1.2rem; max-width: 650px; margin: 0 auto; color: var(--text-muted);">
+                You're not stuck because you're not working hard. You're stuck because nobody showed you what actually moves you up.
+            </p>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-large btn-copper" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Your Blueprint (PDF)
+                </a>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 12px; font-style: italic;">A copy has been sent to your email (simulated for now)</p>
+                <p style="font-size: 0.9rem; color: var(--copper); margin-top: 10px; font-weight: 600; opacity: 0.9;">This is your starting point — use it daily to see results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="confirmation-block" style="background-color: var(--bg-dark); padding: 50px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2rem; margin-bottom: 12px;">You’re In — Here’s Your Next Step</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto;">Check your email for your saved copy. Then download your blueprint below and start applying it on your next job.</p>
+        </div>
+    </section>
+
+    <section class="credibility-section">
+        <div class="container">
+            <p class="credibility-text">
+                Built from real jobsite experience — not theory.
+            </p>
+            <p class="credibility-subtext">
+                These are the exact principles used by foremen and leaders to identify who moves up — and who stays stuck.
+            </p>
+        </div>
+    </section>
+
+    <section class="authority-section" style="background-color: var(--bg-dark); padding: 60px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2rem; margin-bottom: 12px;">Built From the Field — Not a Classroom</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto 30px;">This isn’t theory. This is how real crews decide who moves up — and who stays where they are.</p>
+            <ul style="list-style: none; padding: 0; display: inline-block; text-align: left;">
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> Used on real commercial job sites
+                </li>
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> Based on how foremen and supers actually evaluate workers
+                </li>
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> Focused on skills that increase responsibility and pay
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="who-this-is-for" style="background-color: var(--bg-darker); padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--copper);">
+        <div class="container">
+            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2rem; margin-bottom: 12px;">Who This Is For</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto 30px;">This blueprint is built for people who are ready to take their work seriously and move up.</p>
+            <ul style="list-style: none; padding: 0; display: inline-block; text-align: left; margin-bottom: 30px;">
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> You’re working in the trades but feel stuck
+                </li>
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> You want more responsibility and higher pay
+                </li>
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> You’re willing to stand out instead of blend in
+                </li>
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> You want to become someone the crew depends on
+                </li>
+            </ul>
+            <p style="color: var(--copper); font-weight: 700; font-size: 1.2rem; margin: 0;">If that’s you, this will work.</p>
+        </div>
+    </section>
+
+    <section class="blueprint-content">
+        <div class="container" style="max-width: 800px;">
+            
+            <div class="step-card">
+                <span class="step-label">STEP 1</span>
+                <h3>Show Up Early — Get Seen First</h3>
+                <p>Hard work keeps you around. Being early gets you noticed. Showing up 15 minutes early and organizing the lay-down yard gets you on the radar fast.</p>
+                <div class="step-why">
+                    <strong>Why this matters:</strong> Foremen notice who shows up ready before anyone else. This is often the first sign someone is ready for more responsibility.
+                </div>
+            </div>
+
+            <div class="step-card">
+                <span class="step-label">STEP 2</span>
+                <h3>Master Your Tools Unprompted</h3>
+                <p>Stop waiting to be told what tool to grab. Know the sequence of the task so you can have the next tool ready before the lead asks for it. This is how you prove you understand the broader scope of the build.</p>
+                <div class="step-why">
+                    <strong>Why this matters:</strong> When you stop waiting to be told what to do, you start standing out as someone who understands the flow of the job — not just the task.
+                </div>
+            </div>
+
+            <div class="step-card">
+                <span class="step-label">STEP 3</span>
+                <h3>Ask "Why", Not Just "What"</h3>
+                <p>Any laborer can swing a hammer when told "what" to hit. A future foreman asks "why" we are building it that way to understand the underlying code, sequencing, and structural logic of the project.</p>
+                <div class="step-why">
+                    <strong>Why this matters:</strong> Leaders think differently. Asking "why" shows you’re not just working — you’re learning how the job actually comes together.
+                </div>
+            </div>
+
+            <div class="step-card">
+                <span class="step-label">STEP 4</span>
+                <h3>Own Mistakes Immediately</h3>
+                <p>If you cover up broken material or a misaligned cut, you cost the company thousands down the line. Reporting it instantly builds bulletproof trust with leadership. Great tradesmen don't hide mistakes; they fix them.</p>
+                <div class="step-why">
+                    <strong>Why this matters:</strong> Trust is the foundation of leadership. Admitting faults instantly proves you have the integrity to handle bigger tasks without supervision.
+                </div>
+            </div>
+
+            <div class="step-card">
+                <span class="step-label">STEP 5</span>
+                <h3>Communicate Like a Pro</h3>
+                <p>Stop complaining on site. Start providing solutions. When there is a material shortage, don't just say "we're out of 2x4s". Say, "we are out of 2x4s, but I can jump on the prep work for tomorrow if you need me to."</p>
+                <div class="step-why">
+                    <strong>Why this matters:</strong> Superintendents are overloaded with problems. By offering solutions instead of just highlighting issues, you become a valuable asset to the team.
+                </div>
+            </div>
+
+            <div class="step-card">
+                <span class="step-label">STEP 6</span>
+                <h3>Run Your Own Punch List</h3>
+                <p>Never leave it up to the superintendent to find your mistakes. QA your own work before you pack up your tools. A clean finish proves you give a damn about the legacy and quality of your build.</p>
+                <div class="step-why">
+                    <strong>Why this matters:</strong> QAing your own output proves you care about the legacy of your build. Supervisors promote those who guarantee quality consistently.
+                </div>
+            </div>
+
+            <div class="step-card step-card-feature">
+                <span class="step-label">STEP 7</span>
+                <h3>Teach the Next Guy on the Ladder</h3>
+                <p>You cannot move up into leadership if there is nobody equipped to backfill your position. Mentor the green guys. Once you prove you can elevate an entire crew's skill level, you become a Crew Leader.</p>
+                <div class="step-why">
+                    <strong>Why this matters:</strong> Your personal advancement is locked until you can replace yourself. Teaching the crew is the final test before moving into management.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="paid-offer-preview" style="background-color: var(--bg-darker); padding: 80px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 4px solid var(--copper);">
+        <div class="container" style="max-width: 750px;">
+            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2.2rem; margin-bottom: 15px;">Ready to Stop Getting Passed Over?</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 35px;">You already know what needs to change. This shows you exactly how to step up, stand out, and get trusted to run work.</p>
+            
+            <ul style="list-style: none; padding: 0; display: inline-block; text-align: left; margin-bottom: 40px; background-color: rgba(255,255,255,0.02); padding: 30px 40px; border-radius: 8px; border: 1px solid rgba(196,110,61,0.3);">
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.05rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.2rem;">✓</span> Step-by-step breakdown of how to earn trust on site
+                </li>
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.05rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.2rem;">✓</span> How to think ahead and run work without being told
+                </li>
+                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.05rem; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--copper); font-weight: bold; font-size: 1.2rem;">✓</span> Real communication tactics that get you promoted
+                </li>
+            </ul>
+            
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 35px; font-style: italic;">Most guys stay stuck because they never learn this part.</p>
+            
+            <div id="notify-container" style="max-width: 500px; margin: 0 auto; text-align: left;">
+                <label id="notify-label" for="notify-email" style="display: block; color: var(--text-light); font-weight: 600; margin-bottom: 10px; font-size: 0.95rem;">Get notified when this drops</label>
+                <form id="notify-form" class="lead-form" style="margin-bottom: 15px;" onsubmit="event.preventDefault(); var email = encodeURIComponent(this.querySelector('.lead-input').value); window.open('https://docs.google.com/forms/d/e/1FAIpQLScmTIeXr_2LeNB-Prq57d2PZpGbk0iIjiQc1X04_ACrKDyGDw/viewform?usp=pp_url&entry.1661591698=' + email, '_blank'); this.style.display='none'; document.getElementById('notify-success').style.display='block'; document.getElementById('notify-spam-text').style.display='none'; document.getElementById('notify-label').style.display='none';">
+                    <input type="email" id="notify-email" class="lead-input" placeholder="Enter your email" required style="flex: 1;">
+                    <button type="submit" class="btn btn-large btn-copper" style="padding: 15px 30px; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">Notify Me</button>
+                </form>
+                <div id="notify-success" style="display: none; padding: 15px 20px; background-color: rgba(196,110,61,0.1); border-radius: 4px; border: 1px solid rgba(196,110,61,0.3); color: var(--text-light); font-weight: 500; text-align: center;">
+                    You’re on the list. You’ll be the first to know.
+                </div>
+                <p id="notify-spam-text" style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-top: 10px;">No spam. Just the release and early access.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-steps">
+        <div class="container">
+            <h2>This Is Just Step One</h2>
+            <p>If you're serious about moving up, this is what comes next:</p>
+
+            <ul class="next-steps-list">
+                <li>Advanced jobsite skills breakdowns</li>
+                <li>Leadership training for crew leads</li>
+                <li>Real-world jobsite scenarios and decisions</li>
+                <li>Tools to increase your value and your pay</li>
+            </ul>
+
+            <a href="#" class="btn btn-large btn-copper">Continue Your Ascent</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <h2>Ready to Put the Blueprint into Action?</h2>
+            <p>Access the full Builder Ascent coursework and interactive tracking platform.</p>
+            <a href="#" class="btn btn-large btn-copper" style="margin-top: 20px;">Join the Crew</a>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-list');
+        
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+

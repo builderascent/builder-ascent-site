@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Hazard Analysis (JHA)</title>
+    <style>
+        /* Print-specific settings */
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        * { box-sizing: border-box; }
+        h1, h2, h3, p { margin: 0; padding: 0; }
+        
+        /* Header Layout */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 4px solid #000;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .logo-container { display: flex; flex-direction: column; }
+        .logo-main { font-size: 26px; font-weight: 900; letter-spacing: 1px; line-height: 1; text-transform: uppercase; }
+        .logo-sub { font-size: 10px; font-weight: bold; color: #444; letter-spacing: 1.5px; margin-top: 4px; text-transform: uppercase; }
+        
+        .title-container { text-align: right; }
+        .doc-title { font-size: 24px; font-weight: 900; text-transform: uppercase; }
+        .doc-sub { font-size: 11px; font-weight: bold; color: #444; margin-top: 4px; letter-spacing: 1px; }
+
+        /* General Section Blocks */
+        .section {
+            border: 1px solid #000;
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+        
+        .section-header {
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #000;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-body { padding: 12px; }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
+            border: 1px solid #000; 
+            margin-bottom: 15px; 
+            page-break-inside: avoid;
+        }
+        
+        /* Column styling for connected grid sections */
+        .col { border-right: 1px solid #000; }
+        .col:last-child { border-right: none; }
+        
+        /* Fillable Lines */
+        .field-row { display: flex; align-items: flex-end; margin-bottom: 12px; }
+        .field-label { font-weight: bold; margin-right: 8px; white-space: nowrap; }
+        .field-line { flex-grow: 1; border-bottom: 1px solid #000; height: 14px; }
+        
+        /* Blank repeating lines */
+        .blank-lines .line { border-bottom: 1px solid #000; height: 24px; width: 100%; }
+
+        /* Checkboxes */
+        .check-grid-1 { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
+        .check-item { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+        .box { width: 12px; height: 12px; border: 1px solid #000; display: inline-block; background-color: #fff; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #000; padding: 8px 12px; text-align: left; }
+        th { background-color: #f2f2f2; font-size: 10px; font-weight: bold; text-transform: uppercase; }
+        
+        .jha-table th { padding: 10px 12px; border-top: none; }
+        .jha-table tr:first-child th { border-top: none; }
+        .jha-table { border-left: none; border-right: none; border-bottom: none; }
+        .jha-table td { height: 60px; } /* Tall rows for writing space */
+        
+        .sig-row td { height: 35px; }
+        
+        /* Subtext inside sections */
+        .subtext { font-size: 10px; color: #333; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-container">
+            <div class="logo-main">BUILDER ASCENT</div>
+            <div class="logo-sub">Build Higher. Learn More. Earn More.</div>
+        </div>
+        <div class="title-container">
+            <div class="doc-title">Job Hazard Analysis</div>
+            <div class="doc-sub">Assess it. Control it. Build it. Safely.</div>
+        </div>
+    </div>
+
+    <!-- 1. Project Information -->
+    <div class="section">
+        <div class="section-header">1. Project Information</div>
+        <div class="section-body grid-2">
+            <div>
+                <div class="field-row">
+                    <span class="field-label">Project Name:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Location:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Date:</span>
+                    <div class="field-line"></div>
+                    <span class="field-label" style="margin-left: 15px;">Time:</span>
+                    <div class="field-line" style="flex: 0.5;"></div>
+                </div>
+            </div>
+            <div>
+                <div class="field-row">
+                    <span class="field-label">Trade / Subcontractor:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Foreman:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row">
+                    <span class="field-label">Reviewed By:</span>
+                    <div class="field-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Task / Scope of Work -->
+    <div class="section">
+        <div class="section-header">2. Task / Scope of Work</div>
+        <div class="section-body" style="padding-top: 4px;">
+            <div class="blank-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. JHA Table -->
+    <div class="section" style="padding: 0;">
+        <div class="section-header" style="border-bottom: 1px solid #000; display: flex; justify-content: space-between; align-items: center;">
+            <span>3. Hazard Analysis</span>
+            <span style="font-weight: normal; font-size: 10px; text-transform: none; letter-spacing: 0;">Break the job into steps and identify hazards and controls for each.</span>
+        </div>
+        <table class="jha-table">
+            <tr>
+                <th style="width: 25%; border-left: none;">Step / Task</th>
+                <th style="width: 28%;">Potential Hazards</th>
+                <th style="width: 32%;">Control Measures</th>
+                <th style="width: 15%; border-right: none;">Person Responsible</th>
+            </tr>
+            <tr class="jha-row"><td style="border-left: none;"></td><td></td><td></td><td style="border-right: none;"></td></tr>
+            <tr class="jha-row"><td style="border-left: none;"></td><td></td><td></td><td style="border-right: none;"></td></tr>
+            <tr class="jha-row"><td style="border-left: none;"></td><td></td><td></td><td style="border-right: none;"></td></tr>
+            <tr class="jha-row"><td style="border-left: none;"></td><td></td><td></td><td style="border-right: none;"></td></tr>
+            <tr class="jha-row"><td style="border-left: none;"></td><td></td><td></td><td style="border-right: none;"></td></tr>
+            <tr class="jha-row"><td style="border-left: none; border-bottom: none;"></td><td style="border-bottom: none;"></td><td style="border-bottom: none;"></td><td style="border-right: none; border-bottom: none;"></td></tr>
+        </table>
+    </div>
+
+    <!-- 4, 5, 6. PPE / Tools / Emergency Plan -->
+    <div class="grid-3">
+        <!-- 4. Required PPE -->
+        <div class="col">
+            <div class="section-header" style="border-top: 0; border-left: 0; border-right: 0;">4. Required PPE</div>
+            <div class="section-body">
+                <div class="check-grid-1">
+                    <div class="check-item"><span class="box"></span> Hard Hat</div>
+                    <div class="check-item"><span class="box"></span> Safety Glasses</div>
+                    <div class="check-item"><span class="box"></span> High-Vis Vest</div>
+                    <div class="check-item"><span class="box"></span> Gloves</div>
+                    <div class="check-item"><span class="box"></span> Hearing Protection</div>
+                    <div class="check-item"><span class="box"></span> Fall Protection</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Tools & Equipment -->
+        <div class="col">
+            <div class="section-header" style="border-top: 0; border-left: 0; border-right: 0;">5. Tools / Equipment</div>
+            <div class="section-body">
+                <div class="blank-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Emergency Plan -->
+        <div class="col">
+            <div class="section-header" style="border-top: 0; border-left: 0; border-right: 0;">6. Emergency Plan</div>
+            <div class="section-body">
+                <div class="subtext">What to do if something goes wrong:</div>
+                <div class="blank-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="subtext" style="margin-top: 15px;">Emergency Contact / Phone:</div>
+                <div class="blank-lines" style="margin-bottom: 10px;">
+                    <div class="line"></div>
+                </div>
+                
+                <div class="subtext">Nearest Hospital:</div>
+                <div class="blank-lines">
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Crew Sign-Off -->
+    <div class="section">
+        <div class="section-header" style="background-color: #e5e5e5;">7. Sign-Off</div>
+        <div class="section-body" style="padding: 0;">
+            <p style="padding: 10px 12px; font-size: 11px;">By signing below, I acknowledge that I have read, understood, and will comply with this Job Hazard Analysis.</p>
+            <table style="border-left: none; border-right: none; border-bottom: none;">
+                <tr>
+                    <th style="width: 40%; border-left: none;">Name (Print)</th>
+                    <th style="width: 40%;">Signature</th>
+                    <th style="width: 20%; border-right: none;">Date</th>
+                </tr>
+                <tr class="sig-row"><td style="border-left: none;"></td><td></td><td style="border-right: none;"></td></tr>
+                <tr class="sig-row"><td style="border-left: none;"></td><td></td><td style="border-right: none;"></td></tr>
+                <tr class="sig-row"><td style="border-left: none;"></td><td></td><td style="border-right: none;"></td></tr>
+                <tr class="sig-row"><td style="border-left: none;"></td><td></td><td style="border-right: none;"></td></tr>
+                <tr class="sig-row"><td style="border-left: none; border-bottom: none;"></td><td style="border-bottom: none;"></td><td style="border-right: none; border-bottom: none;"></td></tr>
+            </table>
+            
+            <div style="padding: 15px 12px; display: flex; gap: 30px; border-top: 1px solid #000; background-color: #fcfcfc;">
+                <div class="field-row" style="flex: 2; margin-bottom: 0;">
+                    <span class="field-label">Foreman Signature:</span>
+                    <div class="field-line"></div>
+                </div>
+                <div class="field-row" style="flex: 1; margin-bottom: 0;">
+                    <span class="field-label">Date:</span>
+                    <div class="field-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
