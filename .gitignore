@@ -1,0 +1,18 @@
+﻿# Development and AI Agent files
+.agents/
+scratch/
+scripts/
+
+# Backups and temporary files
+*.bak
+*.tmp
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and Editor directories
+.vscode/
+.idea/
