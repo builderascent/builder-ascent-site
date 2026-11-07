@@ -212,21 +212,44 @@
             </div>
             
             <div class="contact-form">
-                <form onsubmit="event.preventDefault(); alert('Thanks — your message has been received.'); this.reset();">
+                <form id="contact-form">
                     <div class="form-group">
-                        <label class="form-label">Name</label>
-                        <input type="text" class="form-control" required placeholder="Enter your name">
+                        <label class="form-label" for="contact-name">Name</label>
+                        <input type="text" id="contact-name" name="name" class="form-control" required placeholder="Enter your name">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control" required placeholder="Enter your email address">
+                        <label class="form-label" for="contact-email">Email</label>
+                        <input type="email" id="contact-email" name="email" class="form-control" required placeholder="Enter your email address">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Message</label>
-                        <textarea class="form-control" required placeholder="How can we help?"></textarea>
+                        <label class="form-label" for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" class="form-control" required placeholder="How can we help?"></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <p class="contact-text" style="font-size: 0.9rem; margin: 0 0 15px;">Clicking the button opens your email app with this message addressed to scott@builderascent.com. Nothing is sent until you press Send in your email app.</p>
+                    <button type="submit" class="submit-btn">Open in My Email App</button>
+                    <p id="contact-status" class="contact-text" role="status" aria-live="polite" style="display: none; font-size: 0.9rem; margin: 15px 0 0;">Your email app should now be open with your message ready. Review it and press Send there. If nothing opened, email <a href="mailto:scott@builderascent.com" style="color: var(--copper);">scott@builderascent.com</a> directly &mdash; your message is still in the form above so you can copy it.</p>
                 </form>
+                <script>
+                    function buildContactMailto(name, email, message) {
+                        var subject = 'Builder Ascent website message from ' + name;
+                        var body = message + '\n\n---\nFrom: ' + name + '\nReply to: ' + email + '\nSent from the contact page at builderascent.com';
+                        return 'mailto:scott@builderascent.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+                    }
+                    (function () {
+                        var form = document.getElementById('contact-form');
+                        if (!form) return;
+                        form.addEventListener('submit', function (event) {
+                            event.preventDefault();
+                            var url = buildContactMailto(
+                                document.getElementById('contact-name').value.trim(),
+                                document.getElementById('contact-email').value.trim(),
+                                document.getElementById('contact-message').value.trim()
+                            );
+                            document.getElementById('contact-status').style.display = 'block';
+                            window.location.href = url;
+                        });
+                    })();
+                </script>
             </div>
             
         </div>
