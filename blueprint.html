@@ -174,7 +174,7 @@
                     </svg>
                     Download Your Blueprint (PDF)
                 </a>
-                <p style="color: var(--text-muted); margin-top: 12px; font-style: italic;">A copy has been sent to your email (simulated for now)</p>
+                <p style="color: var(--text-muted); margin-top: 12px; font-style: italic;">Free PDF download &mdash; no sign-up required.</p>
                 <p style="color: var(--copper); margin-top: 10px; font-weight: 600; opacity: 0.9;">This is your starting point — use it daily to see results.</p>
             </div>
         </div>
@@ -182,8 +182,8 @@
 
     <section class="confirmation-block" style="background-color: var(--bg-dark); padding: 50px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
-            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2rem; margin-bottom: 12px;">You’re In — Here’s Your Next Step</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto;">Check your email for your saved copy. Then download your blueprint below and start applying it on your next job.</p>
+            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2rem; margin-bottom: 12px;">Your Next Step</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto;">Download your Blueprint above, then start applying it on your next job.</p>
         </div>
     </section>
 
@@ -326,16 +326,11 @@
             
             <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 35px; font-style: italic;">Most guys stay stuck because they never learn this part.</p>
             
-            <div id="notify-container" style="max-width: 500px; margin: 0 auto; text-align: left;">
-                <label id="notify-label" for="notify-email" style="display: block; color: var(--text-light); font-weight: 600; margin-bottom: 10px; font-size: 0.95rem;">Get notified when this drops</label>
-                <form id="notify-form" class="lead-form" style="margin-bottom: 15px;" onsubmit="event.preventDefault(); var email = encodeURIComponent(this.querySelector('.lead-input').value); window.open('https://docs.google.com/forms/d/e/1FAIpQLScmTIeXr_2LeNB-Prq57d2PZpGbk0iIjiQc1X04_ACrKDyGDw/viewform?usp=pp_url&entry.1661591698=' + email, '_blank'); this.style.display='none'; document.getElementById('notify-success').style.display='block'; document.getElementById('notify-spam-text').style.display='none'; document.getElementById('notify-label').style.display='none';">
-                    <input type="email" id="notify-email" class="lead-input" placeholder="Enter your email" required style="flex: 1;">
-                    <button type="submit" class="btn btn-large btn-copper" style="padding: 15px 30px; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">Notify Me</button>
-                </form>
-                <div id="notify-success" style="display: none; padding: 15px 20px; background-color: rgba(196,110,61,0.1); border-radius: 4px; border: 1px solid rgba(196,110,61,0.3); color: var(--text-light); font-weight: 500; text-align: center;">
-                    You’re on the list. You’ll be the first to know.
-                </div>
-                <p id="notify-spam-text" style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-top: 10px;">No spam. Just the release and early access.</p>
+            <div id="notify-container" style="max-width: 560px; margin: 0 auto; text-align: center;">
+                <p id="notify-label" style="color: var(--text-light); font-weight: 600; margin-bottom: 15px; font-size: 1rem;">Want to hear when this is ready?</p>
+                <a id="blueprint-updates-cta" href="mailto:scott@builderascent.com?subject=Builder%20Ascent%20Blueprint%20Updates&amp;body=I%27d%20like%20to%20receive%20Builder%20Ascent%20Blueprint%20updates." class="btn btn-large btn-copper" aria-describedby="notify-help" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 15px 30px; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1px;">Join Blueprint Updates</a>
+                <p id="notify-help" style="color: var(--text-muted); font-size: 0.95rem; margin: 15px 0 0; line-height: 1.6;">Send your request to join the Blueprint update list. This opens your email app with a message addressed to scott@builderascent.com &mdash; nothing is sent until you press Send.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 10px 0 0; line-height: 1.6;">Email app didn&rsquo;t open? Email <a href="mailto:scott@builderascent.com" style="color: var(--copper);">scott@builderascent.com</a> with the subject &ldquo;Builder Ascent Blueprint Updates.&rdquo;</p>
             </div>
         </div>
     </section>
