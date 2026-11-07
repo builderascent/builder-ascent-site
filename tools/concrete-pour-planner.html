@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concrete Quantity &amp; Pour Planner | Builder Ascent Field Tools</title>
+    <meta name="description" content="Free field tool: concrete quantities for slabs, footings, walls and piers, planned order quantity, truck allocation and a planned truck arrival timeline. Runs in your browser, no login.">
+
+    <link rel="stylesheet" href="../assets/css/style.css?v=2">
+    <link rel="stylesheet" href="../assets/css/field-tools.css?v=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../public/logos/approved/builder-ascent-favicon.png">
+
+    <meta property="og:title" content="Concrete Quantity &amp; Pour Planner | Builder Ascent">
+    <meta property="og:description" content="Concrete quantities, planned order, truck allocation and a planned truck arrival timeline. Free, no login.">
+    <meta property="og:image" content="https://builderascent.com/public/images/hero-mountain-v2.png">
+    <meta property="og:url" content="https://builderascent.com/tools/concrete-pour-planner.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="ft-page">
+
+    <a class="ft-skip-link" href="#ft-main">Skip to the calculator</a>
+
+    <!-- Navbar (same as site pages, paths adjusted for /tools/) -->
+    <nav class="navbar" id="main-navbar">
+        <div class="container navbar-container">
+            <a href="../index.html" class="logo" aria-label="Builder Ascent Home">
+                <img src="../public/logos/approved/builder-ascent-logo-header.png" alt="Builder Ascent Logo" style="max-height: 55px; width: auto; object-fit: contain;">
+            </a>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation Menu" aria-expanded="false" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-list">
+                <a href="../index.html#start-here" class="nav-link">START HERE</a>
+
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        LEARN <span class="chevron">&#9662;</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../training.html" class="dropdown-link">Training Curriculum</a>
+                        <a href="../training.html" class="dropdown-link">Lean Construction &amp; Flow</a>
+                        <a href="../blog.html" class="dropdown-link">Field Notes / Blog</a>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        SYSTEMS &amp; TOOLS <span class="chevron">&#9662;</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../daily-system.html" class="dropdown-link">Daily Builder System</a>
+                        <a href="../toolbox.html" class="dropdown-link">Toolbox Library</a>
+                        <a href="../index.html#calculator" class="dropdown-link">Field Calculators</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-header">Printable Field Forms</div>
+                        <a href="../daily-foreman-log.html" class="dropdown-link">Daily Foreman Log</a>
+                        <a href="../daily-pre-task.html" class="dropdown-link">Pre-Task Safety Plan</a>
+                        <a href="../job-hazard-analysis.html" class="dropdown-link">Job Hazard Analysis (JHA)</a>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        RESOURCES <span class="chevron">&#9662;</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../blueprint.html" class="dropdown-link">Field Blueprint</a>
+                        <a href="../resources.html" class="dropdown-link">Career Development</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item-note">
+                            <span class="note-title">Field Reference Manual</span>
+                            <span class="badge-status">IN DEVELOPMENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        ABOUT <span class="chevron">&#9662;</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../about.html" class="dropdown-link">Mission &amp; Story</a>
+                        <a href="../contact.html" class="dropdown-link">Contact</a>
+                    </div>
+                </div>
+
+                <a href="../blueprint.html" class="btn btn-primary nav-cta">GET THE BLUEPRINT</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="ft-hero">
+        <div class="container">
+            <span class="ft-eyebrow">BUILDER ASCENT FIELD TOOLS</span>
+            <h1 class="ft-title"><span class="text-metallic">CONCRETE QUANTITY &amp;</span> <span class="text-copper">POUR PLANNER</span></h1>
+            <p class="ft-lede">Quantities for slabs, footings, walls and piers &mdash; with your planned order, truck count and a planned truck arrival timeline. Runs in your browser. No login.</p>
+        </div>
+    </header>
+
+    <main id="ft-main" class="ft-main">
+        <div class="container ft-container">
+
+            <!-- Data language legend -->
+            <section class="ft-legend" aria-labelledby="ft-legend-title">
+                <h2 id="ft-legend-title" class="ft-legend-title">How to read this tool</h2>
+                <ul class="ft-legend-list">
+                    <li><span class="ft-badge ft-badge--calc">CALCULATED</span> Math from your entries.</li>
+                    <li><span class="ft-badge ft-badge--user">USER INPUT</span> Your numbers and assumptions.</li>
+                    <li><span class="ft-badge ft-badge--verify">VERIFY SPEC</span> Confirm with your supplier, plans and project requirements.</li>
+                    <li><span class="ft-badge ft-badge--estimate">ESTIMATE</span> Planning aid only &mdash; not a dispatch schedule.</li>
+                </ul>
+            </section>
+
+            <form id="ft-form" class="ft-grid" novalidate autocomplete="off">
+
+                <!-- ============ INPUTS ============ -->
+                <div class="ft-col ft-col--inputs">
+
+                    <!-- 1. Element -->
+                    <fieldset class="ft-card">
+                        <legend class="ft-card-title"><span class="ft-step">1</span> What are you pouring?</legend>
+                        <div class="ft-segment ft-segment--2x2" role="radiogroup" aria-label="Element type">
+                            <label class="ft-seg-option"><input type="radio" name="mode" value="slab" checked><span>Slab / Flatwork</span></label>
+                            <label class="ft-seg-option"><input type="radio" name="mode" value="trench"><span>Footing / Grade Beam</span></label>
+                            <label class="ft-seg-option"><input type="radio" name="mode" value="wall"><span>Wall / Rect. Column</span></label>
+                            <label class="ft-seg-option"><input type="radio" name="mode" value="pier"><span>Pier / Round Column</span></label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 2. Dimensions -->
+                    <fieldset class="ft-card">
+                        <legend class="ft-card-title"><span class="ft-step">2</span> Dimensions <span class="ft-badge ft-badge--user">USER INPUT</span></legend>
+
+                        <div class="ft-segment" role="radiogroup" aria-label="Dimension units">
+                            <label class="ft-seg-option"><input type="radio" name="units" value="ftin" checked><span>Feet + Inches</span></label>
+                            <label class="ft-seg-option"><input type="radio" name="units" value="dec"><span>Decimal Feet</span></label>
+                        </div>
+
+                        <div id="ft-dimensions" class="ft-dims"><!-- built by concrete-ui.js --></div>
+                        <noscript><p class="ft-error-text">This calculator needs JavaScript turned on in your browser.</p></noscript>
+                    </fieldset>
+
+                    <!-- 3. Order allowances -->
+                    <fieldset class="ft-card">
+                        <legend class="ft-card-title"><span class="ft-step">3</span> Order allowances</legend>
+
+                        <div class="ft-field">
+                            <label class="ft-label" for="ft-waste">Contingency / waste <span class="ft-unit">%</span> <span class="ft-badge ft-badge--user">USER INPUT</span></label>
+                            <input class="ft-input" id="ft-waste" name="waste" type="text" inputmode="decimal" value="0" aria-describedby="ft-waste-help ft-waste-err">
+                            <div class="ft-chips" data-target="ft-waste" aria-label="Example contingency values">
+                                <button type="button" class="ft-chip" data-value="0">0%</button>
+                                <button type="button" class="ft-chip" data-value="3">3%</button>
+                                <button type="button" class="ft-chip" data-value="5">5%</button>
+                                <button type="button" class="ft-chip" data-value="8">8%</button>
+                                <button type="button" class="ft-chip" data-value="12">12%</button>
+                            </div>
+                            <p class="ft-help" id="ft-waste-help">Your allowance. Example values are conveniences, not recommendations.</p>
+                            <p class="ft-error-text" id="ft-waste-err" aria-live="polite"></p>
+                        </div>
+
+                        <div class="ft-field">
+                            <label class="ft-label" for="ft-reserve">Equipment / pump reserve <span class="ft-unit">CY</span> <span class="ft-badge ft-badge--user">USER INPUT</span></label>
+                            <input class="ft-input" id="ft-reserve" name="reserve" type="text" inputmode="decimal" value="0.00" aria-describedby="ft-reserve-help ft-reserve-err">
+                            <div class="ft-chips" data-target="ft-reserve" aria-label="Example reserve values">
+                                <button type="button" class="ft-chip" data-value="0">0</button>
+                                <button type="button" class="ft-chip" data-value="0.5">0.5</button>
+                                <button type="button" class="ft-chip" data-value="1">1.0</button>
+                                <button type="button" class="ft-chip" data-value="1.5">1.5</button>
+                            </div>
+                            <p class="ft-help" id="ft-reserve-help">Extra volume you choose to carry, e.g. for pump line or hopper.</p>
+                            <p class="ft-error-text" id="ft-reserve-err" aria-live="polite"></p>
+                        </div>
+
+                        <div class="ft-field">
+                            <span class="ft-label" id="ft-step-label">Supplier batch increment <span class="ft-badge ft-badge--verify">VERIFY SPEC</span></span>
+                            <div class="ft-segment ft-segment--5" role="radiogroup" aria-labelledby="ft-step-label">
+                                <label class="ft-seg-option"><input type="radio" name="step" value="0"><span>Exact</span></label>
+                                <label class="ft-seg-option"><input type="radio" name="step" value="0.25" checked><span>0.25</span></label>
+                                <label class="ft-seg-option"><input type="radio" name="step" value="0.5"><span>0.50</span></label>
+                                <label class="ft-seg-option"><input type="radio" name="step" value="1"><span>1.00</span></label>
+                                <label class="ft-seg-option"><input type="radio" name="step" value="custom"><span>Custom</span></label>
+                            </div>
+                            <div class="ft-field ft-field--inline" id="ft-step-custom-wrap" hidden>
+                                <label class="ft-label" for="ft-step-custom">Custom increment <span class="ft-unit">CY</span></label>
+                                <input class="ft-input" id="ft-step-custom" type="text" inputmode="decimal" placeholder="e.g. 0.5" aria-describedby="ft-step-err">
+                            </div>
+                            <p class="ft-help">The order is rounded <strong>up</strong> to this step. Default 0.25 CY &mdash; confirm what your supplier batches.</p>
+                            <p class="ft-error-text" id="ft-step-err" aria-live="polite"></p>
+                        </div>
+
+                        <div class="ft-field">
+                            <label class="ft-label" for="ft-truck">Truck capacity <span class="ft-unit">CY per truck</span> <span class="ft-badge ft-badge--verify">VERIFY SPEC</span></label>
+                            <input class="ft-input" id="ft-truck" name="truck" type="text" inputmode="decimal" value="10.0" aria-describedby="ft-truck-help ft-truck-err">
+                            <p class="ft-help" id="ft-truck-help">Default 10.0 CY is a starting point only. Verify load size and legal load limits with your supplier.</p>
+                            <p class="ft-error-text" id="ft-truck-err" aria-live="polite"></p>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- ============ RESULTS ============ -->
+                <div class="ft-col ft-col--results">
+                    <section class="ft-card ft-results" aria-labelledby="ft-results-title" aria-live="polite">
+                        <h2 class="ft-card-title" id="ft-results-title">Results</h2>
+
+                        <div id="ft-results-empty" class="ft-empty">
+                            <p>Enter dimensions to see quantities.</p>
+                        </div>
+
+                        <div id="ft-results-body" hidden>
+                            <div class="ft-order">
+                                <span class="ft-order-label">PLANNED ORDER QUANTITY</span>
+                                <span class="ft-order-value"><span id="r-order">&mdash;</span> <span class="ft-order-unit">CY</span></span>
+                                <span class="ft-badge ft-badge--calc">CALCULATED</span>
+                                <p class="ft-order-note">Calculated from your entries. The order decision stays with you.</p>
+                            </div>
+
+                            <dl class="ft-rows">
+                                <div class="ft-row"><dt>Net volume <span class="ft-badge ft-badge--calc">CALCULATED</span></dt><dd><span id="r-net-cf">&mdash;</span> CF</dd></div>
+                                <div class="ft-row ft-row--strong"><dt>Net volume <span class="ft-badge ft-badge--calc">CALCULATED</span></dt><dd><span id="r-net-cy">&mdash;</span> CY</dd></div>
+                                <div class="ft-row"><dt>Contingency (<span id="r-waste-pct">0</span>%) <span class="ft-badge ft-badge--user">USER INPUT</span></dt><dd>+<span id="r-waste-cy">&mdash;</span> CY</dd></div>
+                                <div class="ft-row"><dt>Reserve <span class="ft-badge ft-badge--user">USER INPUT</span></dt><dd>+<span id="r-reserve">&mdash;</span> CY</dd></div>
+                                <div class="ft-row ft-row--strong"><dt>Unrounded gross need <span class="ft-badge ft-badge--calc">CALCULATED</span></dt><dd><span id="r-gross">&mdash;</span> CY</dd></div>
+                                <div class="ft-row"><dt>Rounding to <span id="r-step">0.25 CY</span> step <span class="ft-badge ft-badge--verify">VERIFY SPEC</span></dt><dd>+<span id="r-rounding">&mdash;</span> CY</dd></div>
+                            </dl>
+
+                            <div class="ft-trucks">
+                                <h3 class="ft-subtitle">Truck allocation <span class="ft-badge ft-badge--calc">CALCULATED</span></h3>
+                                <dl class="ft-rows">
+                                    <div class="ft-row"><dt>Truck capacity <span class="ft-badge ft-badge--verify">VERIFY SPEC</span></dt><dd><span id="r-cap">&mdash;</span> CY</dd></div>
+                                    <div class="ft-row ft-row--strong"><dt>Total trucks</dt><dd id="r-trucks-total">&mdash;</dd></div>
+                                    <div class="ft-row"><dt>Full trucks</dt><dd id="r-trucks-full">&mdash;</dd></div>
+                                    <div class="ft-row"><dt>Partial trucks</dt><dd id="r-trucks-partial">&mdash;</dd></div>
+                                    <div class="ft-row"><dt>Balance volume</dt><dd><span id="r-balance">&mdash;</span> CY</dd></div>
+                                </dl>
+                                <p class="ft-help" id="r-trucks-text"></p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ============ TIMELINE ============ -->
+                <section class="ft-card ft-span" aria-labelledby="ft-timeline-title">
+                    <h2 class="ft-card-title" id="ft-timeline-title"><span class="ft-step">4</span> Planned truck arrival timeline <span class="ft-badge ft-badge--estimate">ESTIMATE</span></h2>
+                    <p class="ft-help">Assumes one active placement point (one pump or chute). Arrival interval and unload time are separate: if trucks arrive faster than they unload, they wait; if slower, the placement point sits idle between loads.</p>
+
+                    <div class="ft-timeline-inputs">
+                        <div class="ft-field">
+                            <label class="ft-label" for="ft-start">First truck arrival <span class="ft-badge ft-badge--user">USER INPUT</span></label>
+                            <input class="ft-input" id="ft-start" type="time" value="07:00" aria-describedby="ft-start-err">
+                            <p class="ft-error-text" id="ft-start-err" aria-live="polite"></p>
+                        </div>
+                        <div class="ft-field">
+                            <label class="ft-label" for="ft-interval">Planned truck arrival interval <span class="ft-unit">min</span> <span class="ft-badge ft-badge--user">USER INPUT</span></label>
+                            <input class="ft-input" id="ft-interval" type="text" inputmode="decimal" value="20" aria-describedby="ft-interval-err">
+                            <button type="button" class="ft-link-btn" id="ft-match-interval">Set equal to unload time</button>
+                            <p class="ft-error-text" id="ft-interval-err" aria-live="polite"></p>
+                        </div>
+                        <div class="ft-field">
+                            <label class="ft-label" for="ft-unload">Estimated unload time per truck <span class="ft-unit">min</span> <span class="ft-badge ft-badge--user">USER INPUT</span></label>
+                            <input class="ft-input" id="ft-unload" type="text" inputmode="decimal" value="20" aria-describedby="ft-unload-err">
+                            <p class="ft-error-text" id="ft-unload-err" aria-live="polite"></p>
+                        </div>
+                    </div>
+
+                    <div id="ft-timeline-empty" class="ft-empty"><p>The timeline appears once the order and trucks are calculated.</p></div>
+                    <div id="ft-timeline-body" hidden>
+                        <div class="ft-timeline-summary">
+                            <div><span class="ft-kicker">Est. final unload complete</span><strong id="t-finish">&mdash;</strong></div>
+                            <div><span class="ft-kicker">Est. placement span</span><strong id="t-span">&mdash;</strong></div>
+                        </div>
+                        <div id="t-warnings"></div>
+                        <div class="ft-table-wrap">
+                            <table class="ft-table">
+                                <caption class="ft-sr-only">Planned truck arrival timeline (estimate)</caption>
+                                <thead>
+                                    <tr><th scope="col">Truck</th><th scope="col">Load</th><th scope="col">Arrives</th><th scope="col">Unload</th><th scope="col">Wait</th></tr>
+                                </thead>
+                                <tbody id="t-rows"></tbody>
+                            </table>
+                        </div>
+                        <p class="ft-notice">Planning estimate only. Real arrivals depend on the supplier&rsquo;s plant and dispatch, travel, site access, placement equipment, testing and weather &mdash; none of which this tool models. This is not an optimized or confirmed schedule.</p>
+                    </div>
+                </section>
+
+                <!-- ============ PRE-POUR REMINDERS ============ -->
+                <fieldset class="ft-card ft-span">
+                    <legend class="ft-card-title"><span class="ft-step">5</span> Pre-pour coordination reminders</legend>
+                    <p class="ft-help">Verify per plans, specifications and project requirements. This is a coordination reminder, <strong>not an inspection certification</strong>.</p>
+                    <ul class="ft-checklist">
+                        <li><label><input type="checkbox" name="remind" value="1"><span><strong>Subgrade / forms</strong> &mdash; subgrade, elevations and formwork checked.</span></label></li>
+                        <li><label><input type="checkbox" name="remind" value="2"><span><strong>Reinforcement / clearances</strong> &mdash; size, spacing, laps, supports and cover checked.</span></label></li>
+                        <li><label><input type="checkbox" name="remind" value="3"><span><strong>Embeds / blockouts / penetrations</strong> &mdash; located and secured.</span></label></li>
+                        <li><label><input type="checkbox" name="remind" value="4"><span><strong>Required inspection release</strong> &mdash; any inspection or release required for this placement obtained.</span></label></li>
+                        <li><label><input type="checkbox" name="remind" value="5"><span><strong>Access / staging / project-approved washout</strong> &mdash; truck route, placement setup and washout location or containment ready and coordinated.</span></label></li>
+                        <li><label><input type="checkbox" name="remind" value="6"><span><strong>Quality / placement / testing / weather</strong> &mdash; mix, placement and finishing plan, any required testing and weather coordinated.</span></label></li>
+                    </ul>
+                </fieldset>
+
+                <!-- ============ FIELD SUMMARY ============ -->
+                <section class="ft-card ft-span" aria-labelledby="ft-summary-title">
+                    <h2 class="ft-card-title" id="ft-summary-title"><span class="ft-step">6</span> Copy field summary</h2>
+                    <div class="ft-field">
+                        <label class="ft-label" for="ft-label">Pour / element description <span class="ft-unit">optional</span> <span class="ft-badge ft-badge--user">USER INPUT</span></label>
+                        <input class="ft-input ft-input--text" id="ft-label" type="text" maxlength="80" placeholder="e.g. Slab on grade, Grids 1-8">
+                    </div>
+                    <p class="ft-help">For text, email, Fieldwire, Procore or a daily report. Only what you entered and what was calculated is included &mdash; nothing else is added.</p>
+                    <label class="ft-label" for="ft-summary">Summary preview</label>
+                    <textarea id="ft-summary" class="ft-summary" readonly rows="12"></textarea>
+                    <div class="ft-actions">
+                        <button type="button" class="ft-btn ft-btn--primary" id="ft-copy">Copy Summary</button>
+                        <button type="button" class="ft-btn ft-btn--ghost" id="ft-reset">Reset Tool</button>
+                    </div>
+                    <p class="ft-status" id="ft-copy-status" role="status" aria-live="polite"></p>
+                </section>
+            </form>
+
+            <p class="ft-disclaimer">Builder Ascent Field Tools are planning aids. Results depend on the numbers you enter. Confirm quantities, mix, delivery and placement requirements with your supplier, plans, specifications and project team. Not engineering advice.</p>
+        </div>
+
+        <!-- Mobile quick-glance bar -->
+        <div class="ft-quickbar" id="ft-quickbar" aria-hidden="true">
+            <span>Order <strong id="q-order">&mdash;</strong></span>
+            <span>Trucks <strong id="q-trucks">&mdash;</strong></span>
+            <span>Done ~<strong id="q-finish">&mdash;</strong></span>
+        </div>
+    </main>
+
+    <!-- Footer (same as site pages, paths adjusted for /tools/) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col-brand">
+                    <a href="../index.html" class="footer-logo" aria-label="Builder Ascent Home">
+                        <img src="../public/logos/approved/builder-ascent-logo-footer.png" alt="Builder Ascent Logo" style="max-height: 48px; width: auto; object-fit: contain;">
+                    </a>
+                    <p class="footer-tagline">BUILT TO RISE</p>
+                    <p class="footer-mission">
+                        Practical training, field systems, and leadership development for commercial construction. Better People. Better Leadership. Better Projects. Building a Better Industry.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">SYSTEMS &amp; TOOLS</h4>
+                    <ul class="footer-nav">
+                        <li><a href="../daily-system.html">Daily System</a></li>
+                        <li><a href="../toolbox.html">Toolbox Library</a></li>
+                        <li><a href="../index.html#calculator">Field Calculators</a></li>
+                        <li><a href="../daily-foreman-log.html">Daily Foreman Log</a></li>
+                        <li><a href="../daily-pre-task.html">Pre-Task Safety Plan</a></li>
+                        <li><a href="../job-hazard-analysis.html">Job Hazard Analysis</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">LEARN &amp; RESOURCES</h4>
+                    <ul class="footer-nav">
+                        <li><a href="../training.html">Training Curriculum</a></li>
+                        <li><a href="../blueprint.html">Field Blueprint</a></li>
+                        <li><a href="../blog.html">Field Notes Blog</a></li>
+                        <li><a href="../resources.html">Career Development</a></li>
+                        <li><span class="footer-status-item">Field Reference <span class="badge-status-inline">In Development</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">PLATFORM</h4>
+                    <ul class="footer-nav">
+                        <li><a href="../builder-ascent-pro.html">Builder Ascent PRO</a></li>
+                        <li><a href="../about.html">Mission &amp; Story</a></li>
+                        <li><a href="../shop.html">Field Gear</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2026 Builder Ascent. All rights reserved.</p>
+                <p class="footer-motto">Built for commercial construction.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/field-tools/field-tools-core.js?v=1"></script>
+    <script src="../assets/js/field-tools/concrete-engine.js?v=1"></script>
+    <script src="../assets/js/field-tools/concrete-ui.js?v=1"></script>
+
+    <!-- Site navigation script (same as other pages) -->
+    <script>
+        (function() {
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('nav-list');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isActive = menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    menuToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                    document.body.style.overflow = isActive ? 'hidden' : '';
+                });
+
+                const dropdowns = navLinks.querySelectorAll('.nav-item.dropdown');
+                dropdowns.forEach(function(dropdown) {
+                    const toggle = dropdown.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        toggle.addEventListener('click', function(e) {
+                            if (window.innerWidth <= 991) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const wasActive = dropdown.classList.contains('active');
+                                dropdowns.forEach(function(d) {
+                                    if (d !== dropdown) {
+                                        d.classList.remove('active');
+                                        const otherToggle = d.querySelector('.dropdown-toggle');
+                                        if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+                                    }
+                                });
+                                dropdown.classList.toggle('active', !wasActive);
+                                toggle.setAttribute('aria-expanded', wasActive ? 'false' : 'true');
+                            }
+                        });
+                    }
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                        dropdowns.forEach(function(d) {
+                            d.classList.remove('active');
+                            const toggle = d.querySelector('.dropdown-toggle');
+                            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                        });
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
