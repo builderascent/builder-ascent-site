@@ -412,6 +412,114 @@ input[type="time"].ft-input { color-scheme: dark; }
 .ft-quickbar.is-visible { display: flex; }
 .ft-quickbar strong { display: block; color: #fff; font-size: 1rem; font-variant-numeric: tabular-nums; }
 
+/* ---------- Breadcrumb (tool pages) ---------- */
+.ft-breadcrumb { font-size: 0.9rem; color: var(--silver-muted); margin: 0 0 14px; }
+.ft-breadcrumb a {
+    display: inline-block;
+    padding: 12px 0;              /* comfortable tap height (>= 44px) */
+    color: var(--copper-hover);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.ft-breadcrumb [aria-current="page"] { color: var(--silver-text); }
+
+/* ---------- Field Tools hub (tools/index.html) ---------- */
+.ft-hub .ft-container { display: grid; gap: 22px; }
+.ft-hub-h2 { font-family: var(--font-heading); font-size: 1.2rem; color: var(--silver-white); margin: 0 0 12px; }
+.ft-hub-intro, .ft-hub-cross {
+    background: var(--surface-2);
+    border: 1px solid var(--steel-border);
+    border-radius: 10px;
+    padding: 18px 16px;
+}
+.ft-hub-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ft-hub-points li { color: var(--silver-text); line-height: 1.5; font-size: 0.97rem; padding-left: 16px; border-left: 3px solid var(--copper); }
+.ft-hub-points strong { color: var(--silver-white); }
+.ft-hub-cross p { color: var(--silver-text); line-height: 1.55; margin: 0 0 14px; }
+.ft-hub-cross strong { color: var(--silver-white); }
+.ft-hub-cross-btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.ft-hub-legend { margin-bottom: 0; }
+
+.ft-jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.ft-jump a {
+    display: inline-flex; align-items: center;
+    min-height: 44px;
+    padding: 8px 14px;
+    border-radius: 22px;
+    border: 1px solid var(--copper-border);
+    color: var(--silver-white);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+.ft-jump a:hover { background: var(--copper-subtle); }
+
+.ft-cat { scroll-margin-top: 16px; }
+.ft-cat-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--copper-hover);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--steel-divider);
+}
+.ft-cat-empty {
+    border: 1px dashed var(--steel-border-bright);
+    border-radius: 10px;
+    padding: 16px;
+    color: var(--silver-text);
+    line-height: 1.55;
+}
+.ft-cat-empty p { margin: 0 0 8px; }
+.ft-cat-empty p:last-child { margin: 0; }
+.ft-cat-empty a { color: var(--copper-hover); font-weight: 700; }
+
+.ft-tool-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.ft-tool-card {
+    border-radius: 10px;
+    padding: 18px 16px;
+    min-width: 0;
+}
+.ft-tool-card--active {
+    background: var(--surface-3-elevated);
+    border: 2px solid var(--copper);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+.ft-tool-card--planned {
+    background: var(--surface-2);
+    border: 1px dashed var(--steel-border-bright);
+}
+.ft-tool-head { display: grid; gap: 8px; justify-items: start; margin-bottom: 8px; }
+.ft-tool-title { font-family: var(--font-heading); font-size: 1.25rem; line-height: 1.25; color: var(--silver-white); margin: 0; }
+.ft-tool-card--planned .ft-tool-title { font-size: 1.05rem; color: var(--silver-text); }
+.ft-tool-desc { color: var(--silver-text); line-height: 1.5; margin: 0 0 10px; font-size: 0.97rem; }
+.ft-tool-note { color: var(--silver-muted); font-size: 0.85rem; font-style: italic; margin: 0; }
+.ft-feature-list { margin: 0 0 16px; padding: 0; list-style: none; display: grid; gap: 7px; }
+.ft-feature-list li { color: var(--silver-white); font-size: 0.95rem; line-height: 1.4; padding-left: 22px; position: relative; }
+.ft-feature-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--copper-hover); font-weight: 800; }
+.ft-tool-cta { display: flex; align-items: center; justify-content: center; width: 100%; text-decoration: none; text-transform: uppercase; }
+
+.ft-status {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1;
+    padding: 6px 9px;
+    border-radius: 4px;
+}
+.ft-status--active { background: #e8955f; color: #0a0e17; }
+.ft-status--planned { background: transparent; color: var(--silver-text); border: 1px solid var(--silver-muted); }
+
+/* Visible keyboard focus for Field Tools links/buttons */
+.ft-page a:focus-visible, .ft-page button:focus-visible {
+    outline: 3px solid var(--ft-estimate);
+    outline-offset: 3px;
+}
+
 /* ---------- Tablet / desktop ---------- */
 @media (min-width: 600px) {
     .ft-title { font-size: 2.4rem; }
@@ -420,6 +528,10 @@ input[type="time"].ft-input { color-scheme: dark; }
     .ft-timeline-inputs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
     .ft-actions { grid-template-columns: 1fr 1fr; }
     .ft-card { padding: 20px 22px; }
+    .ft-tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ft-hub-intro, .ft-hub-cross, .ft-tool-card { padding: 22px 24px; }
+    .ft-tool-cta { width: auto; display: inline-flex; padding-left: 28px; padding-right: 28px; }
+    .ft-feature-list { grid-template-columns: 1fr 1fr; column-gap: 24px; }
 }
 
 @media (min-width: 768px) {
