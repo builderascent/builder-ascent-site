@@ -127,6 +127,22 @@
 
         note: function (html, cls) { return '<div class="ff-note' + (cls ? ' ' + cls : '') + '">' + html + '</div>'; },
 
+        /*
+         * Inspection checklist. items: [{k, label, desc}]; o.options: [[value, label] x3], o.bad: the failing value,
+         * o.badLabel / o.badNoteLabel, o.extraPath (user-added items). No status is ever pre-selected.
+         */
+        checklist: function (path, items, o) {
+            var checks = C.getPath(rec.data, path) || {}, extra = o.extraPath ? (C.getPath(rec.data, o.extraPath) || []) : [];
+            var cnt = checklistCounts(rec, path, items, o);
+            o = Object.assign({}, o, { _focus: fid(path) });
+            var h = '<div class="ff-ck" id="' + fid(path) + '" tabindex="-1"><p class="ff-ck-progress"><strong>' + cnt.done + ' of ' + cnt.total + '</strong> checked' +
+                (cnt.bad ? ' &middot; <span class="ff-ck-badcount">' + cnt.bad + ' ' + esc(o.badLabel) + '</span>' : '') + '</p>';
+            items.forEach(function (it) { h += ckItem(path + '.' + it.k, it.label, it.desc, checks[it.k] || {}, o, null); });
+            extra.forEach(function (x, i) { h += ckItem(o.extraPath + '.' + i, null, null, x, o, i); });
+            if (o.extraPath) h += '<button type="button" class="ff-btn-sm" data-action="ck-add" data-path="' + esc(o.extraPath) + '">+ ' + esc(o.extraLabel || 'Add an item') + '</button>';
+            return h + '</div>';
+        },
+
         projectPicker: function () {
             if (!projects.length) return '';
             return '<div class="ff-field ff-picker"><label class="ff-label" for="ff-project-pick">Use a saved project <span class="ff-opt">(this device)</span></label>' +
@@ -192,6 +208,62 @@
         }
     };
 
+    // ---- checklist helpers (shared by every inspection form) ----
+    function ckItem(base, label, desc, v, o, extraIdx) {
+        var id = fid(base), isBad = v.s === o.bad;
+        var showNote = isBad || !C.isBlank(v.note) || (rec.ui.notes && rec.ui.notes[base]);
+        var h = '<fieldset class="ff-ck-item' + (isBad ? ' is-bad' : (v.s ? ' is-set' : '')) + '" id="' + id + '" tabindex="-1" aria-describedby="' + id + '-err">';
+        if (extraIdx == null) {
+            h += '<legend class="ff-ck-label">' + esc(label) + '</legend>' + (desc ? '<p class="ff-ck-desc">' + esc(desc) + '</p>' : '');
+        } else {
+            h += '<legend class="ff-sr-only">Added item ' + (extraIdx + 1) + (v.label ? ': ' + esc(v.label) : '') + '</legend>' +
+                '<div class="ff-field ff-ck-own"><label class="ff-label ff-label--small" for="' + id + '-label">' + esc(o.extraItemLabel || 'Item') + ' <span class="ff-req">Required</span></label>' +
+                '<div class="ff-inline"><input class="ff-input ff-input--sm" id="' + id + '-label" data-bind="' + esc(base) + '.label" data-kind="text" value="' + esc(v.label || '') + '" autocomplete="off" maxlength="120">' +
+                '<button type="button" class="ff-x" data-action="ck-remove" data-path="' + esc(o.extraPath) + '" data-index="' + extraIdx + '" data-focus="' + o._focus + '" aria-label="Remove added item ' + (extraIdx + 1) + '">&times;</button></div></div>';
+        }
+        h += '<div class="ff-seg ff-seg--ck">' + o.options.map(function (op, i) {
+            return '<label class="ff-seg-opt' + (op[0] === o.bad ? ' ff-seg-opt--bad' : '') + '" for="' + id + '-' + i + '"><input type="radio" id="' + id + '-' + i + '" name="' + id + '" data-bind="' + esc(base) + '.s" data-kind="radio" value="' + esc(op[0]) + '"' +
+                (v.s === op[0] ? ' checked' : '') + '><span>' + esc(op[1]) + '</span></label>';
+        }).join('') + '</div>';
+        if (showNote) {
+            h += '<div class="ff-field ff-ck-note"><label class="ff-label ff-label--small" for="' + id + '-note">' + esc(isBad ? o.badNoteLabel : 'Comment') + (isBad ? ' <span class="ff-req">Required</span>' : '') + '</label>' +
+                '<textarea class="ff-input ff-input--item" rows="1" data-autogrow="1" id="' + id + '-note" data-bind="' + esc(base) + '.note" data-kind="text">' + esc(v.note || '') + '</textarea></div>';
+        } else {
+            h += '<button type="button" class="ff-link ff-link--small" data-action="ck-note" data-path="' + esc(base) + '">Add a comment<span class="ff-sr-only"> for ' + esc(label || v.label || 'this item') + '</span></button>';
+        }
+        return h + errP(id) + '</fieldset>';
+    }
+    function checklistRows(r, path, items, o) {
+        var checks = C.getPath(r.data, path) || {}, rows = [];
+        items.forEach(function (it) { var v = checks[it.k] || {}; rows.push({ base: path + '.' + it.k, label: it.label, s: v.s || '', note: v.note || '', extra: false }); });
+        if (o.extraPath) (C.getPath(r.data, o.extraPath) || []).forEach(function (x, i) { rows.push({ base: o.extraPath + '.' + i, label: x.label || '', s: x.s || '', note: x.note || '', extra: true, n: i + 1 }); });
+        return rows;
+    }
+    function checklistCounts(r, path, items, o) {
+        var c = { total: 0, done: 0, bad: 0, by: {}, badLabels: [] };
+        checklistRows(r, path, items, o).forEach(function (row) {
+            c.total++;
+            if (row.s) { c.done++; c.by[row.s] = (c.by[row.s] || 0) + 1; }
+            if (row.s === o.bad) { c.bad++; c.badLabels.push(trim(row.label) || 'Added item'); }
+        });
+        return c;
+    }
+    function checklistIssues(r, path, items, o, sec) {
+        var out = [];
+        checklistRows(r, path, items, o).forEach(function (row) {
+            var id = fid(row.base), name = row.extra ? (trim(row.label) || 'Added item ' + row.n) : row.label;
+            if (row.extra && !trim(row.label)) out.push({ sec: sec, id: id, msg: 'Added item ' + row.n + ': name the item' });
+            if (!row.s) out.push({ sec: sec, id: id, msg: name + ': not checked' });
+            else if (row.s === o.bad && C.isBlank(row.note)) out.push({ sec: sec, id: id, msg: name + ': add a note on the problem and the action' });
+        });
+        return out;
+    }
+    function checklistSummary(r, path, items, o) {
+        var c = checklistCounts(r, path, items, o);
+        return c.done + ' of ' + c.total + ' checked: ' + o.options.map(function (op) { return (c.by[op[0]] || 0) + ' ' + op[1]; }).join(', ');
+    }
+    function optLabel(o, v) { for (var i = 0; i < o.options.length; i++) if (o.options[i][0] === v) return o.options[i][1]; return ''; }
+
     function statusText(e) {
         var t = 'Acknowledged ' + esc(C.formatStamp(e.at));
         if (e.sig) return t + ' &middot; Signed on this device';
@@ -222,6 +294,16 @@
         },
         label: function (t) { return '<p class="ff-rv-label">' + esc(t) + '</p>'; },
         missing: function (msg) { return '<p class="ff-missing">' + esc(msg) + '</p>'; },
+        checklist: function (r, path, items, o) {
+            return '<p class="ff-rv-text"><strong>' + esc(checklistSummary(r, path, items, o)) + '</strong></p>' +
+                '<div class="ff-table-wrap"><table class="ff-table ff-table--ck"><thead><tr><th scope="col">Item</th><th scope="col">Result</th><th scope="col">Comment / action</th></tr></thead><tbody>' +
+                checklistRows(r, path, items, o).map(function (row) {
+                    var res = row.s ? esc(optLabel(o, row.s)) : '<span class="ff-missing">Not checked</span>';
+                    if (row.s === o.bad) res = '<strong class="ff-ck-badtext">' + res + '</strong>';
+                    return '<tr><th scope="row" data-label="Item">' + (trim(row.label) ? esc(row.label) : '<span class="ff-missing">Unnamed item</span>') + '</th><td data-label="Result">' + res + '</td><td data-label="Comment">' +
+                        (C.isBlank(row.note) ? (row.s === o.bad ? '<span class="ff-missing">Missing</span>' : '') : esc(row.note)) + '</td></tr>';
+                }).join('') + '</tbody></table></div>';
+        },
         crew: function (r, statement) {
             var rows = (r.data.crew || []).filter(function (c) { return trim(c.name); });
             if (!rows.length) return '<p class="ff-none">No crew listed.</p>';
@@ -249,6 +331,14 @@
     // PDF helpers shared by schemas
     // =====================================================================
     var pdfParts = {
+        checklist: function (doc, r, path, items, o) {
+            doc.paragraph(checklistSummary(r, path, items, o), { font: 'B', size: 9.5 });
+            doc.table([{ title: 'Item', w: 0.34 }, { title: 'Result', w: 0.17 }, { title: 'Comment / action', w: 0.49 }],
+                checklistRows(r, path, items, o).map(function (row) {
+                    var bad = row.s === o.bad, res = row.s ? optLabel(o, row.s) : 'Not checked';
+                    return [{ parts: [{ t: trim(row.label) || 'Unnamed item', b: true }] }, { parts: [{ t: bad ? res.toUpperCase() : res, b: bad }] }, row.note || ''];
+                }));
+        },
         sigCell: function (doc, sig, cache) {
             if (!sig || !sig.dataUrl) return null;
             var img = cache[sig.dataUrl] || (cache[sig.dataUrl] = doc.addImage(C.dataUrlToBytes(sig.dataUrl)));
@@ -490,7 +580,7 @@
     function recItem(r, isDraft) {
         var s = forms[r.type], p = trim(C.getPath(r.data, 'project.name')) || 'Untitled project';
         var old = isDraft && (Date.now() - new Date(r.updatedAt).getTime()) > OLD_DRAFT_DAYS * 864e5;
-        var label = s.shortTitle(r) + ' · ' + p;
+        var label = (s.listTitle ? s.listTitle(r) : s.shortTitle(r)) + ' · ' + p;
         return '<li class="ff-rec-item"><div class="ff-rec-info"><p class="ff-rec-title">' + esc(label) + (old ? ' <span class="ff-old">Old draft</span>' : '') + '</p>' +
             '<p class="ff-rec-meta">' + (isDraft ? 'Edited ' + esc(C.formatStamp(r.updatedAt)) : esc(r.recordNo || '') + ' &middot; finalized ' + esc(C.formatStamp(r.finalizedAt))) +
             (r.data.project && r.data.project.date ? ' &middot; record date ' + esc(C.formatDate(r.data.project.date)) : '') +
@@ -853,6 +943,21 @@
                 var src2 = document.getElementById(a.getAttribute('data-src'));
                 if (src2) { src2.value = ''; src2.focus(); }
                 break;
+            case 'ck-note':
+                rec.ui.notes = rec.ui.notes || {}; rec.ui.notes[path] = true;
+                markChanged(true); focusLater(fid(path) + '-note');
+                break;
+            case 'ck-add':
+                arr = (C.getPath(rec.data, path) || []).slice(); arr.push({ id: C.uid('ck'), label: '', s: '', note: '' }); C.setPath(rec.data, path, arr);
+                markChanged(true); focusLater(fid(path + '.' + (arr.length - 1)) + '-label');
+                break;
+            case 'ck-remove':
+                arr = (C.getPath(rec.data, path) || []).slice();
+                var ckx = arr[idx];
+                if (ckx && (trim(ckx.label) || ckx.s || trim(ckx.note)) && !root.confirm('Remove "' + (trim(ckx.label) || 'this item') + '" from the checklist?')) return;
+                arr.splice(idx, 1); C.setPath(rec.data, path, arr);
+                markChanged(true); focusLater(a.getAttribute('data-focus'));
+                break;
             case 'crew-add':
                 rec.data.crew.push({ id: C.uid('crew'), name: '', role: '' });
                 markChanged(true); focusLater(fid('crew.' + (rec.data.crew.length - 1) + '.name'));
@@ -986,6 +1091,7 @@
     root.BAFF.app = {
         register: function (schema) { forms[schema.type] = schema; order.push(schema.type); },
         start: start, fid: fid, ui: ui, rv: rv, pdfParts: pdfParts,
+        checklist: { issues: checklistIssues, counts: checklistCounts, summary: checklistSummary, label: optLabel },
         // exposed for QA scripts
         _debug: { current: function () { return rec; }, buildPdf: function (r) { return buildPdf(r || rec); }, flush: function () { return saveNow(); } }
     };

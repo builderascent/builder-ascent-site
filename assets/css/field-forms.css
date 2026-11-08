@@ -197,6 +197,28 @@ button.ff-chip:focus-visible span { outline: 3px solid var(--copper-hover); outl
 .ff-signoff-name span { color: var(--silver-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 6px; }
 .ff-signoff-name strong { color: #fff; }
 
+/* inspection checklist */
+.ff-ck { display: grid; gap: 12px; }
+.ff-ck-progress { margin: 0; color: var(--silver-text); font-size: 0.95rem; }
+.ff-ck-progress strong { color: #fff; }
+.ff-ck-badcount { color: var(--ff-error); font-weight: 800; }
+.ff-ck-item { border: 1px solid var(--steel-border-bright); border-left: 4px solid var(--steel-border-bright); border-radius: 8px; background: var(--surface-3); padding: 12px; margin: 0; min-width: 0; }
+.ff-ck-item.is-set { border-left-color: var(--ff-ok); }
+.ff-ck-item.is-bad { border-color: var(--ff-error); border-left-color: var(--ff-error); background: rgba(255, 138, 128, 0.06); }
+.ff-ck-item.is-invalid { box-shadow: 0 0 0 2px var(--ff-error); }
+.ff-ck-label { float: left; width: 100%; padding: 0; margin: 0 0 2px; font-weight: 800; color: #fff; font-size: 1rem; letter-spacing: 0.2px; }
+.ff-ck-label + * { clear: both; }
+.ff-ck-desc { margin: 0 0 10px; color: var(--silver-text); font-size: 0.88rem; line-height: 1.4; }
+.ff-ck-own { margin-bottom: 10px; }
+.ff-seg--ck { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.ff-seg--ck .ff-seg-opt span { font-size: 0.92rem; padding: 6px; }
+.ff-seg-opt--bad input:checked + span { border-color: var(--ff-error); background: rgba(255, 138, 128, 0.18); }
+.ff-ck-note { margin: 10px 0 0; }
+.ff-ck-item .ff-link--small { margin-top: 8px; }
+.ff-ck-badtext { color: var(--ff-error); }
+.ff-result-warn { border: 2px solid var(--ff-error); background: rgba(255, 138, 128, 0.08); border-radius: 8px; padding: 12px 14px; margin: 0 0 16px; color: #fff; line-height: 1.5; }
+.ff-result-warn strong { color: var(--ff-error); }
+
 /* bottom action bar: fixed in the thumb zone on phones/tablets
    (the site sets overflow-x:hidden on html/body, which breaks position:sticky) */
 body:has(.ff-bar) { padding-bottom: 76px; }
