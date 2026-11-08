@@ -567,7 +567,8 @@
                             return '<label class="ff-seg-opt" for="ff-start-title-' + t + '"><input type="radio" name="ff-start-title" id="ff-start-title-' + t + '" value="' + t + '"' + (jt === t ? ' checked' : '') + '><span>' + t + '</span></label>';
                         }).join('') + '</div><p class="ff-hint">Same form either way &mdash; choose the name your company uses. JHA = Job Hazard Analysis, JSA = Job Safety Analysis.</p></fieldset>';
                 }
-                h += '<button type="button" class="ff-btn ff-btn--primary ff-choice-btn" data-action="new" data-type="' + type + '" id="ff-new-' + type + '">' + esc(type === 'jha' ? 'Start ' + jt : s.startLabel) + '</button></article>';
+                h += '<button type="button" class="ff-btn ff-btn--primary ff-choice-btn" data-action="new" data-type="' + type + '" id="ff-new-' + type + '">' + esc(type === 'jha' ? 'Start ' + jt : s.startLabel) + '</button>' +
+                    (s.blankPdf ? '<a class="ff-link ff-link--small ff-blank-link" href="' + esc(s.blankPdf) + '" target="_blank" rel="noopener">Print a blank paper copy (PDF)</a>' : '') + '</article>';
             });
             h += '</div></section>';
             if (finals.length) {

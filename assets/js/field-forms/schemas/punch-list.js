@@ -56,6 +56,7 @@
         label: 'Punch List',
         description: 'Walk the job, log every item with its location, trade and target date, and close items out as they’re done. Export a PDF or spreadsheet any time.',
         startLabel: 'Start a Punch List',
+        blankPdf: '/public/downloads/punch_list.pdf',
         authorPath: 'project.preparedBy',
         prefix: function () { return 'PL'; },
         shortTitle: function () { return 'Punch List'; },

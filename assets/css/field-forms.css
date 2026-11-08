@@ -245,6 +245,23 @@ button.ff-chip:focus-visible span { outline: 3px solid var(--copper-hover); outl
 .ff-pl-badge--high { color: #e8955f; }
 .ff-pl-badge--overdue { color: #0a0e17; background: var(--ff-error); border-color: var(--ff-error); }
 .ff-pl-body { padding: 12px; }
+.ff-lg-h { font-family: var(--font-heading); font-size: 0.92rem; letter-spacing: 0.5px; text-transform: uppercase; color: var(--copper-hover); margin: 18px 0 10px; padding-top: 12px; border-top: 1px dashed var(--steel-border-bright); }
+.ff-blank-link { display: inline-block; align-self: center; margin-top: 4px; }
+
+/* paper (blank PDF) list on the Field Forms home */
+.ff-paper { background: var(--surface-2); border: 1px solid var(--steel-border); border-radius: 10px; padding: 16px; }
+.ff-paper summary { cursor: pointer; font-family: var(--font-heading); font-size: 1.05rem; color: var(--silver-white); min-height: 44px; display: flex; align-items: center; }
+.ff-paper ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; }
+.ff-paper li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; padding: 8px 0; border-bottom: 1px dashed var(--steel-border); color: var(--silver-text); }
+.ff-paper li a { color: var(--copper-hover); font-weight: 700; }
+.ff-paper .ff-hint { margin-top: 10px; }
+.ff-home-grid { display: grid; gap: 16px; }
+.ff-home-grid .ff-home-card { display: flex; flex-direction: column; }
+.ff-home-grid .ff-home-card .ff-btn { margin-top: auto; }
+.ff-home-intro { color: var(--silver-text); font-size: 1.05rem; line-height: 1.5; margin: 0; }
+.ff-home-cross { color: var(--silver-text); margin: 0; }
+.ff-home-cross a { color: var(--copper-hover); font-weight: 700; }
+@media (min-width: 992px) { .ff-home-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 /* bottom action bar: fixed in the thumb zone on phones/tablets
    (the site sets overflow-x:hidden on html/body, which breaks position:sticky) */
