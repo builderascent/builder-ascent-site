@@ -455,7 +455,7 @@
     function isLog(r) { var x = r || rec; return !!(x && forms[x.type] && forms[x.type].mode === 'log'); }
 
     function headHtml(label) {
-        var s = schemaOf(rec), p = trim(C.getPath(rec.data, 'project.name'));
+        var s = schemaOf(rec), p = trim(s.headTitle ? s.headTitle(rec) : C.getPath(rec.data, 'project.name'));
         return '<div class="ff-rec-head"><div class="ff-rec-id"><span class="ff-kicker">' + esc(s.shortTitle(rec)) + ' &middot; ' + esc(label) +
             (rec.revisionOf ? ' &middot; Revision ' + rec.revision + ' of ' + esc(rec.revisionOf) : '') + '</span>' +
             '<p class="ff-rec-proj">' + esc(p || 'Untitled project') + '</p></div><p class="ff-save" id="ff-save" role="status" aria-live="polite"></p></div>';
@@ -590,7 +590,7 @@
     }
 
     function recItem(r, isDraft, log) {
-        var s = forms[r.type], p = trim(C.getPath(r.data, 'project.name')) || 'Untitled project';
+        var s = forms[r.type], p = trim(s.headTitle ? s.headTitle(r) : C.getPath(r.data, 'project.name')) || 'Untitled project';
         var label = (s.listTitle ? s.listTitle(r) : s.shortTitle(r)) + ' · ' + p;
         if (log) {
             return '<li class="ff-rec-item"><div class="ff-rec-info"><p class="ff-rec-title">' + esc(label) + '</p>' +

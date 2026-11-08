@@ -416,3 +416,13 @@ body:has(.ff-bar) { padding-bottom: 76px; }
     .ff-dl-row { display: grid !important; grid-template-columns: 1.8in 1fr !important; border-bottom: 1px dotted #999 !important; }
     a { text-decoration: none !important; }
 }
+/* Daily Builder Checklist (ff-dbc-*) */
+.ff-dbc-prog { margin: 0 0 12px; color: var(--silver-text); font-size: 0.95rem; }
+.ff-dbc-prog strong { color: #fff; }
+.ff-dbc-q { margin: 0 0 10px; }
+.ff-dbc-n { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-right: 6px; border-radius: 50%; background: var(--copper); color: #0a0e17; font-size: 0.8rem; font-weight: 800; vertical-align: 1px; }
+.ff-dbc-check { padding: 6px 0 2px; font-weight: 700; }
+.ff-dbc-note { margin: 4px 0 0; }
+.ff-dbc-rules ul { margin: 0; padding-left: 18px; color: var(--silver-white); line-height: 1.5; }
+.ff-dbc-rules li { margin: 0 0 4px; }
+.ff-dbc-rv li { margin-bottom: 8px; }
