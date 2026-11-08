@@ -740,7 +740,8 @@
         var h = '<div class="ff-record">' + headHtml('Final') +
             '<div class="ff-final-banner"><h2 class="ff-sec-title" id="ff-sec-title" tabindex="-1">' + esc(s.shortTitle(rec)) + ' finalized</h2>' +
             '<p>Record ID <strong>' + esc(rec.recordNo) + '</strong> &middot; finalized on this device ' + esc(C.formatStamp(rec.finalizedAt)) + '</p>' +
-            '<p class="ff-hint">This record is locked. To change it, create a revision. The copy on this device is not a backup &mdash; download or share the PDF to keep it.</p></div>' +
+            '<p class="ff-hint">This record is locked. To change it, create a revision. The copy on this device is not a backup &mdash; download or share the PDF to keep it.</p>' +
+            (s.recordNote ? '<p class="ff-record-note">' + esc(s.recordNote) + '</p>' : '') + '</div>' +
             '<div class="ff-out" role="group" aria-label="Save, share or print this record">' +
             '<button type="button" class="ff-btn ff-btn--primary" data-action="pdf-download">Download PDF</button>' +
             (canShare ? '<button type="button" class="ff-btn ff-btn--primary" data-action="pdf-share">Share PDF</button>' : '') +
