@@ -248,6 +248,13 @@ button.ff-chip:focus-visible span { outline: 3px solid var(--copper-hover); outl
 .ff-lg-h { font-family: var(--font-heading); font-size: 0.92rem; letter-spacing: 0.5px; text-transform: uppercase; color: var(--copper-hover); margin: 18px 0 10px; padding-top: 12px; border-top: 1px dashed var(--steel-border-bright); }
 .ff-blank-link { display: inline-block; align-self: center; margin-top: 4px; }
 
+/* daily report repeatable rows */
+.ff-dr-rows { display: grid; gap: 10px; margin: 0 0 12px; }
+.ff-dr-row { background: var(--surface-3); border: 1px solid var(--steel-border-bright); border-radius: 8px; padding: 10px 12px 2px; }
+.ff-dr-row-head { display: flex; justify-content: space-between; align-items: center; margin: 0 0 6px; }
+.ff-dr-row-n { font-weight: 800; color: var(--copper-hover); font-size: 0.9rem; }
+.ff-dr-row .ff-field { margin-bottom: 10px; }
+
 /* paper (blank PDF) list on the Field Forms home */
 .ff-paper { background: var(--surface-2); border: 1px solid var(--steel-border); border-radius: 10px; padding: 16px; }
 .ff-paper summary { cursor: pointer; font-family: var(--font-heading); font-size: 1.05rem; color: var(--silver-white); min-height: 44px; display: flex; align-items: center; }
@@ -261,7 +268,7 @@ button.ff-chip:focus-visible span { outline: 3px solid var(--copper-hover); outl
 .ff-home-intro { color: var(--silver-text); font-size: 1.05rem; line-height: 1.5; margin: 0; }
 .ff-home-cross { color: var(--silver-text); margin: 0; }
 .ff-home-cross a { color: var(--copper-hover); font-weight: 700; }
-@media (min-width: 992px) { .ff-home-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 768px) { .ff-home-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* bottom action bar: fixed in the thumb zone on phones/tablets
    (the site sets overflow-x:hidden on html/body, which breaks position:sticky) */
