@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Punch List | Builder Ascent Field Forms</title>
+    <meta name="description" content="A punch list you keep on your phone: log items by location and trade, close them out as work is done, and export a PDF or spreadsheet any time. Free, no login, data stays on your device.">
+
+    <link rel="stylesheet" href="../../assets/css/style.css?v=2">
+    <link rel="stylesheet" href="../../assets/css/field-tools.css?v=2">
+    <link rel="stylesheet" href="../../assets/css/field-forms.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../public/logos/approved/builder-ascent-favicon.png">
+
+    <meta property="og:title" content="Punch List | Builder Ascent Field Forms">
+    <meta property="og:description" content="Punch list for commercial construction: log, track and close out items. No login.">
+    <meta property="og:image" content="https://builderascent.com/public/images/hero-mountain-v2.png">
+    <meta property="og:url" content="https://builderascent.com/forms/punch-list/">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="ft-page ff-page">
+
+    <a class="ft-skip-link" href="#ff-main">Skip to Punch List</a>
+
+    <!-- Navbar (same as site pages, paths adjusted for /forms/safety-planning/) -->
+    <nav class="navbar" id="main-navbar">
+        <div class="container navbar-container">
+            <a href="../../index.html" class="logo" aria-label="Builder Ascent Home">
+                <img src="../../public/logos/approved/builder-ascent-logo-header.png" alt="Builder Ascent Logo" style="max-height: 55px; width: auto; object-fit: contain;">
+            </a>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation Menu" aria-expanded="false" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-list">
+                <a href="../../index.html#start-here" class="nav-link">START HERE</a>
+
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        LEARN <span class="chevron">&#9662;</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../../training.html" class="dropdown-link">Training Curriculum</a>
+                        <a href="../../training.html" class="dropdown-link">Lean Construction &amp; Flow</a>
+                        <a href="../../blog.html" class="dropdown-link">Field Notes / Blog</a>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        SYSTEMS &amp; TOOLS <span class="chevron">&#9662;</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../../daily-system.html" class="dropdown-link">Daily Builder System</a>
+                        <a href="../../toolbox.html" class="dropdown-link">Toolbox Library</a>
+                        <a href="../../tools/index.html" class="dropdown-link">Field Tools</a>
+                        <a href="../index.html" class="dropdown-link">Interactive Field Forms</a>
+                        <a href="../../index.html#calculator" class="dropdown-link">Field Calculators</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-header">Printable Forms</div>
+                        <a href="../../daily-foreman-log.html" class="dropdown-link">Daily Foreman Log</a>
+                        <a href="../../daily-pre-task.html" class="dropdown-link">Pre-Task Safety Plan</a>
+                        <a href="../../job-hazard-analysis.html" class="dropdown-link">Job Hazard Analysis (JHA)</a>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        RESOURCES <span class="chevron">&#9662;</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../../blueprint.html" class="dropdown-link">Field Blueprint</a>
+                        <a href="../../resources.html" class="dropdown-link">Career Development</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item-note">
+                            <span class="note-title">Field Reference Manual</span>
+                            <span class="badge-status">IN DEVELOPMENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        ABOUT <span class="chevron">&#9662;</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../../about.html" class="dropdown-link">Mission &amp; Story</a>
+                        <a href="../../contact.html" class="dropdown-link">Contact</a>
+                    </div>
+                </div>
+
+                <a href="../../blueprint.html" class="btn btn-primary nav-cta">GET THE BLUEPRINT</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="ft-hero ff-hero">
+        <div class="container">
+            <span class="ft-eyebrow">FIELD FORMS</span>
+            <h1 class="ft-title"><span class="text-metallic">PUNCH</span> <span class="text-copper">LIST</span></h1>
+            <p class="ft-lede">Log every item by location and trade, close items out as the work gets done, and send a PDF or spreadsheet whenever you need to.</p>
+        </div>
+    </header>
+
+    <main id="ff-main" class="ff-main" tabindex="-1">
+        <div class="container ff-container">
+            <nav class="ft-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Interactive Field Forms</a> <span aria-hidden="true">/</span> <a href="#/">Punch List</a></nav>
+            <div id="ff-app" aria-live="off">
+                <noscript><p class="ff-banner">The Punch List needs JavaScript. You can still use the printable forms in the <a href="../../toolbox.html">Toolbox Library</a>.</p></noscript>
+            </div>
+            <p class="ft-disclaimer">Builder Ascent Field Forms help you plan and document the work. They do not replace your site safety plan, project requirements, competent-person decisions or applicable regulations. The punch list is saved only on this device; export it to share it with your team. Signatures are captured on this device and are not identity-verified.</p>
+        </div>
+    </main>
+
+    <!-- Footer (same as site pages, paths adjusted for /forms/safety-planning/) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col-brand">
+                    <a href="../../index.html" class="footer-logo" aria-label="Builder Ascent Home">
+                        <img src="../../public/logos/approved/builder-ascent-logo-footer.png" alt="Builder Ascent Logo" style="max-height: 48px; width: auto; object-fit: contain;">
+                    </a>
+                    <p class="footer-tagline">BUILT TO RISE</p>
+                    <p class="footer-mission">
+                        Practical training, field systems, and leadership development for commercial construction. Better People. Better Leadership. Better Projects. Building a Better Industry.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">SYSTEMS &amp; TOOLS</h4>
+                    <ul class="footer-nav">
+                        <li><a href="../../daily-system.html">Daily System</a></li>
+                        <li><a href="../../toolbox.html">Toolbox Library</a></li>
+                        <li><a href="../../tools/index.html">Field Tools</a></li>
+                        <li><a href="../index.html">Interactive Field Forms</a></li>
+                        <li><a href="../../index.html#calculator">Field Calculators</a></li>
+                        <li><a href="../../daily-foreman-log.html">Daily Foreman Log</a></li>
+                        <li><a href="../../daily-pre-task.html">Pre-Task Safety Plan</a></li>
+                        <li><a href="../../job-hazard-analysis.html">Job Hazard Analysis</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">LEARN &amp; RESOURCES</h4>
+                    <ul class="footer-nav">
+                        <li><a href="../../training.html">Training Curriculum</a></li>
+                        <li><a href="../../blueprint.html">Field Blueprint</a></li>
+                        <li><a href="../../blog.html">Field Notes Blog</a></li>
+                        <li><a href="../../resources.html">Career Development</a></li>
+                        <li><span class="footer-status-item">Field Reference <span class="badge-status-inline">In Development</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">PLATFORM</h4>
+                    <ul class="footer-nav">
+                        <li><a href="../../builder-ascent-pro.html">Builder Ascent PRO</a></li>
+                        <li><a href="../../about.html">Mission &amp; Story</a></li>
+                        <li><a href="../../shop.html">Field Gear</a></li>
+                        <li><a href="../../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2026 Builder Ascent. All rights reserved.</p>
+                <p class="footer-motto">Built for commercial construction.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Site navigation script (same as other pages) -->
+    <script>
+        (function() {
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('nav-list');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isActive = menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    menuToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                    document.body.style.overflow = isActive ? 'hidden' : '';
+                });
+
+                const dropdowns = navLinks.querySelectorAll('.nav-item.dropdown');
+                dropdowns.forEach(function(dropdown) {
+                    const toggle = dropdown.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        toggle.addEventListener('click', function(e) {
+                            if (window.innerWidth <= 991) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const wasActive = dropdown.classList.contains('active');
+                                dropdowns.forEach(function(d) {
+                                    if (d !== dropdown) {
+                                        d.classList.remove('active');
+                                        const otherToggle = d.querySelector('.dropdown-toggle');
+                                        if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+                                    }
+                                });
+                                dropdown.classList.toggle('active', !wasActive);
+                                toggle.setAttribute('aria-expanded', wasActive ? 'false' : 'true');
+                            }
+                        });
+                    }
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                        dropdowns.forEach(function(d) {
+                            d.classList.remove('active');
+                            const toggle = d.querySelector('.dropdown-toggle');
+                            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                        });
+                    });
+                });
+            }
+        })();
+    </script>
+<!-- Builder Ascent Field Forms (all local, no external services) -->
+    <script src="../../assets/js/field-forms/ff-core.js?v=1"></script>
+    <script src="../../assets/js/field-forms/ff-store.js?v=1"></script>
+    <script src="../../assets/js/field-forms/ff-signature.js?v=1"></script>
+    <script src="../../assets/js/field-forms/ff-pdf.js?v=1"></script>
+    <script src="../../assets/js/field-forms/ff-share.js?v=2"></script>
+    <script src="../../assets/js/field-forms/ff-app.js?v=3"></script>
+    <script src="../../assets/js/field-forms/schemas/punch-list.js?v=1"></script>
+    <script>BAFF.app.start({ mount: document.getElementById('ff-app') });</script>
+</body>
+</html>

@@ -444,12 +444,15 @@
             var sr = st === 'done' ? ' (complete)' : st === 'attention' ? ' (needs attention)' : '';
             return '<li><a class="ff-map-link is-' + st + (i === curIdx ? ' is-current' : '') + '" href="#/edit/' + rec.id + '/' + sec.id + '"' + (i === curIdx ? ' aria-current="step"' : '') +
                 '><span class="ff-map-num" aria-hidden="true">' + (i + 1) + '</span><span class="ff-map-t">' + esc(sec.title) + '</span><span class="ff-map-state" aria-hidden="true">' + mark + '</span><span class="ff-sr-only">' + sr + '</span></a></li>';
-        }).join('') + '<li><a class="ff-map-link ff-map-review" href="#/review/' + rec.id + '"><span class="ff-map-num" aria-hidden="true">&#9654;</span><span class="ff-map-t">Review &amp; finalize</span></a></li>';
+        }).join('') + '<li><a class="ff-map-link ff-map-review" href="#/review/' + rec.id + '"><span class="ff-map-num" aria-hidden="true">&#9654;</span><span class="ff-map-t">' + (isLog() ? 'Summary &amp; export' : 'Review &amp; finalize') + '</span></a></li>';
     }
     function updateMap() {
         var list = document.getElementById('ff-map-list');
         if (list) list.innerHTML = mapHtml(currentSection().idx);
     }
+
+    // "log" schemas (punch list, RFI log...) stay open: no finalize/lock, permanent log ID, export snapshots any time
+    function isLog(r) { var x = r || rec; return !!(x && forms[x.type] && forms[x.type].mode === 'log'); }
 
     function headHtml(label) {
         var s = schemaOf(rec), p = trim(C.getPath(rec.data, 'project.name'));
@@ -464,7 +467,7 @@
         var cur = currentSection(), sec = cur.sec, idx = cur.idx;
         rec.ui.visited[sec.id] = true;
         dirty = true; saveSoon();
-        screen.innerHTML = '<div class="ff-edit">' + headHtml('Draft') +
+        screen.innerHTML = '<div class="ff-edit">' + headHtml(isLog() ? 'Log ' + (rec.logNo || '') : 'Draft') +
             '<div class="ff-layout"><nav class="ff-map" aria-label="Form sections">' +
             '<button type="button" class="ff-map-toggle" aria-expanded="false" aria-controls="ff-map-list" data-action="map-toggle"><span>Section ' + (idx + 1) + ' of ' + s.sections.length + ' &middot; ' + esc(sec.title) + '</span><span class="ff-map-caret" aria-hidden="true">&#9662;</span></button>' +
             '<ol class="ff-map-list" id="ff-map-list">' + mapHtml(idx) + '</ol></nav>' +
@@ -472,11 +475,12 @@
             (sec.intro ? '<p class="ff-sec-intro">' + esc(sec.intro) + '</p>' : '') +
             '<div id="ff-attn"></div><div id="ff-sec-body" class="ff-sec-body">' + sec.render(rec, ui) + '</div></section></div>' +
             '<div class="ff-bar"><button type="button" class="ff-btn ff-btn--ghost" data-action="nav-back">' + (idx ? '&larr; Back' : '&larr; Start') + '</button>' +
-            '<button type="button" class="ff-btn ff-btn--primary" data-action="nav-next">' + (idx < s.sections.length - 1 ? 'Next &rarr;' : 'Review &rarr;') + '</button></div></div>';
+            '<button type="button" class="ff-btn ff-btn--primary" data-action="nav-next">' + (idx < s.sections.length - 1 ? 'Next &rarr;' : (isLog() ? 'Summary &rarr;' : 'Review &rarr;')) + '</button></div></div>';
         afterRender();
         setStatus('saved');
         var target = focusId && document.getElementById(focusId);
         if (target) {
+            reveal(target);
             target.scrollIntoView({ block: 'center' });
             var f = target.matches('input,textarea,select,button') ? target : (target.querySelector('input,textarea,select,button') || target);
             f.focus({ preventScroll: true });
@@ -503,6 +507,8 @@
         updateMap();
     }
     function grow(t) { t.style.height = 'auto'; t.style.height = (t.scrollHeight + 4) + 'px'; }
+    // open any collapsed <details> around an element so it can be seen and focused
+    function reveal(el) { for (var p = el; p; p = p.parentElement) if (p.tagName === 'DETAILS' && !p.open) p.open = true; }
 
     function applyErrors() {
         var box = document.getElementById('ff-attn');
@@ -537,11 +543,16 @@
         Promise.all([S.listRecords(), loadProjects()]).then(function (res) {
             var list = res[0] || [];
             list.sort(function (a, b) { return String(b.updatedAt).localeCompare(String(a.updatedAt)); });
-            var drafts = list.filter(function (r) { return r.status !== 'final' && forms[r.type]; });
+            var logs = list.filter(function (r) { return forms[r.type] && isLog(r); });
+            var drafts = list.filter(function (r) { return r.status !== 'final' && forms[r.type] && !isLog(r); });
             var finals = list.filter(function (r) { return r.status === 'final' && forms[r.type]; });
             var jt = S.pref('jhaTitle') === 'JSA' ? 'JSA' : 'JHA';
             var h = '<div class="ff-start">';
             if (msg) h += '<p class="ff-flash" role="status">' + esc(msg) + '</p>';
+            if (logs.length) {
+                h += '<section class="ff-panel" aria-labelledby="ff-logs-h"><h2 class="ff-h2" id="ff-logs-h">Your logs on this device</h2><ul class="ff-rec-list">' +
+                    logs.map(function (r) { return recItem(r, true, true); }).join('') + '</ul></section>';
+            }
             if (drafts.length) {
                 h += '<section class="ff-panel" aria-labelledby="ff-drafts-h"><h2 class="ff-h2" id="ff-drafts-h">Resume a draft</h2><ul class="ff-rec-list">' +
                     drafts.map(function (r) { return recItem(r, true); }).join('') + '</ul></section>';
@@ -577,10 +588,16 @@
         });
     }
 
-    function recItem(r, isDraft) {
+    function recItem(r, isDraft, log) {
         var s = forms[r.type], p = trim(C.getPath(r.data, 'project.name')) || 'Untitled project';
-        var old = isDraft && (Date.now() - new Date(r.updatedAt).getTime()) > OLD_DRAFT_DAYS * 864e5;
         var label = (s.listTitle ? s.listTitle(r) : s.shortTitle(r)) + ' · ' + p;
+        if (log) {
+            return '<li class="ff-rec-item"><div class="ff-rec-info"><p class="ff-rec-title">' + esc(label) + '</p>' +
+                '<p class="ff-rec-meta">' + esc(r.logNo || '') + ' &middot; updated ' + esc(C.formatStamp(r.updatedAt)) + (s.listMeta ? ' &middot; ' + esc(s.listMeta(r)) : '') + '</p></div>' +
+                '<div class="ff-rec-actions"><a class="ff-btn-sm ff-btn-sm--primary" href="#/edit/' + r.id + '/' + (r.section || '') + '">Open<span class="ff-sr-only"> ' + esc(label) + '</span></a>' +
+                '<button type="button" class="ff-btn-sm ff-btn-sm--danger" data-action="delete" data-id="' + r.id + '">Delete<span class="ff-sr-only"> ' + esc(label) + '</span></button></div></li>';
+        }
+        var old = isDraft && (Date.now() - new Date(r.updatedAt).getTime()) > OLD_DRAFT_DAYS * 864e5;
         return '<li class="ff-rec-item"><div class="ff-rec-info"><p class="ff-rec-title">' + esc(label) + (old ? ' <span class="ff-old">Old draft</span>' : '') + '</p>' +
             '<p class="ff-rec-meta">' + (isDraft ? 'Edited ' + esc(C.formatStamp(r.updatedAt)) : esc(r.recordNo || '') + ' &middot; finalized ' + esc(C.formatStamp(r.finalizedAt))) +
             (r.data.project && r.data.project.date ? ' &middot; record date ' + esc(C.formatDate(r.data.project.date)) : '') +
@@ -599,6 +616,7 @@
         var s = forms[type], t = nowISO();
         rec = { id: C.uid('rec'), type: type, status: 'draft', schemaVersion: 1, createdAt: t, updatedAt: t, data: s.newData({ pref: S.pref }), ui: { visited: {}, showErr: {} } };
         rec.section = s.sections[0].id;
+        if (s.mode === 'log') rec.logNo = C.recordNumber(s.prefix(rec));
         dirty = true;
         saveNow().then(function () { go('#/edit/' + rec.id + '/' + rec.section); });
     }
@@ -609,7 +627,8 @@
     function recordHtml(r, editable) {
         var s = schemaOf(r), saved = rec; rec = r;
         var h = '<header class="ff-doc-head"><p class="ff-doc-kicker">Builder Ascent &middot; Field Forms</p><h2 class="ff-doc-title">' + esc(s.docTitle(r)) + '</h2>' +
-            '<p class="ff-doc-meta">' + (r.status === 'final' ? 'Record ID <strong>' + esc(r.recordNo) + '</strong> &middot; Finalized ' + esc(C.formatStamp(r.finalizedAt)) : '<strong>DRAFT</strong> &middot; not finalized') +
+            '<p class="ff-doc-meta">' + (isLog(r) ? 'Log ID <strong>' + esc(r.logNo) + '</strong> &middot; status as of ' + esc(C.formatStamp(nowISO())) :
+                r.status === 'final' ? 'Record ID <strong>' + esc(r.recordNo) + '</strong> &middot; Finalized ' + esc(C.formatStamp(r.finalizedAt)) : '<strong>DRAFT</strong> &middot; not finalized') +
             (r.revisionOf ? ' &middot; Revision ' + r.revision + ' of ' + esc(r.revisionOf) : '') + '</p></header>';
         s.sections.forEach(function (sec, i) {
             h += '<section class="ff-rv" aria-labelledby="ff-rv-' + sec.id + '"><div class="ff-rv-head"><h3 class="ff-rv-title" id="ff-rv-' + sec.id + '">' + (i + 1) + '. ' + esc(sec.title) + '</h3>' +
@@ -621,7 +640,45 @@
         return h;
     }
 
+    function renderLogSummary() {
+        var s = schemaOf(rec), all = issues(rec), canShare = BAFF.share.canShareFiles();
+        var errs = all.filter(function (i) { return i.level !== 'warn'; }), warns = all.filter(function (i) { return i.level === 'warn'; });
+        rec.ui.reviewed = true; dirty = true; saveSoon();
+        var link = function (i) { return '<li><a href="#/edit/' + rec.id + '/' + i.sec + '/' + (i.id || '') + '">' + esc(i.msg) + '</a></li>'; };
+        var h = '<div class="ff-review">' + headHtml('Log ' + (rec.logNo || '')) +
+            '<h2 class="ff-sec-title" id="ff-sec-title" tabindex="-1">Summary &amp; export</h2>' +
+            '<p class="ff-sec-intro">This log stays open so you can keep adding and closing items. Export a PDF snapshot or a spreadsheet whenever you need to send it.</p>' +
+            (errs.length ? '<div class="ff-attn-box" id="ff-errs" tabindex="-1"><p class="ff-attn-h">Needs attention (' + errs.length + ')</p><ul>' + errs.map(link).join('') + '</ul></div>' : '') +
+            (warns.length ? '<div class="ff-attn-box ff-attn-box--warn"><p class="ff-attn-h">Heads up</p><ul>' + warns.map(link).join('') + '</ul></div>' : '') +
+            '<div class="ff-out" role="group" aria-label="Export this log">' +
+            '<button type="button" class="ff-btn ff-btn--primary" data-action="pdf-download">Download PDF snapshot</button>' +
+            (s.csv ? '<button type="button" class="ff-btn ff-btn--primary" data-action="csv-download">Download spreadsheet (CSV)</button>' : '') +
+            (canShare ? '<button type="button" class="ff-btn ff-btn--ghost" data-action="pdf-share">Share PDF</button>' : '') +
+            '<button type="button" class="ff-btn ff-btn--ghost" data-action="print">Print</button>' +
+            '<a class="ff-btn ff-btn--ghost" href="' + esc(BAFF.share.mailtoHref(emailSubject(rec), emailBody(rec))) + '">Email summary</a></div>' +
+            '<p class="ff-hint">The PDF and spreadsheet show the log as it is right now. The spreadsheet opens in Excel, Google Sheets or Numbers. Email opens your email app with a summary &mdash; attach the file you downloaded' + (canShare ? ', or use Share PDF' : '') + '.</p>' +
+            '<p class="ff-save" id="ff-out-status" role="status" aria-live="polite"></p>' +
+            '<div class="ff-printable">' + recordHtml(rec, true) + '</div>' +
+            '<div class="ff-actions"><a class="ff-btn ff-btn--ghost" href="#/edit/' + rec.id + '/' + (s.logHome || s.sections[0].id) + '">&larr; Back to items</a>' +
+            '<a class="ff-btn ff-btn--ghost" href="#/">All logs</a></div></div>';
+        screen.innerHTML = h;
+        setStatus('saved');
+        scrollToScreen();
+        document.getElementById('ff-sec-title').focus({ preventScroll: true });
+    }
+
+    function toCSV(rows) {
+        return rows.map(function (row) {
+            return row.map(function (v) {
+                v = v == null ? '' : String(v);
+                if (/^[=+@\t\r]/.test(v)) v = "'" + v;            // keep spreadsheet apps from treating text as a formula
+                return /[",\r\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+            }).join(',');
+        }).join('\r\n') + '\r\n';
+    }
+
     function renderReview() {
+        if (isLog()) { renderLogSummary(); return; }
         var s = schemaOf(rec), all = issues(rec);
         var errs = all.filter(function (i) { return i.level !== 'warn'; }), warns = all.filter(function (i) { return i.level === 'warn'; });
         rec.ui.reviewed = true; dirty = true; saveSoon();
@@ -692,14 +749,18 @@
             '<p class="ff-save" id="ff-out-status" role="status" aria-live="polite"></p>' +
             '<div class="ff-printable">' + recordHtml(rec, false) + '</div>' +
             '<div class="ff-actions"><button type="button" class="ff-btn ff-btn--ghost" data-action="revise">Create revision</button>' +
-            '<a class="ff-btn ff-btn--ghost" href="#/">Back to Safety Planning</a>' +
+            '<a class="ff-btn ff-btn--ghost" href="#/">Back to start</a>' +
             '<button type="button" class="ff-btn ff-btn--danger" data-action="delete" data-id="' + rec.id + '">Delete from this device</button></div></div>';
         screen.innerHTML = h;
         scrollToScreen();
         document.getElementById('ff-sec-title').focus({ preventScroll: true });
     }
 
-    function emailSubject(r) { var s = schemaOf(r); return s.shortTitle(r) + ' - ' + (trim(C.getPath(r.data, 'project.name')) || 'Project') + ' - ' + C.formatDate(C.getPath(r.data, 'project.date')) + (r.recordNo ? ' - ' + r.recordNo : ''); }
+    function emailSubject(r) {
+        var s = schemaOf(r), proj = trim(C.getPath(r.data, 'project.name')) || 'Project';
+        if (isLog(r)) return s.shortTitle(r) + ' - ' + proj + ' - status ' + C.formatDate(C.todayISO()) + ' - ' + r.logNo;
+        return s.shortTitle(r) + ' - ' + proj + ' - ' + C.formatDate(C.getPath(r.data, 'project.date')) + (r.recordNo ? ' - ' + r.recordNo : '');
+    }
     function emailBody(r) {
         var body = schemaOf(r).summary(r);
         if (body.length > 1400) body = body.slice(0, 1400) + '\n...';
@@ -708,30 +769,31 @@
 
     function buildPdf(r) {
         var s = schemaOf(r), saved = rec; rec = r;
-        var rid = r.status === 'final' ? r.recordNo : 'DRAFT - not finalized';
+        var log = isLog(r), snap = C.formatStamp(nowISO());
+        var rid = log ? r.logNo : r.status === 'final' ? r.recordNo : 'DRAFT - not finalized';
         var proj = trim(C.getPath(r.data, 'project.name')) || 'Project';
         var doc = BAFF.pdf.create({
             title: s.docTitle(r) + ' - ' + proj,
             subject: 'Builder Ascent Field Forms - ' + s.docTitle(r),
             author: trim(C.getPath(r.data, s.authorPath)) || 'Builder Ascent Field Forms user',
-            watermark: r.status === 'final' ? null : 'DRAFT',
-            runningHeader: s.shortTitle(r) + '  ·  ' + proj + '  ·  ' + rid,
+            watermark: r.status === 'final' || log ? null : 'DRAFT',
+            runningHeader: s.shortTitle(r) + '  ·  ' + proj + '  ·  ' + rid + (log ? '  ·  status as of ' + snap : ''),
             footer1: 'Builder Ascent Field Forms  ·  builderascent.com  ·  Record ' + rid,
             footer2: 'Generated ' + C.formatStamp(nowISO()) + '. Prepared on a personal device; signatures are not identity-verified. Shows only the information selected or entered.'
         });
         var cache = {};
         doc.titleBlock({
             title: s.docTitle(r),
-            status: r.status === 'final' ? 'FINAL' : 'DRAFT - NOT FINALIZED',
-            meta: [[['Record ID', rid], ['Record date', C.formatDate(C.getPath(r.data, 'project.date'))]]]
+            status: log ? 'STATUS SNAPSHOT' : r.status === 'final' ? 'FINAL' : 'DRAFT - NOT FINALIZED',
+            meta: log ? [[['Log ID', rid], ['Status as of', snap]]] : [[['Record ID', rid], ['Record date', C.formatDate(C.getPath(r.data, 'project.date'))]]]
                 .concat(r.status === 'final' ? [[['Finalized', C.formatStamp(r.finalizedAt)]].concat(r.revisionOf ? [['Revision', r.revision + ' of ' + r.revisionOf]] : [])] : (r.revisionOf ? [[['Revision', r.revision + ' of ' + r.revisionOf]]] : []))
         });
         s.pdf(r, doc, { parts: pdfParts, cache: cache, signoffValid: signoffValid });
         if (r.finalStatement) doc.paragraph('Finalized with the preparer\'s statement: "' + r.finalStatement + '"', { size: 8.5, font: 'I' });
         var bytes = doc.output();
         rec = saved;
-        var date = C.getPath(r.data, 'project.date') || C.todayISO();
-        var filename = 'BA_' + s.prefix(r) + '_' + C.safeFilePart(proj) + '_' + date + '_' + (r.recordNo || 'DRAFT') + '.pdf';
+        var date = log ? C.todayISO() : (C.getPath(r.data, 'project.date') || C.todayISO());
+        var filename = 'BA_' + s.prefix(r) + '_' + C.safeFilePart(proj) + '_' + date + '_' + (log ? r.logNo : (r.recordNo || 'DRAFT')) + '.pdf';
         return { bytes: bytes, filename: filename };
     }
 
@@ -910,9 +972,16 @@
                 if (act === 'nav-next') go(cur.idx < secs.length - 1 ? '#/edit/' + rec.id + '/' + secs[cur.idx + 1].id : '#/review/' + rec.id);
                 else go(cur.idx > 0 ? '#/edit/' + rec.id + '/' + secs[cur.idx - 1].id : '#/');
                 break;
+            case 'csv-download':
+                try {
+                    var csv = s.csv(rec), cname = 'BA_' + s.prefix(rec) + '_' + C.safeFilePart(trim(C.getPath(rec.data, 'project.name')) || 'Project') + '_' + C.todayISO() + '_' + (rec.logNo || 'LOG') + '.csv';
+                    BAFF.share.downloadText('\uFEFF' + toCSV([csv.header].concat(csv.rows)), cname, 'text/csv');
+                    outStatus('Spreadsheet created: ' + cname + ' \u2014 check your downloads.');
+                } catch (errc) { outStatus('Could not create the spreadsheet on this device.'); if (root.console) console.error(errc); }
+                break;
             case 'focus':
                 var el = document.getElementById(a.getAttribute('data-id'));
-                if (el) { el.scrollIntoView({ block: 'center' }); (el.matches('input,textarea,select') ? el : (el.querySelector('input,textarea,select,button') || el)).focus({ preventScroll: true }); }
+                if (el) { reveal(el); el.scrollIntoView({ block: 'center' }); (el.matches('input,textarea,select') ? el : (el.querySelector('input,textarea,select,button') || el)).focus({ preventScroll: true }); }
                 break;
             case 'now': C.setPath(rec.data, path, C.nowHHMM()); markChanged(true); break;
             case 'clear-value': C.setPath(rec.data, path, ''); markChanged(true); var fs = document.getElementById(fid(path)); if (fs) focusLater(fid(path) + '-0'); break;
@@ -1056,7 +1125,7 @@
             if (rec !== r) { rec = r; rec.ui = rec.ui || { visited: {}, showErr: {} }; dirty = false; }
             if (view === 'edit') { if (rec.status === 'final') { go('#/record/' + id); return; } renderEdit(sec, focusId); }
             else if (view === 'review') { if (rec.status === 'final') { go('#/record/' + id); return; } renderReview(); }
-            else if (view === 'record') renderRecord();
+            else if (view === 'record') { if (isLog()) { go('#/review/' + id); return; } renderRecord(); }
             else renderStart();
             showStorageBanner();
         }, function () { renderStart('Could not open storage on this device.'); });
@@ -1091,6 +1160,7 @@
     root.BAFF.app = {
         register: function (schema) { forms[schema.type] = schema; order.push(schema.type); },
         start: start, fid: fid, ui: ui, rv: rv, pdfParts: pdfParts,
+        isLog: isLog, toCSV: toCSV,
         checklist: { issues: checklistIssues, counts: checklistCounts, summary: checklistSummary, label: optLabel },
         // exposed for QA scripts
         _debug: { current: function () { return rec; }, buildPdf: function (r) { return buildPdf(r || rec); }, flush: function () { return saveNow(); } }

@@ -47,6 +47,16 @@
 
     function print() { root.print(); }
 
+    // Text files (e.g. CSV spreadsheets) generated on the device
+    function downloadText(text, filename, mime) {
+        var url = URL.createObjectURL(new Blob([text], { type: (mime || 'text/plain') + ';charset=utf-8' }));
+        var a = document.createElement('a');
+        a.href = url; a.download = filename; a.rel = 'noopener';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 10000);
+        return true;
+    }
+
     root.BAFF = root.BAFF || {};
-    root.BAFF.share = { download: download, canShareFiles: canShareFiles, shareFile: shareFile, mailtoHref: mailtoHref, print: print };
+    root.BAFF.share = { download: download, downloadText: downloadText, canShareFiles: canShareFiles, shareFile: shareFile, mailtoHref: mailtoHref, print: print };
 })(typeof window !== 'undefined' ? window : this);

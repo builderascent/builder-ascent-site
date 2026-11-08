@@ -219,6 +219,33 @@ button.ff-chip:focus-visible span { outline: 3px solid var(--copper-hover); outl
 .ff-result-warn { border: 2px solid var(--ff-error); background: rgba(255, 138, 128, 0.08); border-radius: 8px; padding: 12px 14px; margin: 0 0 16px; color: #fff; line-height: 1.5; }
 .ff-result-warn strong { color: var(--ff-error); }
 
+/* punch list / logs */
+.ff-pl-stats { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0 0 12px; color: var(--silver-text); font-size: 0.92rem; }
+.ff-pl-stats strong { color: #fff; font-size: 1.05rem; }
+.ff-pl-stats .ff-pl-overdue strong, .ff-pl-overdue { color: var(--ff-error); }
+.ff-pl-add { width: 100%; margin: 0 0 12px; }
+.ff-pl-filter { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+.ff-pl-list { display: grid; gap: 8px; margin: 0 0 12px; }
+.ff-pl-item { border: 1px solid var(--steel-border-bright); border-left: 4px solid var(--ff-warn); border-radius: 8px; background: var(--surface-3); }
+.ff-pl-item.is-progress { border-left-color: #7cc4ff; }
+.ff-pl-item.is-complete { border-left-color: var(--ff-ok); }
+.ff-pl-item.is-overdue { border-left-color: var(--ff-error); }
+.ff-pl-item > summary { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; cursor: pointer; list-style: none; min-height: 48px; }
+.ff-pl-item > summary::-webkit-details-marker { display: none; }
+.ff-pl-item[open] > summary { border-bottom: 1px solid var(--steel-border); }
+.ff-pl-no { flex: 0 0 auto; font-weight: 800; color: var(--copper-hover); min-width: 32px; }
+.ff-pl-sum { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.ff-pl-loc { color: #fff; font-weight: 700; overflow-wrap: anywhere; }
+.ff-pl-desc { color: var(--silver-text); font-size: 0.9rem; overflow-wrap: anywhere; }
+.ff-pl-badges { flex: 0 0 auto; display: grid; gap: 4px; justify-items: end; }
+.ff-pl-badge { display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.4px; text-transform: uppercase; padding: 3px 7px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.ff-pl-badge--open { color: var(--ff-warn); }
+.ff-pl-badge--progress { color: #7cc4ff; }
+.ff-pl-badge--complete { color: var(--ff-ok); }
+.ff-pl-badge--high { color: #e8955f; }
+.ff-pl-badge--overdue { color: #0a0e17; background: var(--ff-error); border-color: var(--ff-error); }
+.ff-pl-body { padding: 12px; }
+
 /* bottom action bar: fixed in the thumb zone on phones/tablets
    (the site sets overflow-x:hidden on html/body, which breaks position:sticky) */
 body:has(.ff-bar) { padding-bottom: 76px; }
