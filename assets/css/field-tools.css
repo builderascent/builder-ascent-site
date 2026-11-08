@@ -552,3 +552,32 @@ input[type="time"].ft-input { color-scheme: dark; }
     .ft-col--results { position: sticky; top: 20px; }
     .ft-quickbar, .ft-quickbar.is-visible { display: none; }
 }
+/* ==========================================================================
+   Material Takeoff (tk-*)
+   ========================================================================== */
+.tk-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; }
+.tk-pair .ft-field, .tk-dims .ft-field { margin-bottom: 12px; }
+.tk-lines-wrap { display: grid; gap: 12px; min-width: 0; }
+.tk-lines-title { margin: 0; }
+.tk-lines-help { margin: 0; }
+#tk-lines { display: grid; gap: 12px; }
+.tk-line-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
+.tk-line-title { font-family: var(--font-heading); font-size: 1.05rem; color: var(--copper-hover); margin: 0; }
+.tk-line-tools { display: flex; gap: 16px; }
+.tk-line-tools .ft-link-btn { margin: 0; }
+.tk-remove { color: var(--ft-error); }
+.tk-measure small { opacity: 0.7; font-weight: 600; font-size: 0.72em; margin-left: 4px; vertical-align: baseline; }
+.tk-dims { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; }
+.tk-buy { margin: 2px 0 10px; border-top: 1px solid var(--steel-divider); padding-top: 10px; }
+.tk-buy summary { cursor: pointer; color: var(--silver-text); font-weight: 600; font-size: 0.92rem; padding: 6px 0; }
+.tk-buy[open] summary { margin-bottom: 10px; }
+.tk-out { border-top: 1px solid var(--steel-divider); padding-top: 4px; }
+.tk-out-empty { color: var(--silver-muted); }
+.tk-add { width: 100%; }
+.tk-notes { width: 100%; min-height: 84px; resize: vertical; }
+.tk-tax-field { margin-top: 16px; }
+.tk-actions { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.tk-actions [hidden] { display: none; }
+.tk-order-table td:nth-child(2) { overflow-wrap: anywhere; }
+.tk-cross { margin-top: 22px; }
+.tk-cross a:not(.ft-btn) { color: var(--copper-hover); font-weight: 700; }
