@@ -758,8 +758,11 @@
         document.getElementById('ff-sec-title').focus({ preventScroll: true });
     }
 
+    // Name used in file names, email subjects and PDF titles (schema headTitle first, then project name)
+    function projTitle(r) { var s = schemaOf(r); return trim(s.headTitle ? s.headTitle(r) : C.getPath(r.data, 'project.name')) || 'Project'; }
+
     function emailSubject(r) {
-        var s = schemaOf(r), proj = trim(C.getPath(r.data, 'project.name')) || 'Project';
+        var s = schemaOf(r), proj = projTitle(r);
         if (isLog(r)) return s.shortTitle(r) + ' - ' + proj + ' - status ' + C.formatDate(C.todayISO()) + ' - ' + r.logNo;
         return s.shortTitle(r) + ' - ' + proj + ' - ' + C.formatDate(C.getPath(r.data, 'project.date')) + (r.recordNo ? ' - ' + r.recordNo : '');
     }
@@ -773,7 +776,7 @@
         var s = schemaOf(r), saved = rec; rec = r;
         var log = isLog(r), snap = C.formatStamp(nowISO());
         var rid = log ? r.logNo : r.status === 'final' ? r.recordNo : 'DRAFT - not finalized';
-        var proj = trim(C.getPath(r.data, 'project.name')) || 'Project';
+        var proj = projTitle(r);
         var doc = BAFF.pdf.create({
             title: s.docTitle(r) + ' - ' + proj,
             subject: 'Builder Ascent Field Forms - ' + s.docTitle(r),
