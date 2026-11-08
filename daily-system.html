@@ -225,11 +225,12 @@
                 <li>Real ways to improve performance</li>
             </ul>
 
-            <form class="newsletter-form" onsubmit="event.preventDefault(); window.open('https://docs.google.com/forms/d/e/1FAIpQLSczXpufRyN-TSPaQkQ2SjAaQhApLCVTFRxVTGT12YYJOK5SEw/viewform?usp=pp_url', '_blank', 'noopener,noreferrer');">
+            <form class="newsletter-form" onsubmit="event.preventDefault(); var n = this.querySelector('input[type=text]').value.trim(), e = this.querySelector('input[type=email]').value.trim(); window.open('https://docs.google.com/forms/d/e/1FAIpQLSczXpufRyN-TSPaQkQ2SjAaQhApLCVTFRxVTGT12YYJOK5SEw/viewform?usp=pp_url&amp;entry.327776919=' + encodeURIComponent(n) + '&amp;entry.2001023589=' + encodeURIComponent(e), '_blank', 'noopener,noreferrer');">
                 <input type="text" placeholder="Your Name" class="newsletter-input" required>
                 <input type="email" placeholder="Your Email" class="newsletter-input" required>
                 <button type="submit" class="btn btn-primary" style="padding: 15px 30px;">Join the Weekly</button>
             </form>
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin: 14px auto 0; max-width: 520px;">Opens a short Google form with your name and email already filled in. Pick what you&rsquo;re interested in and tap Submit to join.</p>
         </div>
     </section>
 

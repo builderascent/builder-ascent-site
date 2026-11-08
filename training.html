@@ -82,6 +82,22 @@
             background-color: var(--bg-darker);
             text-align: center;
         }
+
+        /* Training modules: menu, labels, field-note links */
+        .training-card { cursor: default; scroll-margin-top: 110px; }
+        .training-card:hover { transform: none; background-color: var(--bg-darker); }
+        .module-label { display: inline-block; font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .module-menu { max-width: 800px; margin: 0 auto 30px; display: grid; gap: 10px; }
+        .module-menu-label { grid-column: 1 / -1; margin: 0 0 4px; color: var(--text-muted); font-size: 0.95rem; }
+        .module-menu a { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background-color: var(--bg-darker); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; color: #fff; text-decoration: none; font-weight: 600; line-height: 1.3; }
+        .module-menu a:hover, .module-menu a:focus-visible { border-color: var(--copper); }
+        .module-menu a span { flex: 0 0 28px; height: 28px; border-radius: 50%; background-color: var(--copper); color: #0a0e17; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; }
+        .module-note-link { display: inline-block; color: var(--copper); font-weight: 600; text-decoration: none; }
+        .module-note-link:hover, .module-note-link:focus-visible { text-decoration: underline; }
+        .cta-note { margin: 28px 0 0; color: var(--text-muted); font-size: 0.95rem; }
+        .cta-note a { color: var(--copper); }
+        @media (min-width: 768px) { .module-menu { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (max-width: 600px) { .training-card { padding: 26px 20px; } }
     </style>
     <link rel="icon" type="image/png" href="public/logos/approved/builder-ascent-favicon.png">
 
@@ -148,10 +164,17 @@
     <!-- Content Layout -->
     <section class="training-content">
         <div class="container">
+            <nav class="module-menu" aria-label="Training modules">
+                <p class="module-menu-label">3 modules &middot; about 10 minutes to read</p>
+                <a href="#module-1"><span>1</span> How Work Actually Flows</a>
+                <a href="#module-2"><span>2</span> Thinking Like a Crew Leader</a>
+                <a href="#module-3"><span>3</span> Why Most Guys Stay Stuck</a>
+            </nav>
             <div class="training-grid">
                 
-                <!-- Block 1 Expanded (Advanced) -->
-                <div class="training-card" style="cursor: default;">
+                <!-- Module 1 -->
+                <div class="training-card" id="module-1">
+                    <span class="module-label">Module 1</span>
                     <h3 style="margin-bottom: 20px;">How Work Actually Flows on a Jobsite</h3>
                     
                     <p style="margin-bottom: 40px; color: var(--text-light);">
@@ -229,16 +252,11 @@
                         <a href="forms/safety-planning/index.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">OPEN PRE-TASK PLAN</a>
                     </div>
 
-                    <!-- Lean Guide CTA -->
-                    <div style="background-color: rgba(255, 255, 255, 0.03); border: 1px dashed var(--copper); padding: 20px; border-radius: 8px; margin-top: 10px; margin-bottom: 30px; text-align: center;">
-                        <h4 style="color: white; font-size: 1.1rem; margin-bottom: 5px;">Want the quick guide?</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">Download the free Builder Ascent Lean Construction Guide.</p>
-                        <a href="public/downloads/lean_construction_guide.pdf" download target="_blank" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Download Lean Guide</a>
-                    </div>
+                    <a class="module-note-link" href="blog-flow.html">Read the Field Note: How Work Actually Flows &rarr;</a>
                 </div>
-
-                <!-- Block 2 Expanded -->
-                <div class="training-card" style="cursor: default;">
+                <!-- Module 2 -->
+                <div class="training-card" id="module-2">
+                    <span class="module-label">Module 2</span>
                     <h3 style="margin-bottom: 20px;">Thinking Like a Crew Leader</h3>
                     
                     <p style="margin-bottom: 40px; color: var(--text-light);">
@@ -319,45 +337,82 @@
                         <p style="color: rgba(255, 255, 255, 0.85); font-size: 1rem; margin-bottom: 15px;">Use the <strong>Foreman Daily Log</strong> to document activities, track delays, and own the outcome of your crew.</p>
                         <a href="forms/daily-report/index.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">OPEN DAILY REPORT</a>
                     </div>
+                    <a class="module-note-link" href="blog-leader.html">Read the Field Note: Thinking Like a Crew Leader &rarr;</a>
                 </div>
 
-                <!-- Block 3 -->
-                <div class="training-card" style="cursor: default;">
+                <!-- Module 3 -->
+                <div class="training-card" id="module-3">
+                    <span class="module-label">Module 3</span>
                     <h3 style="margin-bottom: 20px;">Why Most Guys Stay Stuck</h3>
-                    <p style="margin-bottom: 30px; color: var(--text-light);">It’s not just about turning a wrench. Uncover the common traps and mental mistakes that keep good hands from ever running work.</p>
-                    
+
+                    <p style="margin-bottom: 40px; color: var(--text-light);">
+                        In the trades, we respect the guy who shows up early, stays late, and doesn&rsquo;t complain about the grind. But some of the hardest workers on the site are still doing the same tasks they were doing five years ago. They&rsquo;re busy. They&rsquo;re just not moving up.
+                    </p>
+
+                    <div style="margin-bottom: 35px;">
+                        <h4 style="color: var(--copper); font-size: 1.3rem; margin-bottom: 10px; text-transform: uppercase;">The Busy Trap</h4>
+                        <p style="margin-bottom: 10px;">Being busy and being productive are not the same thing. The guys who stay stuck:</p>
+                        <ul style="list-style-type: disc; padding-left: 20px; color: var(--text-muted);">
+                            <li style="margin-bottom: 6px;">Confuse activity with results.</li>
+                            <li style="margin-bottom: 6px;">React to problems instead of preventing them.</li>
+                            <li style="margin-bottom: 6px;">Wait to be told what&rsquo;s next.</li>
+                            <li style="margin-bottom: 0;">Never ask why the work is done the way it is.</li>
+                        </ul>
+                    </div>
+
+                    <p style="font-weight: 500; color: var(--text-light); font-size: 1.15rem; padding-left: 15px; border-left: 2px solid rgba(255,255,255,0.2); margin-bottom: 35px;">
+                        Hard work is the baseline. It&rsquo;s not the differentiator.
+                    </p>
+
+                    <div style="margin-bottom: 35px;">
+                        <h4 style="color: var(--copper); font-size: 1.3rem; margin-bottom: 10px; text-transform: uppercase;">Reliability Is the Currency</h4>
+                        <p style="margin-bottom: 10px;">You can be the hardest worker on the site, but if the super can&rsquo;t trust you to run a layout without a babysitter, you&rsquo;re not ready to run work. Reliability means:</p>
+                        <ul style="list-style-type: disc; padding-left: 20px; color: var(--text-muted);">
+                            <li style="margin-bottom: 6px;">Doing exactly what you said you would do, when you said you&rsquo;d do it.</li>
+                            <li style="margin-bottom: 6px;">Owning your mistakes before someone else finds them.</li>
+                            <li style="margin-bottom: 0;">Thinking two steps ahead of the current task.</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 40px;">
+                        <h4 style="color: var(--copper); font-size: 1.3rem; margin-bottom: 10px; text-transform: uppercase;">How to Get Unstuck</h4>
+                        <ul style="list-style-type: disc; padding-left: 20px; color: var(--text-muted);">
+                            <li style="margin-bottom: 6px;">Look at the schedule, not just your feet. Know what&rsquo;s coming this week, not just today.</li>
+                            <li style="margin-bottom: 6px;">Ask <em>why</em> things are done a certain way.</li>
+                            <li style="margin-bottom: 6px;">Anticipate what the crew next to you needs before they ask for it.</li>
+                            <li style="margin-bottom: 0;">Be the one the super doesn&rsquo;t have to check on.</li>
+                        </ul>
+                    </div>
+
+                    <div style="font-weight: 600; font-style: italic; color: var(--copper); font-size: 1.3rem; margin-bottom: 40px; border-left: 3px solid var(--copper); padding-left: 15px;">
+                        <p style="margin-bottom: 8px;">Stop being the guy who does the work.</p>
+                        <p style="margin-bottom: 0;">Start being the guy who runs the job.</p>
+                    </div>
+
                     <div style="background-color: rgba(196, 110, 61, 0.08); border-left: 3px solid var(--copper); padding: 20px; margin-bottom: 30px; border-radius: 0 4px 4px 0;">
                         <h4 style="color: var(--text-light); font-size: 1.15rem; margin-bottom: 8px; font-family: var(--font-heading); text-transform: uppercase;">Apply This In The Field</h4>
                         <p style="color: rgba(255, 255, 255, 0.85); font-size: 1rem; margin-bottom: 15px;">Use the <strong>Job Hazard Analysis (JHA)</strong> to stop reacting to problems and start anticipating them.</p>
                         <a href="forms/safety-planning/index.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">OPEN JHA</a>
                     </div>
+                    <a class="module-note-link" href="blog-stuck.html">Read the Field Note: Why Most Guys Stay Stuck &rarr;</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- New Application Section -->
-    <section class="section-block" style="background-color: var(--bg-darker); text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-        <div class="container">
-            <h2 class="section-title">Apply This on Your Next Job</h2>
-            <p class="section-subtitle" style="margin-bottom: 40px;">Reading isn’t enough. Use the system in the field.</p>
+    <!-- Closing CTA -->
+    <section class="cta-section">
+        <div class="container" style="max-width: 680px; margin: 0 auto;">
+            <h2 style="margin-bottom: 20px;">Put It to Work</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">Reading isn&rsquo;t enough. Use the system in the field, every day.</p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                 <a href="forms/daily-builder/index.html" class="btn btn-large btn-copper">Use the Daily Builder Checklist</a>
-                <a href="forms/index.html" class="btn btn-large btn-primary">Open Field Forms</a>
+                <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-large btn-primary">Get the Blueprint</a>
             </div>
+            <p class="cta-note">Want to go deeper? <a href="public/downloads/lean_construction_guide.pdf" target="_blank" rel="noopener">Download the Lean Construction Guide (PDF)</a></p>
         </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container" style="max-width: 600px; margin: 0 auto;">
-            <h2 style="margin-bottom: 20px;">Ready to Start Building Better?</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">Get the step-by-step roadmap to go from worker to trusted crew leader.</p>
-            <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-copper" style="padding: 15px 30px; font-size: 1.1rem;">Get the Blueprint</a>
-        </div>
-    </section>
-
     <!-- Footer copied from existing structure -->
         <footer class="footer">
         <div class="container footer-container">
@@ -457,6 +512,30 @@
                     });
                 });
             }
+        })();
+    </script>
+    <!-- Module links: scroll reliably to a module (menu clicks and links from other pages) -->
+    <script>
+        (function () {
+            function go(id, smooth) {
+                var el = document.getElementById(id);
+                if (!el) return false;
+                if (smooth) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return true; }
+                var h = document.documentElement, prev = h.style.scrollBehavior;
+                h.style.scrollBehavior = 'auto';            // jump instantly (the site default is smooth)
+                el.scrollIntoView({ block: 'start' });
+                h.style.scrollBehavior = prev;
+                return true;
+            }
+            document.querySelectorAll('.module-menu a[href^="#module-"]').forEach(function (a) {
+                a.addEventListener('click', function (e) {
+                    var id = a.getAttribute('href').slice(1);
+                    if (go(id, true)) { e.preventDefault(); history.pushState(null, '', '#' + id); }
+                });
+            });
+            function fromHash() { var m = /^#(module-[1-3])$/.exec(location.hash); if (m) go(m[1], false); }
+            window.addEventListener('load', function () { setTimeout(fromHash, 150); });
+            window.addEventListener('popstate', fromHash);
         })();
     </script>
 </body>
