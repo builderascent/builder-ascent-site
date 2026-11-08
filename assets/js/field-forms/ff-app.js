@@ -884,6 +884,7 @@
             C.setPath(rec.data, path, el.value);
             var s = schemaOf(rec);
             markChanged(!!(s.rerenderOn && s.rerenderOn(path)));
+            if (s.afterTextInput) s.afterTextInput(rec, path);   // light in-place updates (e.g. log totals) without re-rendering
             return;
         }
         if (e.type !== 'change') return;

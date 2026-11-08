@@ -83,8 +83,22 @@
         }
         function statusBadge(st) { return '<span class="ff-pl-badge ff-pl-badge--' + (CLOSED[st] ? 'complete' : (st === cfg.statuses[0][0] ? 'open' : 'progress')) + '">' + esc(STATUS_TEXT[st] || st) + '</span>'; }
 
+        function statsHtml(r) {
+            var c = counts(r);
+            return '<div class="ff-pl-stats" aria-label="Totals"><span><strong>' + c.total + '</strong> total</span>' +
+                cfg.statuses.map(function (s) { return '<span><strong>' + c.by[s[0]] + '</strong> ' + esc(s[1].toLowerCase()) + '</span>'; }).join('') +
+                (c.overdue ? '<span class="ff-pl-overdue"><strong>' + c.overdue + '</strong> overdue</span>' : '') +
+                totals(r).map(function (t) { return '<span>' + esc(t[0]) + ' <strong>' + esc(t[1]) + '</strong></span>'; }).join('') + '</div>';
+        }
+
         var schema = {
             type: cfg.type, mode: 'log', logHome: 'items',
+            // keep the totals strip current while someone types a cost, quantity or date (no re-render, so the cursor stays put)
+            afterTextInput: function (r, path) {
+                if (!/^items\./.test(path)) return;
+                var el = document.querySelector('#ff-sec-body .ff-pl-stats');
+                if (el) el.outerHTML = statsHtml(r);
+            },
             label: cfg.label, description: cfg.description, startLabel: cfg.startLabel, blankPdf: cfg.blankPdf,
             authorPath: 'project.preparedBy',
             prefix: function () { return cfg.prefix; },
@@ -138,10 +152,7 @@
                             items.forEach(function (it) { var v = trim(it[fd.k]); if (v && vals.indexOf(v) < 0) vals.push(v); });
                             h += '<datalist id="ff-lg-' + fd.k + '">' + vals.map(function (v) { return '<option value="' + esc(v) + '">'; }).join('') + '</datalist>';
                         });
-                        h += '<div class="ff-pl-stats" aria-label="Totals"><span><strong>' + c.total + '</strong> total</span>' +
-                            cfg.statuses.map(function (s) { return '<span><strong>' + c.by[s[0]] + '</strong> ' + esc(s[1].toLowerCase()) + '</span>'; }).join('') +
-                            (c.overdue ? '<span class="ff-pl-overdue"><strong>' + c.overdue + '</strong> overdue</span>' : '') +
-                            totals(r).map(function (t) { return '<span>' + esc(t[0]) + ' <strong>' + esc(t[1]) + '</strong></span>'; }).join('') + '</div>';
+                        h += statsHtml(r);
                         h += '<button type="button" class="ff-btn ff-btn--primary ff-pl-add" data-action="lg-add">+ ' + esc(cfg.addLabel) + '</button>';
                         if (items.length) {
                             h += '<div class="ff-pl-filter" role="group" aria-label="Show entries">' + FILTERS.map(function (x) {
