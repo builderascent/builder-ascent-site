@@ -7,7 +7,7 @@
     <meta name="description" content="Builder Ascent Field Tools: free interactive calculators and planners for commercial construction field leaders. Runs in your browser, no login.">
 
     <link rel="stylesheet" href="../assets/css/style.css?v=2">
-    <link rel="stylesheet" href="../assets/css/field-tools.css?v=2">
+    <link rel="stylesheet" href="../assets/css/field-tools.css?v=3">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../public/logos/approved/builder-ascent-favicon.png">
 
@@ -33,49 +33,18 @@
                 <span></span>
             </button>
             <div class="nav-links" id="nav-list">
-                <a href="../index.html#start-here" class="nav-link">START HERE</a>
+                <a href="../forms/index.html" class="nav-link">FIELD FORMS</a>
+                <a href="../tools/index.html" class="nav-link" aria-current="page">FIELD TOOLS</a>
 
                 <div class="nav-item dropdown">
                     <button class="dropdown-toggle" type="button" aria-expanded="false">
                         LEARN <span class="chevron">&#9662;</span>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="../training.html" class="dropdown-link">Training Curriculum</a>
-                        <a href="../training.html" class="dropdown-link">Lean Construction &amp; Flow</a>
-                        <a href="../blog.html" class="dropdown-link">Field Notes / Blog</a>
-                    </div>
-                </div>
-
-                <div class="nav-item dropdown">
-                    <button class="dropdown-toggle" type="button" aria-expanded="false">
-                        SYSTEMS &amp; TOOLS <span class="chevron">&#9662;</span>
-                    </button>
-                    <div class="dropdown-menu">
                         <a href="../daily-system.html" class="dropdown-link">Daily Builder System</a>
-                        <a href="../toolbox.html" class="dropdown-link">Toolbox Library</a>
-                        <a href="index.html" class="dropdown-link" aria-current="page">Field Tools</a>
-                        <a href="../forms/index.html" class="dropdown-link">Interactive Field Forms</a>
-                        <a href="../index.html#calculator" class="dropdown-link">Field Calculators</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-header">Printable Forms</div>
-                        <a href="../daily-foreman-log.html" class="dropdown-link">Daily Foreman Log</a>
-                        <a href="../daily-pre-task.html" class="dropdown-link">Pre-Task Safety Plan</a>
-                        <a href="../job-hazard-analysis.html" class="dropdown-link">Job Hazard Analysis (JHA)</a>
-                    </div>
-                </div>
-
-                <div class="nav-item dropdown">
-                    <button class="dropdown-toggle" type="button" aria-expanded="false">
-                        RESOURCES <span class="chevron">&#9662;</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="../blueprint.html" class="dropdown-link">Field Blueprint</a>
-                        <a href="../resources.html" class="dropdown-link">Career Development</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-item-note">
-                            <span class="note-title">Field Reference Manual</span>
-                            <span class="badge-status">IN DEVELOPMENT</span>
-                        </div>
+                        <a href="../training.html" class="dropdown-link">Training</a>
+                        <a href="../blog.html" class="dropdown-link">Field Notes</a>
+                        <a href="../resources.html" class="dropdown-link">Career Resources</a>
                     </div>
                 </div>
 
@@ -113,12 +82,6 @@
                     <li><strong>Field planning aids.</strong> They help you plan and check your thinking. They do not replace plans, specifications, engineering, code requirements or your supplier.</li>
                     <li><strong>Honest about the numbers.</strong> Every result is labelled so you know what was calculated, what you entered, what to verify and what is only an estimate.</li>
                 </ul>
-                <nav class="ft-jump" aria-label="Field Tools categories">
-                    <a href="#cat-quantity">Quantity &amp; Materials</a>
-                    <a href="#cat-planning">Planning &amp; Production</a>
-                    <a href="#cat-layout">Layout / Elevation / Slope</a>
-                    <a href="#cat-reference">Field Reference</a>
-                </nav>
             </section>
 
             <!-- QUANTITY & MATERIALS -->
@@ -143,60 +106,7 @@
                 </article>
             </section>
 
-            <!-- PLANNING & PRODUCTION -->
-            <section class="ft-cat" id="cat-planning" aria-labelledby="cat-planning-title">
-                <h2 class="ft-cat-title" id="cat-planning-title">Planning &amp; Production</h2>
-                <div class="ft-tool-grid">
-                    <article class="ft-tool-card ft-tool-card--planned" aria-labelledby="tool-crew-title">
-                        <div class="ft-tool-head">
-                            <span class="ft-status ft-status--planned">PLANNED</span>
-                            <h3 class="ft-tool-title" id="tool-crew-title">Crew / Production Planning</h3>
-                        </div>
-                        <p class="ft-tool-desc">Crew size, production rates and durations for planning the work.</p>
-                        <p class="ft-tool-note">Planned &mdash; not available yet.</p>
-                    </article>
-                    <article class="ft-tool-card ft-tool-card--planned" aria-labelledby="tool-lookahead-title">
-                        <div class="ft-tool-head">
-                            <span class="ft-status ft-status--planned">PLANNED</span>
-                            <h3 class="ft-tool-title" id="tool-lookahead-title">Look-Ahead / Constraint Planning</h3>
-                        </div>
-                        <p class="ft-tool-desc">Plan the next weeks of work and track what has to be cleared before it can start.</p>
-                        <p class="ft-tool-note">Planned &mdash; not available yet.</p>
-                    </article>
-                </div>
-            </section>
-
-            <!-- LAYOUT / ELEVATION / SLOPE -->
-            <section class="ft-cat" id="cat-layout" aria-labelledby="cat-layout-title">
-                <h2 class="ft-cat-title" id="cat-layout-title">Layout / Elevation / Slope</h2>
-                <div class="ft-tool-grid">
-                    <article class="ft-tool-card ft-tool-card--planned" aria-labelledby="tool-ada-title">
-                        <div class="ft-tool-head">
-                            <span class="ft-status ft-status--planned">PLANNED</span>
-                            <h3 class="ft-tool-title" id="tool-ada-title">ADA / Slope &amp; Elevation</h3>
-                        </div>
-                        <p class="ft-tool-desc">Slope, rise-and-run and elevation checks for flatwork and accessible routes.</p>
-                        <p class="ft-tool-note">Planned &mdash; not available yet.</p>
-                    </article>
-                    <article class="ft-tool-card ft-tool-card--planned" aria-labelledby="tool-pipe-title">
-                        <div class="ft-tool-head">
-                            <span class="ft-status ft-status--planned">PLANNED</span>
-                            <h3 class="ft-tool-title" id="tool-pipe-title">Pipe Slope / Invert</h3>
-                        </div>
-                        <p class="ft-tool-desc">Pipe slope and invert elevations along a run.</p>
-                        <p class="ft-tool-note">Planned &mdash; not available yet.</p>
-                    </article>
-                </div>
-            </section>
-
-            <!-- FIELD REFERENCE -->
-            <section class="ft-cat" id="cat-reference" aria-labelledby="cat-reference-title">
-                <h2 class="ft-cat-title" id="cat-reference-title">Field Reference</h2>
-                <div class="ft-cat-empty">
-                    <p>No interactive reference tools yet. The Builder Ascent Field Reference Manual is <span class="badge-status">IN DEVELOPMENT</span>.</p>
-                    <p>For printable field forms and resources you can use today, visit the <a href="../toolbox.html">Toolbox Library</a>.</p>
-                </div>
-            </section>
+            <p class="ft-hub-next">More tools are being built from real field needs: crew and production planning, look-ahead planning, and slope and elevation checks.</p>
 
             <!-- Data language -->
             <section class="ft-legend ft-hub-legend" aria-labelledby="ft-legend-title">
@@ -209,11 +119,11 @@
                 </ul>
             </section>
 
-            <!-- Toolbox relationship -->
+            <!-- Field Forms relationship -->
             <section class="ft-hub-cross" aria-labelledby="ft-cross-title">
-                <h2 id="ft-cross-title" class="ft-hub-h2">Field Tools vs. Toolbox</h2>
-                <p><strong>Field Tools</strong> are interactive calculators and planners. The <strong>Toolbox</strong> holds downloadable forms, PDFs and printable field resources &mdash; daily reports, JHAs, punch lists and more.</p>
-                <a class="ft-btn ft-btn--ghost ft-hub-cross-btn" href="../toolbox.html">Go to the Toolbox Library</a>
+                <h2 id="ft-cross-title" class="ft-hub-h2">Need a record instead of a number?</h2>
+                <p><strong>Field Tools</strong> work out quantities and plans from your numbers. <strong>Interactive Field Forms</strong> are the records: pre-task plans, JHAs, inspections, punch lists, RFIs, change orders and materials logs, with a clean PDF at the end.</p>
+                <a class="ft-btn ft-btn--ghost ft-hub-cross-btn" href="../forms/index.html">Go to Interactive Field Forms</a>
             </section>
 
             <p class="ft-disclaimer">Builder Ascent Field Tools are planning aids. Results depend on the numbers you enter. Verify quantities, dimensions, slopes, elevations and schedules against your plans, specifications, code requirements, engineering and project team. Not engineering advice.</p>
@@ -235,36 +145,28 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-heading">SYSTEMS &amp; TOOLS</h4>
+                    <h4 class="footer-heading">FIELD WORK</h4>
                     <ul class="footer-nav">
-                        <li><a href="../daily-system.html">Daily System</a></li>
-                        <li><a href="../toolbox.html">Toolbox Library</a></li>
-                        <li><a href="index.html" aria-current="page">Field Tools</a></li>
                         <li><a href="../forms/index.html">Interactive Field Forms</a></li>
-                        <li><a href="../index.html#calculator">Field Calculators</a></li>
-                        <li><a href="../daily-foreman-log.html">Daily Foreman Log</a></li>
-                        <li><a href="../daily-pre-task.html">Pre-Task Safety Plan</a></li>
-                        <li><a href="../job-hazard-analysis.html">Job Hazard Analysis</a></li>
+                        <li><a href="../tools/index.html" aria-current="page">Field Tools</a></li>
+                        <li><a href="../daily-system.html">Daily Builder System</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-heading">LEARN &amp; RESOURCES</h4>
+                    <h4 class="footer-heading">LEARN</h4>
                     <ul class="footer-nav">
-                        <li><a href="../training.html">Training Curriculum</a></li>
+                        <li><a href="../training.html">Training</a></li>
+                        <li><a href="../blog.html">Field Notes</a></li>
+                        <li><a href="../resources.html">Career Resources</a></li>
                         <li><a href="../blueprint.html">Field Blueprint</a></li>
-                        <li><a href="../blog.html">Field Notes Blog</a></li>
-                        <li><a href="../resources.html">Career Development</a></li>
-                        <li><span class="footer-status-item">Field Reference <span class="badge-status-inline">In Development</span></span></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-heading">PLATFORM</h4>
+                    <h4 class="footer-heading">COMPANY</h4>
                     <ul class="footer-nav">
-                        <li><a href="../builder-ascent-pro.html">Builder Ascent PRO</a></li>
                         <li><a href="../about.html">Mission &amp; Story</a></li>
-                        <li><a href="../shop.html">Field Gear</a></li>
                         <li><a href="../contact.html">Contact</a></li>
                     </ul>
                 </div>

@@ -394,6 +394,7 @@ input[type="time"].ft-input { color-scheme: dark; }
 .ft-status:empty { display: none; }
 
 .ft-disclaimer { color: var(--silver-muted); font-size: 0.82rem; line-height: 1.5; margin: 22px 0 0; }
+.ft-hub-next { color: var(--silver-muted); font-style: italic; line-height: 1.5; margin: 0; }
 
 /* ---------- Mobile quick bar ---------- */
 .ft-quickbar {

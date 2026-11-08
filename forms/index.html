@@ -7,8 +7,8 @@
     <meta name="description" content="Builder Ascent Field Forms: interactive safety planning records for commercial construction crews. Fill in on your phone, sign on the device, download a clean PDF. No login.">
 
     <link rel="stylesheet" href="../assets/css/style.css?v=2">
-    <link rel="stylesheet" href="../assets/css/field-tools.css?v=2">
-    <link rel="stylesheet" href="../assets/css/field-forms.css?v=3">
+    <link rel="stylesheet" href="../assets/css/field-tools.css?v=3">
+    <link rel="stylesheet" href="../assets/css/field-forms.css?v=4">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../public/logos/approved/builder-ascent-favicon.png">
 
@@ -34,49 +34,18 @@
                 <span></span>
             </button>
             <div class="nav-links" id="nav-list">
-                <a href="../index.html#start-here" class="nav-link">START HERE</a>
+                <a href="../forms/index.html" class="nav-link" aria-current="page">FIELD FORMS</a>
+                <a href="../tools/index.html" class="nav-link">FIELD TOOLS</a>
 
                 <div class="nav-item dropdown">
                     <button class="dropdown-toggle" type="button" aria-expanded="false">
                         LEARN <span class="chevron">&#9662;</span>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="../training.html" class="dropdown-link">Training Curriculum</a>
-                        <a href="../training.html" class="dropdown-link">Lean Construction &amp; Flow</a>
-                        <a href="../blog.html" class="dropdown-link">Field Notes / Blog</a>
-                    </div>
-                </div>
-
-                <div class="nav-item dropdown">
-                    <button class="dropdown-toggle" type="button" aria-expanded="false">
-                        SYSTEMS &amp; TOOLS <span class="chevron">&#9662;</span>
-                    </button>
-                    <div class="dropdown-menu">
                         <a href="../daily-system.html" class="dropdown-link">Daily Builder System</a>
-                        <a href="../toolbox.html" class="dropdown-link">Toolbox Library</a>
-                        <a href="../tools/index.html" class="dropdown-link">Field Tools</a>
-                        <a href="index.html" class="dropdown-link" aria-current="page">Interactive Field Forms</a>
-                        <a href="../index.html#calculator" class="dropdown-link">Field Calculators</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-header">Printable Forms</div>
-                        <a href="../daily-foreman-log.html" class="dropdown-link">Daily Foreman Log</a>
-                        <a href="../daily-pre-task.html" class="dropdown-link">Pre-Task Safety Plan</a>
-                        <a href="../job-hazard-analysis.html" class="dropdown-link">Job Hazard Analysis (JHA)</a>
-                    </div>
-                </div>
-
-                <div class="nav-item dropdown">
-                    <button class="dropdown-toggle" type="button" aria-expanded="false">
-                        RESOURCES <span class="chevron">&#9662;</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="../blueprint.html" class="dropdown-link">Field Blueprint</a>
-                        <a href="../resources.html" class="dropdown-link">Career Development</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-item-note">
-                            <span class="note-title">Field Reference Manual</span>
-                            <span class="badge-status">IN DEVELOPMENT</span>
-                        </div>
+                        <a href="../training.html" class="dropdown-link">Training</a>
+                        <a href="../blog.html" class="dropdown-link">Field Notes</a>
+                        <a href="../resources.html" class="dropdown-link">Career Resources</a>
                     </div>
                 </div>
 
@@ -107,59 +76,63 @@
     <main id="ff-main" class="ff-main" tabindex="-1">
         <div class="container ff-container ff-home">
 
-            <article class="ff-home-card" aria-labelledby="ff-sp-title">
-                <span class="ff-badge-proto">NEW</span>
-                <h2 id="ff-sp-title">Safety Planning</h2>
-                <p>Plan the work and the hazards before the crew starts &mdash; then have the crew acknowledge it right on the device.</p>
+            <p class="ff-home-intro">Pick what you need to fill out. Everything works on a phone, saves as you go, and turns into a clean PDF you can send.</p>
+
+            <div class="ff-home-grid">
+                <article class="ff-home-card" aria-labelledby="ff-sp-title">
+                    <h2 id="ff-sp-title">Safety Planning</h2>
+                    <p>Plan the work and the hazards before the crew starts, then have the crew sign on right on the device.</p>
+                    <ul>
+                        <li><strong>Daily Pre-Task Plan</strong> &mdash; today&rsquo;s work, hazards and controls, PPE, permits and crew sign-on.</li>
+                        <li><strong>JHA / JSA</strong> &mdash; task steps with hazards, controls and who&rsquo;s responsible.</li>
+                    </ul>
+                    <a class="ff-btn ff-btn--primary" href="safety-planning/index.html">Open Safety Planning</a>
+                </article>
+
+                <article class="ff-home-card" aria-labelledby="ff-insp-title">
+                    <h2 id="ff-insp-title">Inspections</h2>
+                    <p>Check equipment and PPE point by point, record what needs fixing, and sign it on the device.</p>
+                    <ul>
+                        <li><strong>Equipment Inspection</strong> &mdash; pre-use check with a clear result: safe to use, needs repair, or do not use.</li>
+                        <li><strong>PPE Inspection</strong> &mdash; hard hats, eye and hearing protection, gloves, high-vis, respirators, boots and fall protection.</li>
+                    </ul>
+                    <a class="ff-btn ff-btn--primary" href="inspections/index.html">Open Inspections</a>
+                </article>
+
+                <article class="ff-home-card" aria-labelledby="ff-logs-title">
+                    <h2 id="ff-logs-title">Project Logs</h2>
+                    <p>Living logs that stay open while the work moves. Add entries, close them out, and send a PDF or spreadsheet any time.</p>
+                    <ul>
+                        <li><strong>Punch List</strong> &mdash; items by location and trade, with open and overdue at a glance.</li>
+                        <li><strong>RFI Log</strong> &mdash; questions, who they went to, when the answer is needed, and the response.</li>
+                        <li><strong>Change Order Log</strong> &mdash; changes with cost and time impact and approval status.</li>
+                        <li><strong>Materials Log</strong> &mdash; deliveries, quantities, damage and where it&rsquo;s stored.</li>
+                    </ul>
+                    <a class="ff-btn ff-btn--primary" href="logs/index.html">Open Project Logs</a>
+                </article>
+            </div>
+
+            <p class="ff-home-cross">Need numbers instead of a record? <a href="../tools/index.html">Field Tools</a> has the calculators and planners, like the Concrete Pour Planner.</p>
+
+            <details class="ff-paper" id="paper-forms">
+                <summary>Blank paper forms (PDF)</summary>
+                <p class="ff-hint">For crews that still work on paper. The interactive versions above are faster and fill the PDF for you. Forms without an interactive version yet are listed here too.</p>
                 <ul>
-                    <li><strong>Daily Pre-Task Plan</strong> &mdash; the short shift-start plan: today&rsquo;s work, hazards and controls, PPE, permits and crew sign-on.</li>
-                    <li><strong>Hazard Analysis &mdash; JHA / JSA</strong> &mdash; break a task into steps with hazards, controls and the person responsible. One form; choose the name your company uses.</li>
+                    <li><span>Daily Pre-Task Safety Plan</span> <a href="../public/downloads/pre_task_safety_plan.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Job Hazard Analysis (JHA)</span> <a href="../public/downloads/jha.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Equipment Inspection Checklist</span> <a href="../public/downloads/equipment_checklist.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>PPE Inspection Checklist</span> <a href="../public/downloads/ppe_checklist.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Punch List</span> <a href="../public/downloads/punch_list.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Change Order Log</span> <a href="../public/downloads/change_order_log.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Materials Log</span> <a href="../public/downloads/materials_log.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Daily Report / Foreman Log <em>(interactive version coming)</em></span> <a href="../public/downloads/daily_report.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Toolbox Talk Safety Meeting <em>(coming)</em></span> <a href="../public/downloads/toolbox_talk.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Incident Report <em>(coming)</em></span> <a href="../public/downloads/incident_report.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Near Miss Report <em>(coming)</em></span> <a href="../public/downloads/near_miss_report.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Daily Builder Checklist</span> <a href="../public/downloads/daily_builder_checklist.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
+                    <li><span>Material Takeoff Sheet <em>(Field Tool coming)</em></span> <a href="../public/downloads/material_takeoff.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
                 </ul>
-                <a class="ff-btn ff-btn--primary" href="safety-planning/index.html">Open Safety Planning</a>
-            </article>
-
-            <article class="ff-home-card" aria-labelledby="ff-insp-title">
-                <span class="ff-badge-proto">NEW</span>
-                <h2 id="ff-insp-title">Inspections</h2>
-                <p>Check equipment and PPE point by point, record what needs fixing, and sign it on the device.</p>
-                <ul>
-                    <li><strong>Equipment Inspection</strong> &mdash; pre-use check of a machine with a clear result: safe to use, needs repair, or do not use.</li>
-                    <li><strong>PPE Inspection</strong> &mdash; hard hats, eye and hearing protection, gloves, high-vis, respirators, boots and fall protection.</li>
-                </ul>
-                <a class="ff-btn ff-btn--primary" href="inspections/index.html">Open Inspections</a>
-            </article>
-
-            <article class="ff-home-card" aria-labelledby="ff-punch-title">
-                <span class="ff-badge-proto">NEW</span>
-                <h2 id="ff-punch-title">Punch List</h2>
-                <p>A living punch list you keep on your phone. It stays open while you add, assign and close items &mdash; no paper to re-copy.</p>
-                <ul>
-                    <li>Log items by location, trade, priority and target date; mark them in progress or complete as work moves.</li>
-                    <li>See what&rsquo;s open and overdue at a glance, then send a PDF snapshot or a spreadsheet (CSV) any time.</li>
-                </ul>
-                <a class="ff-btn ff-btn--primary" href="punch-list/index.html">Open Punch List</a>
-            </article>
-
-            <section aria-labelledby="ff-what-title">
-                <h2 class="ff-h2" id="ff-what-title">Field Forms, Field Tools and the Toolbox</h2>
-                <div class="ff-compare">
-                    <div>
-                        <h3>Interactive Field Forms</h3>
-                        <p>Interactive documentation and records: fill in, review, finalize, sign on the device, download or share a PDF.</p>
-                    </div>
-                    <div>
-                        <h3>Field Tools</h3>
-                        <p>Interactive calculators and planners that work out quantities and plans from your numbers.</p>
-                        <p><a href="../tools/index.html">Go to Field Tools</a></p>
-                    </div>
-                    <div>
-                        <h3>Toolbox</h3>
-                        <p>Printable and downloadable forms and resources, including the original PDF forms.</p>
-                        <p><a href="../toolbox.html">Go to the Toolbox Library</a></p>
-                    </div>
-                </div>
-            </section>
-
+            </details>
             <section class="ff-panel" aria-labelledby="ff-data-title">
                 <h2 class="ff-h2" id="ff-data-title">Your data and signatures</h2>
                 <ul class="ff-points">
@@ -187,36 +160,28 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-heading">SYSTEMS &amp; TOOLS</h4>
+                    <h4 class="footer-heading">FIELD WORK</h4>
                     <ul class="footer-nav">
-                        <li><a href="../daily-system.html">Daily System</a></li>
-                        <li><a href="../toolbox.html">Toolbox Library</a></li>
+                        <li><a href="../forms/index.html" aria-current="page">Interactive Field Forms</a></li>
                         <li><a href="../tools/index.html">Field Tools</a></li>
-                        <li><a href="index.html" aria-current="page">Interactive Field Forms</a></li>
-                        <li><a href="../index.html#calculator">Field Calculators</a></li>
-                        <li><a href="../daily-foreman-log.html">Daily Foreman Log</a></li>
-                        <li><a href="../daily-pre-task.html">Pre-Task Safety Plan</a></li>
-                        <li><a href="../job-hazard-analysis.html">Job Hazard Analysis</a></li>
+                        <li><a href="../daily-system.html">Daily Builder System</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-heading">LEARN &amp; RESOURCES</h4>
+                    <h4 class="footer-heading">LEARN</h4>
                     <ul class="footer-nav">
-                        <li><a href="../training.html">Training Curriculum</a></li>
+                        <li><a href="../training.html">Training</a></li>
+                        <li><a href="../blog.html">Field Notes</a></li>
+                        <li><a href="../resources.html">Career Resources</a></li>
                         <li><a href="../blueprint.html">Field Blueprint</a></li>
-                        <li><a href="../blog.html">Field Notes Blog</a></li>
-                        <li><a href="../resources.html">Career Development</a></li>
-                        <li><span class="footer-status-item">Field Reference <span class="badge-status-inline">In Development</span></span></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-heading">PLATFORM</h4>
+                    <h4 class="footer-heading">COMPANY</h4>
                     <ul class="footer-nav">
-                        <li><a href="../builder-ascent-pro.html">Builder Ascent PRO</a></li>
                         <li><a href="../about.html">Mission &amp; Story</a></li>
-                        <li><a href="../shop.html">Field Gear</a></li>
                         <li><a href="../contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -282,5 +247,6 @@
             }
         })();
     </script>
+    <script>if (location.hash === '#paper-forms') { var pf = document.getElementById('paper-forms'); if (pf) pf.open = true; }</script>
 </body>
 </html>
