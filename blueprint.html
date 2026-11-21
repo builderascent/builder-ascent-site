@@ -585,7 +585,7 @@
                 var h = '<p class="bp-result-score"><strong>' + yes + ' of ' + QS.length + '</strong> &middot; ' + head + '</p>';
                 if (gaps.length) {
                     h += '<h3>Work on these first</h3><ol class="bp-focus">' + gaps.slice(0, 3).map(function (g) {
-                        return '<li><strong>' + g.area + '</strong><span><a href="' + g.sec + '" data-bp-jump>Re-read it</a> &middot; <a href="' + g.go[0] + '">' + g.go[1] + ' &rarr;</a></span></li>';
+                        return '<li><strong>' + g.area + '</strong><span><a data-to="' + g.sec + '" data-bp-jump>Re-read it</a> &middot; <a data-to="' + g.go[0] + '">' + g.go[1] + ' &rarr;</a></span></li>';
                     }).join('') + '</ol>';
                     if (gaps.length > 3) h += '<p class="bp-result-more">Also on your list: ' + gaps.slice(3).map(function (g) { return g.area; }).join(', ') + '.</p>';
                 } else {
@@ -594,6 +594,7 @@
                 h += '<p class="bp-result-note">' + (saved.at ? 'Saved on this device ' + saved.at + '. ' : '') + 'Come back in a few weeks and check again. <button type="button" class="bp-reset" id="bp-reset">Start over</button></p>';
                 out.hidden = false;
                 out.innerHTML = h;
+                out.querySelectorAll('a[data-to]').forEach(function (a) { a.setAttribute('href', a.getAttribute('data-to')); });
                 out.querySelectorAll('a[data-bp-jump]').forEach(function (a) {
                     a.addEventListener('click', function (e) { if (jump(a.getAttribute('href').slice(1), true)) e.preventDefault(); });
                 });
