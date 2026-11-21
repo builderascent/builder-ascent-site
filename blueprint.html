@@ -206,6 +206,9 @@
             .bp-sec .step-card { padding: 20px 16px; }
         }
     </style>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0a0e17">
+    <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png">
 </head>
 <body>
         <nav class="navbar" id="main-navbar">
@@ -717,6 +720,7 @@
             }
         })();
     </script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }</script>
 </body>
 </html>
 

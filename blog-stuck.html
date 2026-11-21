@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="assets/css/style.css?v=2">
     <link rel="icon" type="image/png" href="public/logos/approved/builder-ascent-favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0a0e17">
+    <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png">
 </head>
 <body>
 
@@ -227,6 +230,7 @@
             }
         })();
     </script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }</script>
 </body>
 </html>
 

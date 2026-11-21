@@ -17,6 +17,9 @@
     <meta property="og:image" content="https://builderascent.com/public/images/hero-mountain-v2.png">
     <meta property="og:url" content="https://builderascent.com/forms/">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0a0e17">
+    <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png">
 </head>
 <body class="ft-page ff-page">
 
@@ -164,7 +167,31 @@
                     <li><span>Material Takeoff Sheet <em>(or use the <a href="../tools/material-takeoff.html">Field Tool</a>)</em></span> <a href="../public/downloads/material_takeoff.pdf" target="_blank" rel="noopener">Print blank PDF</a></li>
                 </ul>
             </details>
-            <section class="ff-panel" aria-labelledby="ff-data-title">
+            <section class="ff-panel" id="install" aria-labelledby="ff-install-title">
+                <h2 class="ff-h2" id="ff-install-title">Put it on your home screen</h2>
+                <p class="ff-home-intro" style="margin-bottom: 12px;">Install Builder Ascent like an app. It opens full screen, and the forms and tools keep working with no signal &mdash; anything you fill in is saved on the phone.</p>
+                <button type="button" class="ff-btn ff-btn--primary" id="ff-install-btn" style="display: none;">Install the app</button>
+                <p class="ff-home-intro" id="ff-install-done" hidden><strong>Installed.</strong> Open Builder Ascent from your home screen.</p>
+                <ul class="ff-points">
+                    <li><strong>Android (Chrome):</strong> tap <em>Install the app</em> above, or the &#8942; menu &rarr; <em>Add to Home screen</em>.</li>
+                    <li><strong>iPhone (Safari):</strong> tap the Share button &rarr; <em>Add to Home Screen</em>. On iPhone, the home-screen app keeps its own saved records, separate from Safari &mdash; pick one and stick with it.</li>
+                    <li>Sharing or emailing a PDF needs a connection. With no signal, download the PDF to your phone and send it later.</li>
+                </ul>
+            </section>
+            <script>
+                (function () {
+                    var btn = document.getElementById('ff-install-btn'), done = document.getElementById('ff-install-done'), deferred = null;
+                    var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+                    if (standalone) { done.hidden = false; return; }
+                    window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; btn.style.display = ''; });
+                    btn.addEventListener('click', function () {
+                        if (!deferred) return;
+                        deferred.prompt();
+                        deferred.userChoice.then(function (c) { if (c && c.outcome === 'accepted') { btn.style.display = 'none'; done.hidden = false; } deferred = null; });
+                    });
+                    window.addEventListener('appinstalled', function () { btn.style.display = 'none'; done.hidden = false; });
+                })();
+            </script>            <section class="ff-panel" aria-labelledby="ff-data-title">
                 <h2 class="ff-h2" id="ff-data-title">Your data and signatures</h2>
                 <ul class="ff-points">
                     <li>Everything you enter is saved only in this browser on this device. Nothing is uploaded to Builder Ascent, and there is no account.</li>
@@ -279,5 +306,6 @@
         })();
     </script>
     <script>if (location.hash === '#paper-forms') { var pf = document.getElementById('paper-forms'); if (pf) pf.open = true; }</script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }</script>
 </body>
 </html>

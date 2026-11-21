@@ -15,6 +15,9 @@
     <meta property="og:image" content="https://builderascent.com/public/images/hero-mountain-v2.png">
     <meta property="og:url" content="https://builderascent.com/daily-system.html">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0a0e17">
+    <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png">
 </head>
 <body>
 
@@ -346,6 +349,7 @@
             }
         })();
     </script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }</script>
 </body>
 </html>
 
