@@ -11,7 +11,7 @@
  * (new page, new ?v= number on a form/tool asset). Old saved copies are deleted on activate.
  * Records people fill in live in IndexedDB/localStorage and are never touched by this file.
  */
-var VERSION = '2026-11-21-1';
+var VERSION = '2026-11-21-2';
 var PRECACHE_NAME = 'ba-precache-' + VERSION;
 var RUNTIME_NAME = 'ba-runtime-' + VERSION;
 var FONT_NAME = 'ba-fonts';
@@ -21,6 +21,7 @@ var PRECACHE = [
     '/index.html',
     '/assets/css/style.css?v=5',
     '/public/logos/approved/builder-ascent-favicon.png',
+    '/public/icons/apple-touch-icon.png',
     '/offline.html',
     '/blueprint.html',
     '/assets/css/style.css?v=2',
@@ -28,7 +29,7 @@ var PRECACHE = [
     '/forms/index.html',
     '/forms/',
     '/assets/css/field-tools.css?v=4',
-    '/assets/css/field-forms.css?v=7',
+    '/assets/css/field-forms.css?v=8',
     '/forms/safety-planning/index.html',
     '/forms/safety-planning/',
     '/assets/js/field-forms/ff-core.js?v=1',
@@ -56,6 +57,9 @@ var PRECACHE = [
     '/assets/js/field-forms/ff-log.js?v=2',
     '/assets/js/field-forms/schemas/punch-list.js?v=2',
     '/assets/js/field-forms/schemas/project-logs.js?v=1',
+    '/forms/look-ahead/index.html',
+    '/forms/look-ahead/',
+    '/assets/js/field-forms/schemas/look-ahead.js?v=1',
     '/tools/index.html',
     '/tools/',
     '/tools/concrete-pour-planner.html',
@@ -67,8 +71,7 @@ var PRECACHE = [
     '/assets/js/field-tools/takeoff-ui.js?v=1',
     '/manifest.webmanifest',
     '/public/icons/icon-192.png',
-    '/public/icons/icon-512.png',
-    '/public/icons/apple-touch-icon.png'
+    '/public/icons/icon-512.png'
 ];
 
 self.addEventListener('install', function (event) {
