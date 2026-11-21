@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /offline.html
+
+Sitemap: https://builderascent.com/sitemap.xml
