@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Your Blueprint | BuilderAscent">
-    <meta property="og:description" content="The path from laborer to leader starts here.">
+    <meta property="og:title" content="Your Field Blueprint | Builder Ascent">
+    <meta property="og:description" content="How to stand out, take control, and move up on the jobsite. Free field leadership guide with a 2-minute self-check.">
     <meta property="og:image" content="https://builderascent.com/public/images/hero-mountain-v2.png">
     <meta property="og:url" content="https://builderascent.com/blueprint.html">
-    <title>Your Blueprint | Builder Ascent</title>
+    <title>Your Field Blueprint | Builder Ascent</title>
     <!-- Share the master style sheet -->
     <link rel="stylesheet" href="assets/css/style.css?v=2">
     <link rel="icon" type="image/png" href="public/logos/approved/builder-ascent-favicon.png">
@@ -81,6 +81,130 @@
             margin-bottom: 0;
             font-size: 1.1rem;
         }
+        /* ---- Blueprint web version (bp-*) ---- */
+        .step-card:hover { transform: none; }
+        .bp-eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 800; letter-spacing: 1.5px; color: var(--copper); border: 1px solid rgba(196,110,61,0.45); border-radius: 4px; padding: 5px 10px; margin-bottom: 18px; }
+        .bp-hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
+        .bp-hero-note { color: var(--text-muted); margin: 16px auto 0; font-size: 0.95rem; max-width: 640px; line-height: 1.6; }
+        .bp-hero-note a { color: var(--copper); font-weight: 600; }
+        .bp-checks { list-style: none; padding: 0; margin: 0 auto; display: inline-grid; gap: 12px; text-align: left; max-width: 640px; }
+        .bp-checks li { color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.05rem; display: flex; gap: 12px; align-items: baseline; }
+        .bp-checks li span { color: var(--copper); font-weight: 800; }
+        .bp-wrap { max-width: 860px; position: relative; z-index: 2; }
+        .bp-menu { display: grid; gap: 8px; margin: 0 0 40px; }
+        .bp-menu-label { grid-column: 1 / -1; margin: 0 0 4px; color: var(--text-muted); font-size: 0.95rem; }
+        .bp-menu a { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background-color: rgba(10,14,23,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; text-decoration: none; font-weight: 600; line-height: 1.3; }
+        .bp-menu a:hover, .bp-menu a:focus-visible { border-color: var(--copper); }
+        .bp-menu a span { flex: 0 0 34px; height: 28px; border-radius: 4px; background-color: var(--copper); color: #0a0e17; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; }
+        .bp-menu .bp-menu-check { border-color: rgba(196,110,61,0.55); }
+        .bp-sec { background-color: rgba(10,14,23,0.88); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 34px 32px; margin: 0 0 26px; scroll-margin-top: 100px; color: rgba(255,255,255,0.85); line-height: 1.6; font-size: 1.05rem; }
+        .bp-sec > p { margin: 0 0 14px; }
+        .bp-sec-head { display: flex; gap: 16px; align-items: center; margin-bottom: 22px; }
+        .bp-num { flex: 0 0 auto; min-width: 56px; height: 56px; padding: 0 8px; border-radius: 6px; background-color: var(--copper); color: #fff; font-family: var(--font-heading); font-weight: 900; font-size: 1.7rem; display: inline-flex; align-items: center; justify-content: center; }
+        .bp-kicker { display: block; color: var(--copper); font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+        .bp-sec-head h2 { font-family: var(--font-heading); color: #fff; font-size: 1.7rem; line-height: 1.2; margin: 0; }
+        .bp-sec-head h2 small { font-size: 0.6em; color: var(--text-muted); font-weight: 700; }
+        .bp-sec h3 { font-family: var(--font-heading); color: #fff; font-size: 1.15rem; margin: 0 0 8px; }
+        .bp-sub { margin: 34px 0 16px !important; font-size: 1.3rem !important; color: var(--copper) !important; }
+        .bp-chips { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .bp-chips li { padding: 8px 14px; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem; color: #fff; }
+        .bp-truth { background-color: rgba(196,110,61,0.08); border-left: 4px solid var(--copper); border-radius: 0 8px 8px 0; padding: 20px 22px; margin: 6px 0 18px; }
+        .bp-truth h3 { color: var(--copper); text-transform: uppercase; letter-spacing: 0.5px; }
+        .bp-truth p { margin: 0 0 10px; }
+        .bp-truth-punch { color: var(--copper); font-weight: 700; font-size: 1.15rem; margin: 10px 0 0 !important; }
+        .bp-banner { background-color: rgba(255,255,255,0.04); border-radius: 6px; padding: 12px 16px; margin: 18px 0 0 !important; }
+        .bp-banner--copper { background-color: var(--copper); color: #0a0e17; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bp-ticks { list-style: none; padding: 0; margin: 0 0 14px; }
+        .bp-ticks li { position: relative; padding-left: 24px; margin-bottom: 6px; }
+        .bp-ticks li::before { content: "\2713"; position: absolute; left: 0; color: var(--copper); font-weight: 800; }
+        .bp-notice { list-style: none; counter-reset: bpn; padding: 0; margin: 0 0 10px; display: grid; gap: 16px; }
+        .bp-notice > li { counter-increment: bpn; position: relative; padding: 0 0 16px 48px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .bp-notice > li::before { content: counter(bpn); position: absolute; left: 0; top: -4px; font-family: var(--font-heading); font-weight: 900; font-size: 1.9rem; color: var(--copper); }
+        .bp-notice ul { margin: 0 0 8px; padding-left: 18px; }
+        .bp-notice p { margin: 0 0 8px; }
+        .bp-aside { font-style: italic; color: var(--text-muted); border-left: 2px solid rgba(255,255,255,0.2); padding-left: 12px; }
+        .bp-accent { color: var(--copper); }
+        .bp-phases { display: grid; gap: 16px; }
+        .bp-phase { position: relative; background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 20px 20px 22px; }
+        .bp-phase-n { position: absolute; top: 18px; right: 20px; font-family: var(--font-heading); font-weight: 900; font-size: 2rem; color: rgba(196,110,61,0.6); }
+        .bp-phase h3 { font-size: 1.35rem; text-transform: uppercase; margin: 0; }
+        .bp-phase-when { color: var(--copper); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 2px 0 12px; }
+        .bp-phase ul { margin: 0 0 12px; padding-left: 18px; }
+        .bp-phase p { margin: 0 0 10px; }
+        .bp-phase .bp-ticks { padding-left: 0; }
+        .bp-callout { background-color: rgba(196,110,61,0.1); border-radius: 6px; padding: 10px 12px; font-weight: 600; color: #fff; }
+        .bp-form-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; margin-top: 6px; border-radius: 6px; background-color: var(--copper); color: #fff; font-weight: 700; text-decoration: none; font-size: 0.95rem; }
+        .bp-form-btn:hover, .bp-form-btn:focus-visible { filter: brightness(1.1); }
+        .bp-more { display: inline-block; margin-top: 16px; color: var(--copper); font-weight: 600; text-decoration: none; }
+        .bp-more:hover, .bp-more:focus-visible { text-decoration: underline; }
+        .bp-habits { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+        .bp-habits li { padding: 12px 14px; background-color: rgba(255,255,255,0.03); border-left: 3px solid var(--copper); border-radius: 0 6px 6px 0; color: #fff; font-weight: 600; }
+        .bp-sec .step-card { background-color: rgba(255,255,255,0.03); padding: 26px; margin-bottom: 16px; }
+        .bp-sec .step-card h3 { font-size: 1.35rem; }
+        .bp-sec .step-card p { font-size: 1.02rem; }
+        .bp-shift { display: grid; gap: 12px; align-items: center; margin-top: 18px; }
+        .bp-shift > div { background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px 16px; }
+        .bp-shift span { display: block; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+        .bp-shift p { margin: 0; font-size: 1.1rem; color: #fff; font-weight: 600; }
+        .bp-shift .bp-shift-to { border: 1px solid var(--copper); }
+        .bp-shift .bp-shift-to span { color: var(--copper); }
+        .bp-shift-arrow { background: none !important; padding: 0 !important; text-align: center; color: var(--copper); font-size: 1.6rem; transform: rotate(90deg); }
+        .bp-mistakes { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+        .bp-mistakes li { position: relative; padding: 10px 12px 10px 42px; background-color: rgba(255,255,255,0.03); border-radius: 6px; color: #fff; font-weight: 600; }
+        .bp-mistakes li::before { content: "\2715"; position: absolute; left: 12px; top: 9px; width: 20px; height: 20px; border-radius: 50%; background-color: #c0392b; color: #fff; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; }
+        .bp-wastes { display: grid; gap: 12px; margin: 16px 0; }
+        .bp-waste { background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 16px; font-size: 0.98rem; }
+        .bp-waste h3 { font-size: 1.05rem; text-transform: uppercase; display: flex; gap: 8px; align-items: baseline; }
+        .bp-waste h3 span { color: var(--copper); font-size: 1.3rem; }
+        .bp-waste h3 small { font-size: 0.7em; color: var(--text-muted); }
+        .bp-waste p { margin: 0 0 8px; }
+        .bp-waste ul { margin: 0; padding-left: 18px; }
+        .bp-fix { color: var(--copper); font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin: 10px 0 4px !important; }
+        .bp-why { margin: 8px 0 0 !important; }
+        .bp-loop { list-style: none; counter-reset: bpl; padding: 0; margin: 0 0 18px; display: grid; gap: 10px; }
+        .bp-loop li { counter-increment: bpl; background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px 16px; display: grid; gap: 2px; }
+        .bp-loop li strong { color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bp-loop li strong::before { content: counter(bpl) ". "; color: var(--copper); }
+        .bp-loop li span { color: var(--text-muted); }
+        .bp-final { margin: 26px 0 0; padding: 22px 24px; border-left: 4px solid var(--copper); background-color: rgba(196,110,61,0.08); border-radius: 0 8px 8px 0; }
+        .bp-final p { margin: 0; font-family: var(--font-heading); font-size: 1.3rem; line-height: 1.4; color: #fff; }
+        .bp-final span { color: var(--copper); }
+        .bp-check { border-color: rgba(196,110,61,0.55); }
+        .bp-q-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; counter-reset: bpq; }
+        .bp-q { counter-increment: bpq; }
+        .bp-q fieldset { border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 14px 16px; margin: 0; }
+        .bp-q legend { float: left; width: 100%; padding: 0; margin: 0 0 10px; color: #fff; font-weight: 600; }
+        .bp-q legend::before { content: counter(bpq) ". "; color: var(--copper); font-weight: 800; }
+        .bp-q-opts { clear: both; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .bp-q-opts label { position: relative; cursor: pointer; }
+        .bp-q-opts input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+        .bp-q-opts span { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; font-weight: 700; font-size: 0.95rem; color: rgba(255,255,255,0.85); text-align: center; }
+        .bp-q-opts input:checked + span { background-color: var(--copper); border-color: var(--copper); color: #fff; }
+        .bp-q-opts input[value="n"]:checked + span { background-color: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.5); }
+        .bp-q-opts input:focus-visible + span { box-shadow: 0 0 0 3px rgba(196,110,61,0.45); }
+        .bp-result { margin-top: 22px; padding: 20px 22px; border-radius: 8px; background-color: rgba(196,110,61,0.08); border: 1px solid rgba(196,110,61,0.45); }
+        .bp-result h3 { margin: 16px 0 10px; }
+        .bp-result-score, .bp-result-progress { margin: 0; font-size: 1.15rem; color: #fff; }
+        .bp-result-score strong { color: var(--copper); font-size: 1.4rem; }
+        .bp-focus { margin: 0; padding-left: 20px; display: grid; gap: 10px; }
+        .bp-focus li strong { display: block; color: #fff; }
+        .bp-focus a, .bp-result a { color: var(--copper); font-weight: 600; }
+        .bp-result-more, .bp-result-note { margin: 14px 0 0; color: var(--text-muted); font-size: 0.95rem; }
+        .bp-reset { background: none; border: 0; color: var(--copper); font-weight: 700; text-decoration: underline; cursor: pointer; font-size: 0.95rem; padding: 0; }
+        .bp-final-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 24px 0 0; }
+        @media (min-width: 720px) {
+            .bp-menu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .bp-phases, .bp-wastes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .bp-shift { grid-template-columns: 1fr auto 1fr; }
+            .bp-shift-arrow { transform: none; }
+            .bp-loop { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        }
+        @media (max-width: 600px) {
+            .bp-sec { padding: 24px 18px; }
+            .bp-sec-head h2 { font-size: 1.4rem; }
+            .bp-num { min-width: 46px; height: 46px; font-size: 1.35rem; }
+            .bp-sec .step-card { padding: 20px 16px; }
+        }
     </style>
 </head>
 <body>
@@ -127,182 +251,371 @@
 
     <section class="blueprint-header">
         <div class="container">
+            <span class="bp-eyebrow">BUILDER ASCENT &middot; FIELD LEADERSHIP STARTER GUIDE</span>
             <h1 class="main-heading" style="margin-bottom: 15px;">
                 <span class="text-metallic">YOUR FIELD</span> <span class="text-copper">BLUEPRINT</span>
             </h1>
-            <p class="blueprint-pain">
-                Most guys stay stuck for years because nobody shows them this.
-            </p>
+            <p class="blueprint-pain">How to stand out, take control, and move up on the jobsite.</p>
             <p class="blueprint-intro" style="font-family: var(--font-body); font-size: 1.2rem; max-width: 650px; margin: 0 auto; color: var(--text-muted);">
-                You're not stuck because you're not working hard. You're stuck because nobody showed you what actually moves you up.
+                You're not stuck because you're not working hard. You're stuck because nobody showed you what actually moves you up. This is that. Read it here, then use it every day.
             </p>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="public/downloads/field_blue_print.pdf" download target="_blank" class="btn btn-large btn-copper" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    Download Your Blueprint (PDF)
-                </a>
-                <p style="color: var(--text-muted); margin-top: 12px; font-style: italic;">Free PDF download &mdash; no sign-up required.</p>
-                <p style="color: var(--copper); margin-top: 10px; font-weight: 600; opacity: 0.9;">This is your starting point — use it daily to see results.</p>
+            <div class="bp-hero-actions">
+                <a href="#bp-01" class="btn btn-large btn-copper" data-bp-jump>Read the Blueprint</a>
+                <a href="#self-check" class="btn btn-large btn-primary" data-bp-jump>Take the 2-Minute Self-Check</a>
             </div>
+            <p class="bp-hero-note">Free, no sign-up. Built for foremen, crew leaders and future PMs. Want it on the trailer wall? <a href="public/downloads/field_blue_print.pdf" target="_blank" rel="noopener">Print the poster (PDF)</a></p>
         </div>
     </section>
 
     <section class="authority-section" style="background-color: var(--bg-dark); padding: 60px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
-            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2rem; margin-bottom: 12px;">Built From the Field — Not a Classroom</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto 30px;">This isn’t theory. This is how real crews decide who moves up — and who stays where they are.</p>
-            <ul style="list-style: none; padding: 0; display: inline-block; text-align: left;">
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> Used on real commercial job sites
-                </li>
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> Based on how foremen and supers actually evaluate workers
-                </li>
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> Focused on skills that increase responsibility and pay
-                </li>
+            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2rem; margin-bottom: 12px;">Built From the Field &mdash; Not a Classroom</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto 30px;">This isn&rsquo;t theory. This is how real crews decide who moves up &mdash; and who stays where they are.</p>
+            <ul class="bp-checks">
+                <li><span>&#10003;</span> Used on real commercial job sites</li>
+                <li><span>&#10003;</span> Based on how foremen and supers actually evaluate workers</li>
+                <li><span>&#10003;</span> Focused on skills that increase responsibility and pay</li>
+                <li><span>&#10003;</span> For anyone in the trades who wants to become someone the crew depends on</li>
             </ul>
-        </div>
-    </section>
-
-    <section class="who-this-is-for" style="background-color: var(--bg-darker); padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--copper);">
-        <div class="container">
-            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2rem; margin-bottom: 12px;">Who This Is For</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto 30px;">This blueprint is built for people who are ready to take their work seriously and move up.</p>
-            <ul style="list-style: none; padding: 0; display: inline-block; text-align: left; margin-bottom: 30px;">
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> You’re working in the trades but feel stuck
-                </li>
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> You want more responsibility and higher pay
-                </li>
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> You’re willing to stand out instead of blend in
-                </li>
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.3rem;">✓</span> You want to become someone the crew depends on
-                </li>
-            </ul>
-            <p style="color: var(--copper); font-weight: 700; font-size: 1.2rem; margin: 0;">If that’s you, this will work.</p>
         </div>
     </section>
 
     <section class="blueprint-content">
-        <div class="container" style="max-width: 800px;">
-            
-            <div class="step-card">
-                <span class="step-label">STEP 1</span>
-                <h3>Show Up Early — Get Seen First</h3>
-                <p>Hard work keeps you around. Being early gets you noticed. Showing up 15 minutes early and organizing the lay-down yard gets you on the radar fast.</p>
-                <div class="step-why">
-                    <strong>Why this matters:</strong> Foremen notice who shows up ready before anyone else. This is often the first sign someone is ready for more responsibility.
+        <div class="container bp-wrap">
+
+            <nav class="bp-menu" id="bp-menu" aria-label="Blueprint sections">
+                <p class="bp-menu-label">8 sections &middot; about 15 minutes to read</p>
+                <a href="#bp-01" data-bp-jump><span>01</span> Why Most Workers Stay Stuck</a>
+                <a href="#bp-02" data-bp-jump><span>02</span> What Gets You Noticed</a>
+                <a href="#bp-03" data-bp-jump><span>03</span> The Daily System</a>
+                <a href="#bp-04" data-bp-jump><span>04</span> Habits That Move You Up</a>
+                <a href="#bp-05" data-bp-jump><span>05</span> Mindset Shift</a>
+                <a href="#bp-06" data-bp-jump><span>06</span> Common Mistakes</a>
+                <a href="#bp-07" data-bp-jump><span>07</span> The 8 Wastes</a>
+                <a href="#bp-08" data-bp-jump><span>08</span> Simple Foreman System</a>
+                <a href="#self-check" data-bp-jump class="bp-menu-check"><span>&#10003;</span> Self-Check: Where Do You Stand?</a>
+            </nav>
+
+            <!-- 01 MINDSET -->
+            <article class="bp-sec" id="bp-01">
+                <header class="bp-sec-head"><span class="bp-num">01</span><div><span class="bp-kicker">Mindset</span><h2>Why Most Workers Stay Stuck</h2></div></header>
+                <p>Most guys don&rsquo;t stay stuck because they&rsquo;re lazy. They stay stuck because they never change how they think.</p>
+                <p>They show up, do what they&rsquo;re told, go home, and repeat it for years. They wait for:</p>
+                <ul class="bp-chips"><li>Direction</li><li>Opportunity</li><li>Recognition</li></ul>
+                <div class="bp-truth">
+                    <h3>Here&rsquo;s the truth</h3>
+                    <p>Nobody is looking for someone who just does what they&rsquo;re told. They&rsquo;re looking for someone who:</p>
+                    <ul class="bp-ticks"><li>Makes the day easier</li><li>Keeps work moving</li><li>Solves problems before they grow</li></ul>
+                    <p class="bp-truth-punch">If you don&rsquo;t change how you think, your position won&rsquo;t change.</p>
                 </div>
-            </div>
+                <a class="bp-more" href="training.html#module-3">Go deeper: Training Module 3, Why Most Guys Stay Stuck &rarr;</a>
+            </article>
 
-            <div class="step-card">
-                <span class="step-label">STEP 2</span>
-                <h3>Master Your Tools Unprompted</h3>
-                <p>Stop waiting to be told what tool to grab. Know the sequence of the task so you can have the next tool ready before the lead asks for it. This is how you prove you understand the broader scope of the build.</p>
-                <div class="step-why">
-                    <strong>Why this matters:</strong> When you stop waiting to be told what to do, you start standing out as someone who understands the flow of the job — not just the task.
+            <!-- 02 AWARENESS -->
+            <article class="bp-sec" id="bp-02">
+                <header class="bp-sec-head"><span class="bp-num">02</span><div><span class="bp-kicker">Awareness</span><h2>What Actually Gets You Noticed <small>(on real jobsites)</small></h2></div></header>
+                <ol class="bp-notice">
+                    <li>
+                        <h3>You don&rsquo;t wait &mdash; you look ahead</h3>
+                        <ul><li>You&rsquo;re already thinking about the next task</li><li>You&rsquo;re already checking materials</li><li>You&rsquo;re already identifying problems</li></ul>
+                        <p class="bp-aside">If your foreman has to constantly tell you what to do, you&rsquo;re not ready to move up.</p>
+                    </li>
+                    <li>
+                        <h3>You solve problems &mdash; not just point them out</h3>
+                        <p>Bring solutions, not just problems.</p>
+                    </li>
+                    <li>
+                        <h3>You communicate clearly</h3>
+                        <p>Confirm instructions. Ask the right questions. Keep people informed.</p>
+                        <p class="bp-aside">Say it early &mdash; not when it becomes a problem.</p>
+                    </li>
+                    <li>
+                        <h3>You make the job run smoother</h3>
+                        <p>Ask yourself daily: <strong class="bp-accent">&ldquo;Am I making this job easier or harder?&rdquo;</strong></p>
+                        <p class="bp-aside">That&rsquo;s how leadership sees you.</p>
+                    </li>
+                </ol>
+                <a class="bp-more" href="training.html#module-2">Go deeper: Training Module 2, Thinking Like a Crew Leader &rarr;</a>
+            </article>
+
+            <!-- 03 THE DAILY SYSTEM -->
+            <article class="bp-sec" id="bp-03">
+                <header class="bp-sec-head"><span class="bp-num">03</span><div><span class="bp-kicker">This is where you separate yourself</span><h2>The Daily System</h2></div></header>
+                <div class="bp-phases">
+                    <div class="bp-phase">
+                        <span class="bp-phase-n">1</span><h3>Plan</h3><p class="bp-phase-when">Before work starts &middot; planning phase</p>
+                        <ul><li>Know what the goal is for the day</li><li>Know what materials are needed</li><li>Know what could go wrong</li></ul>
+                        <p>Use the Pre-Task Safety Plan to:</p>
+                        <ul class="bp-ticks"><li>Align the crew</li><li>Identify risks</li><li>Set expectations</li></ul>
+                        <p class="bp-callout">This is where good days are created.</p>
+                        <a class="bp-form-btn" href="forms/safety-planning/index.html">Open the Pre-Task Plan</a>
+                    </div>
+                    <div class="bp-phase">
+                        <span class="bp-phase-n">2</span><h3>Execute</h3><p class="bp-phase-when">During the day &middot; execution phase</p>
+                        <p>This is where jobs fall apart. Things change: weather, materials, crew availability, other trades.</p>
+                        <p><strong>Most people react. Leaders adjust.</strong></p>
+                        <p>Use the Job Hazard Analysis (JHA) to:</p>
+                        <ul class="bp-ticks"><li>Break down tasks</li><li>Identify hazards</li><li>Adjust controls</li></ul>
+                        <p class="bp-callout">You&rsquo;re not just working &mdash; you&rsquo;re managing risk.</p>
+                        <a class="bp-form-btn" href="forms/safety-planning/index.html">Open the JHA</a>
+                    </div>
+                    <div class="bp-phase">
+                        <span class="bp-phase-n">3</span><h3>Track</h3><p class="bp-phase-when">Track the day &middot; accountability phase</p>
+                        <p>If you&rsquo;re not tracking work, you&rsquo;re guessing.</p>
+                        <p>Use the Daily Report / Foreman Log to track:</p>
+                        <ul class="bp-ticks"><li>What actually got done</li><li>Manpower</li><li>Equipment</li><li>Delays</li></ul>
+                        <p class="bp-callout">This protects you and shows your value.</p>
+                        <a class="bp-form-btn" href="forms/daily-report/index.html">Open the Daily Report</a>
+                    </div>
+                    <div class="bp-phase">
+                        <span class="bp-phase-n">4</span><h3>Review</h3><p class="bp-phase-when">End of day &middot; separation phase</p>
+                        <p>This is where most people fail. They go home without thinking about tomorrow.</p>
+                        <p>Leaders:</p>
+                        <ul class="bp-ticks"><li>Review the day</li><li>Identify what slowed them down</li><li>Prepare for the next day</li></ul>
+                        <p class="bp-callout">This is how you stay ahead.</p>
+                        <a class="bp-form-btn" href="forms/daily-builder/index.html">Open the Daily Builder Checklist</a>
+                    </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="step-card">
-                <span class="step-label">STEP 3</span>
-                <h3>Ask "Why", Not Just "What"</h3>
-                <p>Any laborer can swing a hammer when told "what" to hit. A future foreman asks "why" we are building it that way to understand the underlying code, sequencing, and structural logic of the project.</p>
-                <div class="step-why">
-                    <strong>Why this matters:</strong> Leaders think differently. Asking "why" shows you’re not just working — you’re learning how the job actually comes together.
+            <!-- 04 HABITS -->
+            <article class="bp-sec" id="bp-04">
+                <header class="bp-sec-head"><span class="bp-num">04</span><div><span class="bp-kicker">Toolbox habits</span><h2>Habits That Move You Up</h2></div></header>
+                <ul class="bp-habits">
+                    <li>Show up early and prepared</li>
+                    <li>Keep your work area organized</li>
+                    <li>Take ownership</li>
+                    <li>Ask better questions</li>
+                    <li>Follow through on what you say</li>
+                </ul>
+                <p class="bp-truth-punch bp-banner">Consistency beats talent every time on a jobsite.</p>
+
+                <h3 class="bp-sub">The 7 steps, in detail</h3>
+
+                <div class="step-card">
+                    <span class="step-label">STEP 1</span>
+                    <h3>Show Up Early &mdash; Get Seen First</h3>
+                    <p>Hard work keeps you around. Being early gets you noticed. Showing up 15 minutes early and organizing the lay-down yard gets you on the radar fast.</p>
+                    <div class="step-why"><strong>Why this matters:</strong> Foremen notice who shows up ready before anyone else. This is often the first sign someone is ready for more responsibility.</div>
                 </div>
-            </div>
-
-            <div class="step-card">
-                <span class="step-label">STEP 4</span>
-                <h3>Own Mistakes Immediately</h3>
-                <p>If you cover up broken material or a misaligned cut, you cost the company thousands down the line. Reporting it instantly builds bulletproof trust with leadership. Great tradesmen don't hide mistakes; they fix them.</p>
-                <div class="step-why">
-                    <strong>Why this matters:</strong> Trust is the foundation of leadership. Admitting faults instantly proves you have the integrity to handle bigger tasks without supervision.
+                <div class="step-card">
+                    <span class="step-label">STEP 2</span>
+                    <h3>Master Your Tools Unprompted</h3>
+                    <p>Stop waiting to be told what tool to grab. Know the sequence of the task so you can have the next tool ready before the lead asks for it. This is how you prove you understand the broader scope of the build.</p>
+                    <div class="step-why"><strong>Why this matters:</strong> When you stop waiting to be told what to do, you start standing out as someone who understands the flow of the job &mdash; not just the task.</div>
                 </div>
-            </div>
-
-            <div class="step-card">
-                <span class="step-label">STEP 5</span>
-                <h3>Communicate Like a Pro</h3>
-                <p>Stop complaining on site. Start providing solutions. When there is a material shortage, don't just say "we're out of 2x4s". Say, "we are out of 2x4s, but I can jump on the prep work for tomorrow if you need me to."</p>
-                <div class="step-why">
-                    <strong>Why this matters:</strong> Superintendents are overloaded with problems. By offering solutions instead of just highlighting issues, you become a valuable asset to the team.
+                <div class="step-card">
+                    <span class="step-label">STEP 3</span>
+                    <h3>Ask &ldquo;Why&rdquo;, Not Just &ldquo;What&rdquo;</h3>
+                    <p>Any laborer can swing a hammer when told &ldquo;what&rdquo; to hit. A future foreman asks &ldquo;why&rdquo; we are building it that way to understand the underlying code, sequencing, and structural logic of the project.</p>
+                    <div class="step-why"><strong>Why this matters:</strong> Leaders think differently. Asking &ldquo;why&rdquo; shows you&rsquo;re not just working &mdash; you&rsquo;re learning how the job actually comes together.</div>
                 </div>
-            </div>
-
-            <div class="step-card">
-                <span class="step-label">STEP 6</span>
-                <h3>Run Your Own Punch List</h3>
-                <p>Never leave it up to the superintendent to find your mistakes. QA your own work before you pack up your tools. A clean finish proves you give a damn about the legacy and quality of your build.</p>
-                <div class="step-why">
-                    <strong>Why this matters:</strong> QAing your own output proves you care about the legacy of your build. Supervisors promote those who guarantee quality consistently.
+                <div class="step-card">
+                    <span class="step-label">STEP 4</span>
+                    <h3>Own Mistakes Immediately</h3>
+                    <p>If you cover up broken material or a misaligned cut, you cost the company thousands down the line. Reporting it instantly builds bulletproof trust with leadership. Great tradesmen don't hide mistakes; they fix them.</p>
+                    <div class="step-why"><strong>Why this matters:</strong> Trust is the foundation of leadership. Admitting faults instantly proves you have the integrity to handle bigger tasks without supervision.</div>
                 </div>
-            </div>
-
-            <div class="step-card step-card-feature">
-                <span class="step-label">STEP 7</span>
-                <h3>Teach the Next Guy on the Ladder</h3>
-                <p>You cannot move up into leadership if there is nobody equipped to backfill your position. Mentor the green guys. Once you prove you can elevate an entire crew's skill level, you become a Crew Leader.</p>
-                <div class="step-why">
-                    <strong>Why this matters:</strong> Your personal advancement is locked until you can replace yourself. Teaching the crew is the final test before moving into management.
+                <div class="step-card">
+                    <span class="step-label">STEP 5</span>
+                    <h3>Communicate Like a Pro</h3>
+                    <p>Stop complaining on site. Start providing solutions. When there is a material shortage, don't just say &ldquo;we're out of 2x4s&rdquo;. Say, &ldquo;we are out of 2x4s, but I can jump on the prep work for tomorrow if you need me to.&rdquo;</p>
+                    <div class="step-why"><strong>Why this matters:</strong> Superintendents are overloaded with problems. By offering solutions instead of just highlighting issues, you become a valuable asset to the team.</div>
                 </div>
-            </div>
+                <div class="step-card">
+                    <span class="step-label">STEP 6</span>
+                    <h3>Run Your Own Punch List</h3>
+                    <p>Never leave it up to the superintendent to find your mistakes. QA your own work before you pack up your tools. A clean finish proves you give a damn about the legacy and quality of your build.</p>
+                    <div class="step-why"><strong>Why this matters:</strong> QAing your own output proves you care about the legacy of your build. Supervisors promote those who guarantee quality consistently.</div>
+                    <a class="bp-more" href="forms/logs/index.html">Use the Punch List in Project Logs &rarr;</a>
+                </div>
+                <div class="step-card step-card-feature">
+                    <span class="step-label">STEP 7</span>
+                    <h3>Teach the Next Guy on the Ladder</h3>
+                    <p>You cannot move up into leadership if there is nobody equipped to backfill your position. Mentor the green guys. Once you prove you can elevate an entire crew's skill level, you become a Crew Leader.</p>
+                    <div class="step-why"><strong>Why this matters:</strong> Your personal advancement is locked until you can replace yourself. Teaching the crew is the final test before moving into management.</div>
+                </div>
+            </article>
 
-        </div>
-    </section>
+            <!-- 05 MINDSET SHIFT -->
+            <article class="bp-sec" id="bp-05">
+                <header class="bp-sec-head"><span class="bp-num">05</span><div><span class="bp-kicker">This changes everything</span><h2>Mindset Shift</h2></div></header>
+                <p>If you want to move up, you have to start thinking like someone who already has the position. That means:</p>
+                <ul class="bp-ticks"><li>Stop waiting</li><li>Start anticipating</li><li>Think in terms of outcomes, not tasks</li></ul>
+                <div class="bp-shift">
+                    <div><span>From</span><p>&ldquo;What do I need to do?&rdquo;</p></div>
+                    <div class="bp-shift-arrow" aria-hidden="true">&rarr;</div>
+                    <div class="bp-shift-to"><span>To</span><p>&ldquo;What needs to happen for this job to succeed?&rdquo;</p></div>
+                </div>
+            </article>
 
-    <section class="paid-offer-preview" style="background-color: var(--bg-darker); padding: 80px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 4px solid var(--copper);">
-        <div class="container" style="max-width: 750px;">
-            <h2 style="font-family: var(--font-heading); color: var(--text-light); font-size: 2.2rem; margin-bottom: 15px;">Ready to Stop Getting Passed Over?</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 35px;">You already know what needs to change. This shows you exactly how to step up, stand out, and get trusted to run work.</p>
-            
-            <ul style="list-style: none; padding: 0; display: inline-block; text-align: left; margin-bottom: 40px; background-color: rgba(255,255,255,0.02); padding: 30px 40px; border-radius: 8px; border: 1px solid rgba(196,110,61,0.3);">
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.05rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.2rem;">✓</span> Step-by-step breakdown of how to earn trust on site
-                </li>
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.05rem; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.2rem;">✓</span> How to think ahead and run work without being told
-                </li>
-                <li style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.05rem; display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--copper); font-weight: bold; font-size: 1.2rem;">✓</span> Real communication tactics that get you promoted
-                </li>
-            </ul>
-            
-            <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 35px; font-style: italic;">Most guys stay stuck because they never learn this part.</p>
-            
-            <div id="notify-container" style="max-width: 560px; margin: 0 auto; text-align: center;">
-                <p id="notify-label" style="color: var(--text-light); font-weight: 600; margin-bottom: 15px; font-size: 1rem;">Want to hear when this is ready?</p>
-                <a id="blueprint-updates-cta" href="mailto:scott@builderascent.com?subject=Builder%20Ascent%20Blueprint%20Updates&amp;body=I%27d%20like%20to%20receive%20Builder%20Ascent%20Blueprint%20updates." class="btn btn-large btn-copper" aria-describedby="notify-help" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 15px 30px; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1px;">Join Blueprint Updates</a>
-                <p id="notify-help" style="color: var(--text-muted); font-size: 0.95rem; margin: 15px 0 0; line-height: 1.6;">Send your request to join the Blueprint update list. This opens your email app with a message addressed to scott@builderascent.com &mdash; nothing is sent until you press Send.</p>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 10px 0 0; line-height: 1.6;">Email app didn&rsquo;t open? Email <a href="mailto:scott@builderascent.com" style="color: var(--copper);">scott@builderascent.com</a> with the subject &ldquo;Builder Ascent Blueprint Updates.&rdquo;</p>
-            </div>
+            <!-- 06 COMMON MISTAKES -->
+            <article class="bp-sec" id="bp-06">
+                <header class="bp-sec-head"><span class="bp-num">06</span><div><span class="bp-kicker">That keep people stuck</span><h2>Common Mistakes</h2></div></header>
+                <ul class="bp-mistakes">
+                    <li>Waiting for direction</li>
+                    <li>Blaming other trades</li>
+                    <li>Not planning ahead</li>
+                    <li>Poor communication</li>
+                    <li>Ignoring documentation</li>
+                </ul>
+                <p class="bp-truth-punch bp-banner">These are career killers.</p>
+            </article>
+
+            <!-- 07 THE 8 WASTES -->
+            <article class="bp-sec" id="bp-07">
+                <header class="bp-sec-head"><span class="bp-num">07</span><div><span class="bp-kicker">And how to fix them</span><h2>The 8 Wastes That Kill Jobsites</h2></div></header>
+                <p>Most jobs don&rsquo;t fail because people aren&rsquo;t working hard. They fail because of waste &mdash; time, effort, and poor planning.</p>
+                <div class="bp-wastes">
+                    <div class="bp-waste"><h3><span>1</span> Waiting</h3><p>Standing around because of no direction, no material, or waiting on another trade.</p><p class="bp-fix">Fix it</p><ul><li>Always ask &ldquo;What&rsquo;s next?&rdquo;</li><li>Have a backup task ready</li><li>Think ahead</li></ul></div>
+                    <div class="bp-waste"><h3><span>2</span> Rework <small>(doing it twice)</small></h3><p>Fixing mistakes: wrong layout, poor install, missed details.</p><p class="bp-fix">Fix it</p><ul><li>Do it right the first time</li><li>Double-check your work</li><li>Ask questions early</li></ul></div>
+                    <div class="bp-waste"><h3><span>3</span> Overproduction</h3><p>Doing work before it&rsquo;s needed.</p><p class="bp-fix">Fix it</p><ul><li>Stay aligned with the plan</li><li>Don&rsquo;t get ahead of coordination</li></ul></div>
+                    <div class="bp-waste"><h3><span>4</span> Unnecessary movement</h3><p>Walking, searching, wasted motion.</p><p class="bp-fix">Fix it</p><ul><li>Stage tools and materials</li><li>Set up your work area</li></ul></div>
+                    <div class="bp-waste"><h3><span>5</span> Transportation</h3><p>Moving material multiple times.</p><p class="bp-fix">Fix it</p><ul><li>Plan delivery locations</li><li>Move things once, not twice</li></ul></div>
+                    <div class="bp-waste"><h3><span>6</span> Overprocessing</h3><p>Doing more work than required.</p><p class="bp-fix">Fix it</p><ul><li>Follow the plan</li><li>Don&rsquo;t overbuild</li></ul></div>
+                    <div class="bp-waste"><h3><span>7</span> Inventory</h3><p>Too much material sitting around.</p><p class="bp-fix">Fix it</p><ul><li>Keep only what you need</li><li>Stay organized</li></ul></div>
+                    <div class="bp-waste"><h3><span>8</span> Not using people&rsquo;s skills</h3><p>Not speaking up or using experience.</p><p class="bp-fix">Fix it</p><ul><li>Share ideas</li><li>Ask questions</li><li>Take ownership</li></ul></div>
+                </div>
+                <p class="bp-why"><strong>Why it matters:</strong> Save time &middot; Reduce mistakes &middot; Keep jobs moving.</p>
+                <p class="bp-truth-punch bp-banner bp-banner--copper">That&rsquo;s how you stand out. That&rsquo;s how you move up.</p>
+                <a class="bp-more" href="public/downloads/lean_construction_guide.pdf" target="_blank" rel="noopener">Go deeper: the Lean Construction Guide (PDF) &rarr;</a>
+            </article>
+
+            <!-- 08 SIMPLE FOREMAN SYSTEM -->
+            <article class="bp-sec" id="bp-08">
+                <header class="bp-sec-head"><span class="bp-num">08</span><div><span class="bp-kicker">Repeat every day</span><h2>Simple Foreman System</h2></div></header>
+                <ol class="bp-loop">
+                    <li><strong>Plan</strong><span>Look ahead. Set the day.</span></li>
+                    <li><strong>Lead</strong><span>Direct the crew. Keep it moving.</span></li>
+                    <li><strong>Track</strong><span>Production. Issues. Progress.</span></li>
+                    <li><strong>Improve</strong><span>Fix mistakes. Prepare for tomorrow.</span></li>
+                </ol>
+                <p>The <strong>Daily Builder Checklist</strong> walks you through it on your phone: a morning plan, a midday check and an end-of-day review, about 12 minutes a day.</p>
+                <a class="bp-form-btn" href="forms/daily-builder/index.html">Open the Daily Builder Checklist</a>
+                <blockquote class="bp-final">
+                    <p>Being a foreman isn&rsquo;t about being the best worker on the crew &mdash; <span>it&rsquo;s about making everyone else better.</span></p>
+                </blockquote>
+            </article>
+
+            <!-- SELF-CHECK -->
+            <section class="bp-sec bp-check" id="self-check" aria-labelledby="bp-check-title">
+                <header class="bp-sec-head"><span class="bp-num">&#10003;</span><div><span class="bp-kicker">2 minutes &middot; be honest</span><h2 id="bp-check-title">Self-Check: Where Do You Stand?</h2></div></header>
+                <p>Answer for how you actually work today, not how you&rsquo;d like to. You&rsquo;ll get the 2&ndash;3 things to work on first, with where to go next. Your answers stay on this device.</p>
+                <form id="bp-check-form" novalidate>
+                    <ol class="bp-q-list" id="bp-q-list"><!-- built by script --></ol>
+                </form>
+                <div id="bp-result" class="bp-result" aria-live="polite" hidden></div>
+                <noscript><p>The self-check needs JavaScript turned on.</p></noscript>
+            </section>
+
         </div>
     </section>
 
     <section class="next-steps">
         <div class="container">
-            <h2>This Is Just Step One</h2>
-            <p>If you're serious about moving up, this is what comes next:</p>
-
-            <ul class="next-steps-list">
-                <li>Advanced jobsite skills breakdowns</li>
-                <li>Leadership training for crew leads</li>
-                <li>Real-world jobsite scenarios and decisions</li>
-                <li>Tools to increase your value and your pay</li>
-            </ul>
-
-            <a href="training.html" class="btn btn-large btn-copper">Continue Your Ascent</a>
+            <h2>Put It to Work</h2>
+            <p>Reading it won&rsquo;t move you up. Using it every day will.</p>
+            <div class="bp-final-actions">
+                <a href="forms/daily-builder/index.html" class="btn btn-large btn-copper">Use the Daily Builder Checklist</a>
+                <a href="training.html" class="btn btn-large btn-primary">Continue to Training</a>
+            </div>
+            <p class="bp-hero-note">Want it on the wall? <a href="public/downloads/field_blue_print.pdf" target="_blank" rel="noopener">Print the poster (PDF)</a> &middot; Every form: <a href="forms/index.html">Interactive Field Forms</a></p>
         </div>
     </section>
+
+    <script>
+        /* Blueprint: section jumps + self-check (answers saved on this device only) */
+        (function () {
+            function jump(id, smooth) {
+                var el = document.getElementById(id);
+                if (!el) return false;
+                if (smooth) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return true; }
+                var h = document.documentElement, prev = h.style.scrollBehavior;
+                h.style.scrollBehavior = 'auto';
+                el.scrollIntoView({ block: 'start' });
+                h.style.scrollBehavior = prev;
+                return true;
+            }
+            document.querySelectorAll('a[data-bp-jump]').forEach(function (a) {
+                a.addEventListener('click', function (e) {
+                    var id = a.getAttribute('href').slice(1);
+                    if (jump(id, true)) { e.preventDefault(); history.pushState(null, '', '#' + id); }
+                });
+            });
+            function fromHash() { var m = /^#((bp-0[1-8])|self-check)$/.exec(location.hash); if (m) jump(m[1], false); }
+            window.addEventListener('load', function () { setTimeout(fromHash, 150); });
+            window.addEventListener('popstate', fromHash);
+
+            var KEY = 'ba.blueprint.check.v1';
+            var QS = [
+                { t: 'I&rsquo;m thinking about the next task before anyone tells me.', area: 'Look ahead', sec: '#bp-02', go: ['training.html#module-1', 'Training Module 1: How Work Actually Flows'] },
+                { t: 'I check that materials and tools are ready before the task starts.', area: 'Plan before work starts', sec: '#bp-03', go: ['forms/safety-planning/index.html', 'Open the Pre-Task Plan'] },
+                { t: 'When I find a problem, I bring a fix with it.', area: 'Solve, don&rsquo;t just point out', sec: '#bp-02', go: ['training.html#module-2', 'Training Module 2: Thinking Like a Crew Leader'] },
+                { t: 'I speak up early &mdash; before it turns into a problem.', area: 'Communicate early', sec: '#bp-02', go: ['training.html#module-2', 'Training Module 2: Thinking Like a Crew Leader'] },
+                { t: 'I report my own mistakes right away.', area: 'Own mistakes immediately', sec: '#bp-04', go: ['training.html#module-3', 'Training Module 3: Why Most Guys Stay Stuck'] },
+                { t: 'I check my own work before I pack up.', area: 'Run your own punch list', sec: '#bp-04', go: ['forms/logs/index.html', 'Use the Punch List in Project Logs'] },
+                { t: 'I keep track of what got done, who was there and what held us up.', area: 'Track the day', sec: '#bp-03', go: ['forms/daily-report/index.html', 'Open the Daily Report'] },
+                { t: 'Before I leave, I know what&rsquo;s needed for tomorrow.', area: 'Review and prepare for tomorrow', sec: '#bp-03', go: ['forms/daily-builder/index.html', 'Open the Daily Builder Checklist'] },
+                { t: 'My work area is organized and my tools and materials are staged.', area: 'Cut the waste', sec: '#bp-07', go: ['training.html#module-1', 'Training Module 1: How Work Actually Flows'] },
+                { t: 'I help the newer guys get better.', area: 'Teach the next guy', sec: '#bp-04', go: ['training.html#module-2', 'Training Module 2: Thinking Like a Crew Leader'] }
+            ];
+            var list = document.getElementById('bp-q-list'), out = document.getElementById('bp-result');
+            if (!list || !out) return;
+            var saved = {};
+            try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+            var ans = saved.a || {};
+
+            list.innerHTML = QS.map(function (q, i) {
+                var n = 'bpq' + i;
+                return '<li class="bp-q"><fieldset><legend>' + q.t + '</legend><div class="bp-q-opts">' +
+                    '<label><input type="radio" name="' + n + '" value="y"' + (ans[i] === 'y' ? ' checked' : '') + '><span>Yes, most days</span></label>' +
+                    '<label><input type="radio" name="' + n + '" value="n"' + (ans[i] === 'n' ? ' checked' : '') + '><span>Not yet</span></label>' +
+                    '</div></fieldset></li>';
+            }).join('');
+
+            function render() {
+                var answered = 0, yes = 0, gaps = [];
+                QS.forEach(function (q, i) { if (ans[i]) { answered++; if (ans[i] === 'y') yes++; else gaps.push(q); } });
+                if (answered < QS.length) {
+                    out.hidden = false;
+                    out.innerHTML = '<p class="bp-result-progress"><strong>' + answered + ' of ' + QS.length + '</strong> answered</p>';
+                    return;
+                }
+                var head = yes >= 9 ? 'You&rsquo;re working like a leader. Keep it daily.' : yes >= 6 ? 'Solid base. Close these gaps next.' : 'Start here. Pick one and work it every day this week.';
+                var h = '<p class="bp-result-score"><strong>' + yes + ' of ' + QS.length + '</strong> &middot; ' + head + '</p>';
+                if (gaps.length) {
+                    h += '<h3>Work on these first</h3><ol class="bp-focus">' + gaps.slice(0, 3).map(function (g) {
+                        return '<li><strong>' + g.area + '</strong><span><a href="' + g.sec + '" data-bp-jump>Re-read it</a> &middot; <a href="' + g.go[0] + '">' + g.go[1] + ' &rarr;</a></span></li>';
+                    }).join('') + '</ol>';
+                    if (gaps.length > 3) h += '<p class="bp-result-more">Also on your list: ' + gaps.slice(3).map(function (g) { return g.area; }).join(', ') + '.</p>';
+                } else {
+                    h += '<p>No gaps today. Use the <a href="forms/daily-builder/index.html">Daily Builder Checklist</a> to keep it that way, and teach it to your crew.</p>';
+                }
+                h += '<p class="bp-result-note">' + (saved.at ? 'Saved on this device ' + saved.at + '. ' : '') + 'Come back in a few weeks and check again. <button type="button" class="bp-reset" id="bp-reset">Start over</button></p>';
+                out.hidden = false;
+                out.innerHTML = h;
+                out.querySelectorAll('a[data-bp-jump]').forEach(function (a) {
+                    a.addEventListener('click', function (e) { if (jump(a.getAttribute('href').slice(1), true)) e.preventDefault(); });
+                });
+                document.getElementById('bp-reset').addEventListener('click', function () {
+                    ans = {}; saved = {};
+                    try { localStorage.removeItem(KEY); } catch (e) {}
+                    list.querySelectorAll('input').forEach(function (r) { r.checked = false; });
+                    render();
+                    jump('self-check', true);
+                });
+            }
+            list.addEventListener('change', function (e) {
+                var m = /^bpq(\d+)$/.exec(e.target.name || '');
+                if (!m) return;
+                ans[m[1]] = e.target.value;
+                saved = { a: ans, at: new Date().toLocaleDateString() };
+                try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (err) {}
+                render();
+            });
+            render();
+        })();
+    </script>
 
         <footer class="footer">
         <div class="container footer-container">
